@@ -14,7 +14,7 @@ skills-ref = "scripts.skills_ref_cli:main"
 [dependency-groups]
 dev = [
   "mypy>=1.15,<2",
-  "pytest>=8.3,<9",
+  "pytest>=8.3,<10",
   "pytest-cov>=6,<7",
   "ruff>=0.11,<0.12",
   "skills-ref>=0.1.1,<0.2",

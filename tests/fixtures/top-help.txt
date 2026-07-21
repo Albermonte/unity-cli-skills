@@ -1,0 +1,13 @@
+Usage: unity [options] [command]
+
+CLI for Unity
+
+Options:
+  -V, --version         output the version number
+  --format <format>     Output format [possible values: human, json, tsv, ndjson] (env: UNITY_FORMAT)
+  -h, --help            display help for command
+
+Commands:
+  editors|e             Manage Unity editors
+  install|i [version]   Install a Unity editor
+  help [command]        display help for command

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "cli_version": "1.0.0-beta.2",
+  "canonical_source": "installed Unity CLI help output",
+  "generated_without_ai": true,
+  "snapshots": [
+    {
+      "platform": "macos",
+      "architecture": "arm64",
+      "source": "live_help",
+      "path": "snapshots/macos/help.json",
+      "sha256": "753c9789c738e2d74930b869f77fe23becc2b1fe5a55eee77bf0e051f5a3bc7b"
+    }
+  ]
+}

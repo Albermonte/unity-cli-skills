@@ -1,0 +1,21 @@
+Usage: unity editors|e [options] [command]
+
+Manage Unity editors
+
+Options:
+  -i, --installed       List installed editors
+  --architecture <arch>  Filter architecture [possible values: arm64, x86_64]
+
+Commands:
+  list                  List Unity editors
+  add <path...>         Register editors; accepts multiple paths
+
+Examples:
+  unity editors --installed --format json
+
+Exit Codes:
+  0                     Success
+  1                     General error
+
+Future Section:
+  retained data

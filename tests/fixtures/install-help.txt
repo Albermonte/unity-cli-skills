@@ -1,0 +1,14 @@
+Usage: unity install [options] [version]
+
+Install a Unity editor
+
+Arguments:
+  [version]             Editor version (optional)
+
+Options:
+  -m, --module <id>     Module IDs; accepts multiple values
+  --dry-run             Preview without installing
+  --channel <channel>   Release channel [default: beta]
+
+Examples:
+  unity install lts --dry-run

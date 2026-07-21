@@ -1,0 +1,207 @@
+name: Update Unity CLI references
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "23 6 * * 1"
+
+concurrency:
+  group: update-unity-cli
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  collect:
+    name: Collect ${{ matrix.platform }} help
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            platform: linux
+          - os: macos-latest
+            platform: macos
+          - os: windows-latest
+            platform: windows
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12"
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@f98e06938123ccabd21905ea5d0069192241f9f1 # v8.3.2
+        with:
+          version: "0.9.5"
+
+      - name: Install locked dependencies
+        run: uv sync --frozen
+
+      - name: Download and inspect installer metadata
+        if: runner.os != 'Windows'
+        shell: bash
+        run: |
+          curl -fsSL https://public-cdn.cloud.unity3d.com/hub/prod/cli/install.sh -o "${RUNNER_TEMP}/unity-cli-install.sh"
+          test -s "${RUNNER_TEMP}/unity-cli-install.sh"
+          grep -q 'UNITY_CLI_CHANNEL' "${RUNNER_TEMP}/unity-cli-install.sh"
+
+      - name: Install Unity CLI on Linux or macOS
+        if: runner.os != 'Windows'
+        shell: bash
+        env:
+          UNITY_CLI_CHANNEL: beta
+        run: |
+          bash "${RUNNER_TEMP}/unity-cli-install.sh"
+          echo "${HOME}/.unity/bin" >> "$GITHUB_PATH"
+
+      - name: Download and install Unity CLI on Windows
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $installer = Join-Path $env:RUNNER_TEMP 'unity-cli-install.ps1'
+          Invoke-RestMethod https://public-cdn.cloud.unity3d.com/hub/prod/cli/install.ps1 -OutFile $installer
+          if (-not (Select-String -Path $installer -Pattern 'UNITY_CLI_CHANNEL' -Quiet)) { throw 'Unexpected installer' }
+          & $installer -Channel beta
+          Join-Path $env:LOCALAPPDATA 'Unity\bin' | Out-File -FilePath $env:GITHUB_PATH -Append
+
+      - name: Verify installed CLI
+        run: unity --version
+
+      - name: Collect recursive help
+        run: uv run python -m scripts.collect_help --platform ${{ matrix.platform }} --output snapshots/${{ matrix.platform }}/help.json --progress
+
+      - name: Parse and validate platform collection
+        run: uv run python -m scripts.parse_help snapshots/${{ matrix.platform }}/help.json snapshots/${{ matrix.platform }}/command-tree.json
+
+      - name: Upload platform output
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: unity-help-${{ matrix.platform }}
+          path: snapshots/${{ matrix.platform }}/
+          if-no-files-found: warn
+
+      - name: Write failure summary
+        if: failure()
+        shell: bash
+        run: echo "Collection failed for ${{ matrix.platform }}. Inspect the uploaded raw snapshot and preceding installer/help error; no update will be published." >> "$GITHUB_STEP_SUMMARY"
+
+  merge:
+    needs: collect
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12"
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@f98e06938123ccabd21905ea5d0069192241f9f1 # v8.3.2
+        with:
+          version: "0.9.5"
+
+      - name: Install locked dependencies
+        run: uv sync --frozen
+
+      - name: Download platform artifacts
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          pattern: unity-help-*
+          path: collected
+
+      - name: Assemble snapshots
+        run: |
+          cp collected/unity-help-linux/help.json snapshots/linux/help.json
+          cp collected/unity-help-macos/help.json snapshots/macos/help.json
+          cp collected/unity-help-windows/help.json snapshots/windows/help.json
+
+      - name: Merge, diff, and generate
+        run: |
+          uv run python -m scripts.update_skill \
+            --snapshot linux=snapshots/linux/help.json \
+            --snapshot macos=snapshots/macos/help.json \
+            --snapshot windows=snapshots/windows/help.json
+
+      - name: Run deterministic validation suite
+        run: |
+          uv run ruff format --check .
+          uv run ruff check .
+          uv run mypy scripts tests
+          uv run pytest
+          uv run python -m scripts.validate_generated
+          uv run skills-ref validate .
+          uv run python -m scripts.generate_references data/command-tree.json --output references
+          uv run python -m scripts.generate_references data/command-tree.json --output references
+          npx skills add . --list | tee /tmp/unity-cli-skills-list.txt
+          python - <<'PY'
+          import re
+          from pathlib import Path
+          text = re.sub(r"\x1b\[[0-9;]*m", "", Path("/tmp/unity-cli-skills-list.txt").read_text())
+          if len(re.findall(r"(?m)^\s*unity-cli\s*$", text)) != 1:
+              raise SystemExit("expected exactly one discovered unity-cli skill")
+          PY
+
+      - name: Detect semantic change
+        id: change
+        run: |
+          changed=$(python -c "import json; print(str(json.load(open('semantic-diff.json'))['changed']).lower())")
+          version=$(python -c "import json; print(json.load(open('data/command-tree.json'))['cli_version'])")
+          tree_hash=$(sha256sum data/command-tree.json | cut -c1-12)
+          echo "changed=$changed" >> "$GITHUB_OUTPUT"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "branch=automation/unity-cli-${version}-${tree_hash}" >> "$GITHUB_OUTPUT"
+
+      - name: Report no change
+        if: steps.change.outputs.changed != 'true'
+        run: echo "No Unity CLI semantic change detected; no commit or pull request created." >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Create or update pull request
+        if: steps.change.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          UPDATE_BRANCH: ${{ steps.change.outputs.branch }}
+          CLI_VERSION: ${{ steps.change.outputs.version }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -C "$UPDATE_BRANCH"
+          git add data snapshots references
+          git commit -m "chore: update Unity CLI references for ${CLI_VERSION}"
+          git push --force-with-lease origin "$UPDATE_BRANCH"
+          existing=$(gh pr list --head "$UPDATE_BRANCH" --state open --json number --jq '.[0].number // empty')
+          if [ -z "$existing" ]; then
+            gh pr create \
+              --head "$UPDATE_BRANCH" \
+              --title "chore: update Unity CLI skill for ${CLI_VERSION}" \
+              --body-file semantic-diff.md
+          else
+            gh pr edit "$existing" \
+              --title "chore: update Unity CLI skill for ${CLI_VERSION}" \
+              --body-file semantic-diff.md
+          fi
+
+      - name: Upload merged diagnostics on failure
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: unity-help-merge-failure
+          path: |
+            collected/
+            snapshots/
+            semantic-diff.json
+            semantic-diff.md
+          if-no-files-found: warn
+
+      - name: Write merge failure summary
+        if: failure()
+        run: echo "Cross-platform merge or validation failed. No pull request was created. Inspect the uploaded snapshots and the first failing validation step." >> "$GITHUB_STEP_SUMMARY"

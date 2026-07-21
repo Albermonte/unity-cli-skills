@@ -1,0 +1,75 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12"
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@f98e06938123ccabd21905ea5d0069192241f9f1 # v8.3.2
+        with:
+          version: "0.9.5"
+
+      - name: Install locked dependencies
+        run: uv sync --frozen
+
+      - name: Check formatting
+        run: uv run ruff format --check .
+
+      - name: Run Ruff
+        run: uv run ruff check .
+
+      - name: Run type checking
+        run: uv run mypy scripts tests
+
+      - name: Run tests
+        run: uv run pytest
+
+      - name: Validate schema, links, generation, and skill structure
+        run: uv run python -m scripts.validate_generated
+
+      - name: Validate Agent Skills specification
+        run: uv run skills-ref validate .
+
+      - name: Verify generated files are current and idempotent
+        run: |
+          uv run python -m scripts.generate_references data/command-tree.json --output references
+          uv run python -m scripts.generate_references data/command-tree.json --output references
+          git diff --exit-code -- data references
+
+      - name: Verify root Skills CLI discovery
+        run: |
+          npx skills add . --list | tee /tmp/unity-cli-skills-list.txt
+          python - <<'PY'
+          import re
+          from pathlib import Path
+          text = re.sub(r"\x1b\[[0-9;]*m", "", Path("/tmp/unity-cli-skills-list.txt").read_text())
+          if len(re.findall(r"(?m)^\s*unity-cli\s*$", text)) != 1:
+              raise SystemExit("expected exactly one discovered unity-cli skill")
+          PY
+
+      - name: Verify temporary local installation
+        run: |
+          target="${RUNNER_TEMP}/unity-cli-install-target"
+          mkdir -p "$target"
+          cd "$target"
+          npx skills add "$GITHUB_WORKSPACE" --skill unity-cli --agent codex --yes
+          test -f "$target/.agents/skills/unity-cli/SKILL.md"
+          test -d "$target/.agents/skills/unity-cli/references"
+          test -d "$target/.agents/skills/unity-cli/scripts"
+          test -d "$target/.agents/skills/unity-cli/data"

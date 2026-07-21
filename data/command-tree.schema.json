@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/unity-cli/command-tree.schema.json",
+  "title": "Merged Unity CLI command tree",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "cli_version", "platforms", "commands"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "cli_version": {"type": "string", "minLength": 1},
+    "platforms": {
+      "type": "array",
+      "items": {"enum": ["linux", "macos", "windows"]},
+      "uniqueItems": true
+    },
+    "commands": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/command"}
+    }
+  },
+  "$defs": {
+    "stringArray": {"type": "array", "items": {"type": "string"}},
+    "helpEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "description"],
+      "properties": {
+        "name": {"type": "string"},
+        "description": {"type": "string"}
+      }
+    },
+    "argument": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "description", "required", "repeatable"],
+      "properties": {
+        "name": {"type": "string"},
+        "description": {"type": "string"},
+        "required": {"type": "boolean"},
+        "repeatable": {"type": "boolean"}
+      }
+    },
+    "option": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["names", "value", "description", "required", "repeatable", "default", "choices"],
+      "properties": {
+        "names": {"$ref": "#/$defs/stringArray"},
+        "value": {"type": ["string", "null"]},
+        "description": {"type": "string"},
+        "required": {"type": "boolean"},
+        "repeatable": {"type": "boolean"},
+        "default": {"type": ["string", "null"]},
+        "choices": {"$ref": "#/$defs/stringArray"}
+      }
+    },
+    "subcommand": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "aliases", "summary"],
+      "properties": {
+        "name": {"type": "string"},
+        "aliases": {"$ref": "#/$defs/stringArray"},
+        "summary": {"type": "string"}
+      }
+    },
+    "extraSection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["heading", "lines"],
+      "properties": {
+        "heading": {"type": "string"},
+        "lines": {"$ref": "#/$defs/stringArray"}
+      }
+    },
+    "command": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path", "name", "aliases", "summary", "description", "usage", "arguments", "options",
+        "subcommands", "examples", "environment_variables", "exit_codes", "deprecation_notices",
+        "experimental_notices", "platform_restrictions", "extra_sections", "has_unknown_sections",
+        "raw_mentions_experimental", "availability", "platform_overrides", "source_hashes"
+      ],
+      "properties": {
+        "path": {"$ref": "#/$defs/stringArray"},
+        "name": {"type": "string"},
+        "aliases": {"$ref": "#/$defs/stringArray"},
+        "summary": {"type": "string"},
+        "description": {"type": "string"},
+        "usage": {"$ref": "#/$defs/stringArray"},
+        "arguments": {"type": "array", "items": {"$ref": "#/$defs/argument"}},
+        "options": {"type": "array", "items": {"$ref": "#/$defs/option"}},
+        "subcommands": {"type": "array", "items": {"$ref": "#/$defs/subcommand"}},
+        "examples": {"$ref": "#/$defs/stringArray"},
+        "environment_variables": {"type": "array", "items": {"$ref": "#/$defs/helpEntry"}},
+        "exit_codes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["code", "description"],
+            "properties": {"code": {"type": "string"}, "description": {"type": "string"}}
+          }
+        },
+        "deprecation_notices": {"$ref": "#/$defs/stringArray"},
+        "experimental_notices": {"$ref": "#/$defs/stringArray"},
+        "platform_restrictions": {"$ref": "#/$defs/stringArray"},
+        "extra_sections": {"type": "array", "items": {"$ref": "#/$defs/extraSection"}},
+        "has_unknown_sections": {"type": "boolean"},
+        "raw_mentions_experimental": {"type": "boolean"},
+        "availability": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["linux", "macos", "windows"],
+          "properties": {
+            "linux": {"type": "boolean"},
+            "macos": {"type": "boolean"},
+            "windows": {"type": "boolean"}
+          }
+        },
+        "platform_overrides": {"type": "object"},
+        "source_hashes": {
+          "type": "object",
+          "propertyNames": {"enum": ["linux", "macos", "windows"]},
+          "additionalProperties": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "minProperties": 1
+        }
+      }
+    }
+  }
+}

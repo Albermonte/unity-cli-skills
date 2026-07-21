@@ -395,13 +395,232 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
-      "platform_overrides": {},
+      "platform_overrides": {
+        "windows": {
+          "subcommands": [
+            {
+              "name": "analytics",
+              "aliases": [],
+              "summary": "Manage analytics and telemetry consent"
+            },
+            {
+              "name": "auth",
+              "aliases": [
+                "a"
+              ],
+              "summary": "Sign in, check login state, or sign out"
+            },
+            {
+              "name": "bug",
+              "aliases": [],
+              "summary": "Report a bug directly to the Unity bug reporter"
+            },
+            {
+              "name": "build",
+              "aliases": [],
+              "summary": "Build a Unity project from the command line. Spawns the editor in batch mode and forwards conventional CI flags."
+            },
+            {
+              "name": "cache",
+              "aliases": [],
+              "summary": "Manage the download cache"
+            },
+            {
+              "name": "changelog",
+              "aliases": [],
+              "summary": "Show release notes for the installed CLI"
+            },
+            {
+              "name": "cloud",
+              "aliases": [],
+              "summary": "Manage Unity Cloud organizations and projects"
+            },
+            {
+              "name": "completion",
+              "aliases": [],
+              "summary": "Print a shell completion script"
+            },
+            {
+              "name": "config",
+              "aliases": [],
+              "summary": "View or change persistent CLI configuration"
+            },
+            {
+              "name": "diagnose",
+              "aliases": [],
+              "summary": "One-shot diagnostic commands for support â€” paste-safe, redacted output"
+            },
+            {
+              "name": "doctor",
+              "aliases": [],
+              "summary": "Print diagnostic info about your Unity CLI environment"
+            },
+            {
+              "name": "editor",
+              "aliases": [],
+              "summary": "Manage a Unity editor installation"
+            },
+            {
+              "name": "editors",
+              "aliases": [
+                "e"
+              ],
+              "summary": "Manage Unity editors"
+            },
+            {
+              "name": "env",
+              "aliases": [],
+              "summary": "Print Unity Hub environment paths and version"
+            },
+            {
+              "name": "hub",
+              "aliases": [],
+              "summary": "Manage the Unity Hub application"
+            },
+            {
+              "name": "install",
+              "aliases": [
+                "i"
+              ],
+              "summary": "Install a Unity editor"
+            },
+            {
+              "name": "install-modules",
+              "aliases": [
+                "im"
+              ],
+              "summary": "Install or list modules for an installed editor (fully interactive when no arguments provided)"
+            },
+            {
+              "name": "install-path",
+              "aliases": [
+                "ip"
+              ],
+              "summary": "Set or get the editor install path"
+            },
+            {
+              "name": "language",
+              "aliases": [
+                "lang"
+              ],
+              "summary": "Show or change the CLI display language"
+            },
+            {
+              "name": "license",
+              "aliases": [],
+              "summary": "List the Unity licenses active on this machine"
+            },
+            {
+              "name": "list",
+              "aliases": [],
+              "summary": "List tools available on the connected Unity Editor (commands registered by the Pipeline package)"
+            },
+            {
+              "name": "logs",
+              "aliases": [],
+              "summary": "Read and tail the Hub log file"
+            },
+            {
+              "name": "mcp",
+              "aliases": [],
+              "summary": "MCP server and client configuration for Unity Editor"
+            },
+            {
+              "name": "modules",
+              "aliases": [],
+              "summary": "List and manage Unity editor modules"
+            },
+            {
+              "name": "pipeline",
+              "aliases": [
+                "pipe"
+              ],
+              "summary": "Unity Editor Pipeline automation commands"
+            },
+            {
+              "name": "projects",
+              "aliases": [
+                "p"
+              ],
+              "summary": "Manage Unity projects in the Hub registry"
+            },
+            {
+              "name": "command",
+              "aliases": [
+                "cmd"
+              ],
+              "summary": "Execute commands on connected Unity Editor instances, or list available commands"
+            },
+            {
+              "name": "templates",
+              "aliases": [
+                "t"
+              ],
+              "summary": "Browse, inspect, create, edit, and delete Unity project templates"
+            },
+            {
+              "name": "test",
+              "aliases": [],
+              "summary": "Run a project's EditMode/PlayMode tests in the editor and write a results report"
+            },
+            {
+              "name": "open",
+              "aliases": [],
+              "summary": "Open a Unity project with the correct Editor version"
+            },
+            {
+              "name": "run",
+              "aliases": [],
+              "summary": "Run a Unity project in batch mode and forward args to the editor"
+            },
+            {
+              "name": "releases",
+              "aliases": [],
+              "summary": "List available Unity releases"
+            },
+            {
+              "name": "self-uninstall",
+              "aliases": [],
+              "summary": "Uninstall the unity CLI (removes the binary and environment files)"
+            },
+            {
+              "name": "shell",
+              "aliases": [],
+              "summary": "Start an interactive shell (REPL) that runs many commands in one warm process"
+            },
+            {
+              "name": "status",
+              "aliases": [],
+              "summary": "Show live state of every connected Unity Editor (port, project, version, PID, state)"
+            },
+            {
+              "name": "uninstall",
+              "aliases": [
+                "u"
+              ],
+              "summary": "Uninstall an installed Unity editor"
+            },
+            {
+              "name": "upgrade",
+              "aliases": [],
+              "summary": "Upgrade the unity CLI to the latest version"
+            },
+            {
+              "name": "help",
+              "aliases": [],
+              "summary": "display help for command"
+            }
+          ]
+        }
+      },
       "source_hashes": {
-        "macos": "0abfcda20ff8ea359e16782014f20b83cc7f0beb2e6fae5e47c0e3f05f895473"
+        "linux": "0abfcda20ff8ea359e16782014f20b83cc7f0beb2e6fae5e47c0e3f05f895473",
+        "macos": "0abfcda20ff8ea359e16782014f20b83cc7f0beb2e6fae5e47c0e3f05f895473",
+        "windows": "9226a145c00cc89f509f24b629e952874d1ab921f58677233b247a061c0fcea0"
       }
     },
     {
@@ -602,13 +821,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "6cbcb3063deb7262a1a2e2d572509abffc204c5724f1cf0fa33cbd576dceb7ec"
+        "linux": "6cbcb3063deb7262a1a2e2d572509abffc204c5724f1cf0fa33cbd576dceb7ec",
+        "macos": "6cbcb3063deb7262a1a2e2d572509abffc204c5724f1cf0fa33cbd576dceb7ec",
+        "windows": "6cbcb3063deb7262a1a2e2d572509abffc204c5724f1cf0fa33cbd576dceb7ec"
       }
     },
     {
@@ -800,13 +1021,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "e22383a27f9b3b7aa92f7b8e087320fd27733029a1748cd1a53c9bf31ad9a3ec"
+        "linux": "e22383a27f9b3b7aa92f7b8e087320fd27733029a1748cd1a53c9bf31ad9a3ec",
+        "macos": "e22383a27f9b3b7aa92f7b8e087320fd27733029a1748cd1a53c9bf31ad9a3ec",
+        "windows": "e22383a27f9b3b7aa92f7b8e087320fd27733029a1748cd1a53c9bf31ad9a3ec"
       }
     },
     {
@@ -998,13 +1221,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "12fcb66e6cda4024ad734b16dec6349ffbd1a4eb26ef67d3f0528cba90ba8cfd"
+        "linux": "12fcb66e6cda4024ad734b16dec6349ffbd1a4eb26ef67d3f0528cba90ba8cfd",
+        "macos": "12fcb66e6cda4024ad734b16dec6349ffbd1a4eb26ef67d3f0528cba90ba8cfd",
+        "windows": "12fcb66e6cda4024ad734b16dec6349ffbd1a4eb26ef67d3f0528cba90ba8cfd"
       }
     },
     {
@@ -1196,13 +1421,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "d07be1a9b8f636aa26b3f50fe266343d632d2b6933dfad4bedad2bd31ea0a8b5"
+        "linux": "d07be1a9b8f636aa26b3f50fe266343d632d2b6933dfad4bedad2bd31ea0a8b5",
+        "macos": "d07be1a9b8f636aa26b3f50fe266343d632d2b6933dfad4bedad2bd31ea0a8b5",
+        "windows": "d07be1a9b8f636aa26b3f50fe266343d632d2b6933dfad4bedad2bd31ea0a8b5"
       }
     },
     {
@@ -1405,13 +1632,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "0fa4ba7df60b0a59cfb572881b138e8cc0db8f376ff63cfa58ee527dbc46871a"
+        "linux": "0fa4ba7df60b0a59cfb572881b138e8cc0db8f376ff63cfa58ee527dbc46871a",
+        "macos": "0fa4ba7df60b0a59cfb572881b138e8cc0db8f376ff63cfa58ee527dbc46871a",
+        "windows": "0fa4ba7df60b0a59cfb572881b138e8cc0db8f376ff63cfa58ee527dbc46871a"
       }
     },
     {
@@ -1636,13 +1865,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "09925123b099432bf507df2cb76e1bc130029e04efcbe57ee2722a445b1587f5"
+        "linux": "09925123b099432bf507df2cb76e1bc130029e04efcbe57ee2722a445b1587f5",
+        "macos": "09925123b099432bf507df2cb76e1bc130029e04efcbe57ee2722a445b1587f5",
+        "windows": "09925123b099432bf507df2cb76e1bc130029e04efcbe57ee2722a445b1587f5"
       }
     },
     {
@@ -1835,13 +2066,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "ac55fe5117f3851276db1976e5b4ba32482ee2b3e152be693737c1a9cbb1ec1f"
+        "linux": "ac55fe5117f3851276db1976e5b4ba32482ee2b3e152be693737c1a9cbb1ec1f",
+        "macos": "ac55fe5117f3851276db1976e5b4ba32482ee2b3e152be693737c1a9cbb1ec1f",
+        "windows": "ac55fe5117f3851276db1976e5b4ba32482ee2b3e152be693737c1a9cbb1ec1f"
       }
     },
     {
@@ -2022,13 +2255,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "408d2cae81dd038ac44fc1f4af4e9ceaee8e84772e47dbc7e60abd3c34ceb2dd"
+        "linux": "408d2cae81dd038ac44fc1f4af4e9ceaee8e84772e47dbc7e60abd3c34ceb2dd",
+        "macos": "408d2cae81dd038ac44fc1f4af4e9ceaee8e84772e47dbc7e60abd3c34ceb2dd",
+        "windows": "408d2cae81dd038ac44fc1f4af4e9ceaee8e84772e47dbc7e60abd3c34ceb2dd"
       }
     },
     {
@@ -2208,13 +2443,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "39ec80afcd608f9c345a1e3eccbefc078bc333d28e809bed4479d01ed3c2687c"
+        "linux": "39ec80afcd608f9c345a1e3eccbefc078bc333d28e809bed4479d01ed3c2687c",
+        "macos": "39ec80afcd608f9c345a1e3eccbefc078bc333d28e809bed4479d01ed3c2687c",
+        "windows": "39ec80afcd608f9c345a1e3eccbefc078bc333d28e809bed4479d01ed3c2687c"
       }
     },
     {
@@ -2653,13 +2890,389 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
-      "platform_overrides": {},
+      "platform_overrides": {
+        "windows": {
+          "options": [
+            {
+              "names": [
+                "--target"
+              ],
+              "value": "<target>",
+              "description": "Build target (e.g. StandaloneWindows64, Android, iOS, WebGL). Required.",
+              "required": true,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--execute-method"
+              ],
+              "value": "<method>",
+              "description": "Static C# method to invoke (e.g. Builder.PerformBuild). Required â€” Unity has no built-in command-line build.",
+              "required": true,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--build-target-group"
+              ],
+              "value": "<group>",
+              "description": "Optional build target group, forwarded to Unity as -buildTargetGroup",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "-o",
+                "--output-path"
+              ],
+              "value": "<path>",
+              "description": "Output path passed to Unity as -buildOutput (your executeMethod is responsible for honoring it)",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "-l",
+                "--log-file"
+              ],
+              "value": "<path>",
+              "description": "Log file path (default: <project>/Logs/build-<target>-<timestamp>.log)",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--editor-version"
+              ],
+              "value": "<version>",
+              "description": "Override editor version (default: from ProjectVersion.txt)",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "-e",
+                "--editor-path"
+              ],
+              "value": "<path>",
+              "description": "Path to a specific editor binary",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "-a",
+                "--architecture"
+              ],
+              "value": "<arch>",
+              "description": "Editor architecture (x86_64 or arm64) (default: \"unknown\")",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--args"
+              ],
+              "value": "<string>",
+              "description": "Extra arguments passed to Unity (shell-split)",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--no-tail"
+              ],
+              "value": null,
+              "description": "Do not stream the log to stdout in real time",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--allow-install"
+              ],
+              "value": null,
+              "description": "Install the project's editor version if it is not already installed",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--android-export-type"
+              ],
+              "value": "<type>",
+              "description": "Android export type: apk, aab, or android-studio-project (Android targets only, default: apk) (choices: \"apk\", \"aab\", \"android-studio-project\", default: \"apk\")",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--android-keystore-base64"
+              ],
+              "value": "<content>",
+              "description": "Base64-encoded keystore file contents â€” decoded to a temp file before the build and deleted after (Android targets only; warning: CLI args may appear in shell history and CI logs)",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--android-keystore-password"
+              ],
+              "value": "<pass>",
+              "description": "Password for the keystore (Android targets only, required with --android-keystore-base64; warning: CLI args may appear in shell history and CI logs)",
+              "required": true,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--android-key-alias"
+              ],
+              "value": "<alias>",
+              "description": "Key alias inside the keystore (Android targets only, required with --android-keystore-base64)",
+              "required": true,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--android-key-alias-password"
+              ],
+              "value": "<pass>",
+              "description": "Password for the key alias (Android targets only, defaults to --android-keystore-password; warning: CLI args may appear in shell history and CI logs)",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--android-target-sdk-version"
+              ],
+              "value": "<N>",
+              "description": "Android SDK target version integer, e.g. 34 (Android targets only)",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--android-symbol-type"
+              ],
+              "value": "<type>",
+              "description": "Debug symbol export type: none, public, or debugging (Android targets only, default: none) (choices: \"none\", \"public\", \"debugging\", default: \"none\")",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--android-version-code"
+              ],
+              "value": "<N>",
+              "description": "Explicit Android versionCode integer (Android targets only)",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--versioning-strategy"
+              ],
+              "value": "<strategy>",
+              "description": "Versioning strategy to apply to the build (semantic, tag, custom, none). Default: none. (choices: \"semantic\", \"tag\", \"custom\", \"none\", default: \"none\")",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--build-version"
+              ],
+              "value": "<version>",
+              "description": "Explicit version string to stamp on the build. Only used when --versioning-strategy is 'custom'; ignored for all other strategies.",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--allow-dirty-build"
+              ],
+              "value": null,
+              "description": "Skip the uncommitted-changes guard (default: false) (default: false)",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "-h",
+                "--help"
+              ],
+              "value": null,
+              "description": "display help for command",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "-V",
+                "--version"
+              ],
+              "value": null,
+              "description": "output the version number",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--format"
+              ],
+              "value": "<format>",
+              "description": "Output format: human, json, tsv, ndjson (env: UNITY_FORMAT)",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--no-banner"
+              ],
+              "value": null,
+              "description": "Suppress the startup banner (env: UNITY_NO_BANNER)",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--non-interactive"
+              ],
+              "value": null,
+              "description": "Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE)",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--quiet"
+              ],
+              "value": null,
+              "description": "Suppress informational output (env: UNITY_QUIET)",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--verbose"
+              ],
+              "value": null,
+              "description": "Show full error details including stack traces on failure (env: UNITY_VERBOSE)",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--proxy"
+              ],
+              "value": "<url>",
+              "description": "HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://user:pass@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY)",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--proxy-disable"
+              ],
+              "value": null,
+              "description": "Disable proxy for this invocation, ignoring all sources",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--log-proxy"
+              ],
+              "value": null,
+              "description": "Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY)",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--no-log-proxy"
+              ],
+              "value": null,
+              "description": "Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation.",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            }
+          ]
+        }
+      },
       "source_hashes": {
-        "macos": "d5aca9289ba57a43298877ea5203f09bae2827d6d057068cab1570c1c0d9ffd5"
+        "linux": "d5aca9289ba57a43298877ea5203f09bae2827d6d057068cab1570c1c0d9ffd5",
+        "macos": "d5aca9289ba57a43298877ea5203f09bae2827d6d057068cab1570c1c0d9ffd5",
+        "windows": "bcaa44a344d4a604af410c6eb4159715e2dc18938f9ce8f252125d5bf16a1cb2"
       }
     },
     {
@@ -2855,13 +3468,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "ae73793801fcea2cc26561866f4da5e2df06b2261a39c2c050c5c0a4cd68161c"
+        "linux": "ae73793801fcea2cc26561866f4da5e2df06b2261a39c2c050c5c0a4cd68161c",
+        "macos": "ae73793801fcea2cc26561866f4da5e2df06b2261a39c2c050c5c0a4cd68161c",
+        "windows": "ae73793801fcea2cc26561866f4da5e2df06b2261a39c2c050c5c0a4cd68161c"
       }
     },
     {
@@ -3054,13 +3669,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "d4f210b511e83ee9497764bde1fef326599f34f1c5330c35eeb90cfb6fc66679"
+        "linux": "d4f210b511e83ee9497764bde1fef326599f34f1c5330c35eeb90cfb6fc66679",
+        "macos": "d4f210b511e83ee9497764bde1fef326599f34f1c5330c35eeb90cfb6fc66679",
+        "windows": "d4f210b511e83ee9497764bde1fef326599f34f1c5330c35eeb90cfb6fc66679"
       }
     },
     {
@@ -3241,13 +3858,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "511818b5b9dba34f46fa3a97370d10c49e40c45ecdbaf4603646deb606dc7504"
+        "linux": "511818b5b9dba34f46fa3a97370d10c49e40c45ecdbaf4603646deb606dc7504",
+        "macos": "511818b5b9dba34f46fa3a97370d10c49e40c45ecdbaf4603646deb606dc7504",
+        "windows": "511818b5b9dba34f46fa3a97370d10c49e40c45ecdbaf4603646deb606dc7504"
       }
     },
     {
@@ -3427,13 +4046,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "983dbf6d3eea8f6e6ef3ad51213a6999b320f4accb1929961d3ac4ecc1180a1d"
+        "linux": "983dbf6d3eea8f6e6ef3ad51213a6999b320f4accb1929961d3ac4ecc1180a1d",
+        "macos": "983dbf6d3eea8f6e6ef3ad51213a6999b320f4accb1929961d3ac4ecc1180a1d",
+        "windows": "983dbf6d3eea8f6e6ef3ad51213a6999b320f4accb1929961d3ac4ecc1180a1d"
       }
     },
     {
@@ -3634,13 +4255,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "d5d91243e4fce2db042f75e8e2db6c218139d59608db608cbdef2c7ff799e63b"
+        "linux": "d5d91243e4fce2db042f75e8e2db6c218139d59608db608cbdef2c7ff799e63b",
+        "macos": "d5d91243e4fce2db042f75e8e2db6c218139d59608db608cbdef2c7ff799e63b",
+        "windows": "d5d91243e4fce2db042f75e8e2db6c218139d59608db608cbdef2c7ff799e63b"
       }
     },
     {
@@ -3847,13 +4470,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "b37dbd27e1d7cced7e58f652289c1534518b17290a3c19b7b4b10929ba882c31"
+        "linux": "b37dbd27e1d7cced7e58f652289c1534518b17290a3c19b7b4b10929ba882c31",
+        "macos": "b37dbd27e1d7cced7e58f652289c1534518b17290a3c19b7b4b10929ba882c31",
+        "windows": "b37dbd27e1d7cced7e58f652289c1534518b17290a3c19b7b4b10929ba882c31"
       }
     },
     {
@@ -4035,13 +4660,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "547e315184a6b01d7c7cb75bff906d77fc885fb5b4583703176ba8cfc54913a8"
+        "linux": "547e315184a6b01d7c7cb75bff906d77fc885fb5b4583703176ba8cfc54913a8",
+        "macos": "547e315184a6b01d7c7cb75bff906d77fc885fb5b4583703176ba8cfc54913a8",
+        "windows": "547e315184a6b01d7c7cb75bff906d77fc885fb5b4583703176ba8cfc54913a8"
       }
     },
     {
@@ -4223,13 +4850,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "ccbf5fe2f330720e357ad49e9e3c3f60d1f8cb666f690cbd94fd3bc579ca2b69"
+        "linux": "ccbf5fe2f330720e357ad49e9e3c3f60d1f8cb666f690cbd94fd3bc579ca2b69",
+        "macos": "ccbf5fe2f330720e357ad49e9e3c3f60d1f8cb666f690cbd94fd3bc579ca2b69",
+        "windows": "ccbf5fe2f330720e357ad49e9e3c3f60d1f8cb666f690cbd94fd3bc579ca2b69"
       }
     },
     {
@@ -4411,13 +5040,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "80103374481e844367ba7d8215382aadb46e95df4c0a5d4bed7d18740a716a6b"
+        "linux": "80103374481e844367ba7d8215382aadb46e95df4c0a5d4bed7d18740a716a6b",
+        "macos": "80103374481e844367ba7d8215382aadb46e95df4c0a5d4bed7d18740a716a6b",
+        "windows": "80103374481e844367ba7d8215382aadb46e95df4c0a5d4bed7d18740a716a6b"
       }
     },
     {
@@ -4606,13 +5237,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "593b9ffe2e78e6bc2b687765912ada606f09045184b6c868535485bbcf811311"
+        "linux": "593b9ffe2e78e6bc2b687765912ada606f09045184b6c868535485bbcf811311",
+        "macos": "593b9ffe2e78e6bc2b687765912ada606f09045184b6c868535485bbcf811311",
+        "windows": "593b9ffe2e78e6bc2b687765912ada606f09045184b6c868535485bbcf811311"
       }
     },
     {
@@ -4819,13 +5452,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "9f157d76deea6e318a5bda2ce2358c41a1e9108c25bf89ce282b74d2accaed66"
+        "linux": "9f157d76deea6e318a5bda2ce2358c41a1e9108c25bf89ce282b74d2accaed66",
+        "macos": "9f157d76deea6e318a5bda2ce2358c41a1e9108c25bf89ce282b74d2accaed66",
+        "windows": "9f157d76deea6e318a5bda2ce2358c41a1e9108c25bf89ce282b74d2accaed66"
       }
     },
     {
@@ -5055,13 +5690,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "cda260a3553c275350b9db95732e26b9574d9507818ae35886a53ebc3ce447f2"
+        "linux": "cda260a3553c275350b9db95732e26b9574d9507818ae35886a53ebc3ce447f2",
+        "macos": "cda260a3553c275350b9db95732e26b9574d9507818ae35886a53ebc3ce447f2",
+        "windows": "cda260a3553c275350b9db95732e26b9574d9507818ae35886a53ebc3ce447f2"
       }
     },
     {
@@ -5242,13 +5879,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "2e01ddd19773caaf2b4fdda82917df6b7c817ff85a9f84e6e8682f4c155170d5"
+        "linux": "2e01ddd19773caaf2b4fdda82917df6b7c817ff85a9f84e6e8682f4c155170d5",
+        "macos": "2e01ddd19773caaf2b4fdda82917df6b7c817ff85a9f84e6e8682f4c155170d5",
+        "windows": "2e01ddd19773caaf2b4fdda82917df6b7c817ff85a9f84e6e8682f4c155170d5"
       }
     },
     {
@@ -5487,13 +6126,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "ec29f7b6c0e298fba2d706723af6a087a3ea7b369388ee8b9628682fe415e0e0"
+        "linux": "ec29f7b6c0e298fba2d706723af6a087a3ea7b369388ee8b9628682fe415e0e0",
+        "macos": "ec29f7b6c0e298fba2d706723af6a087a3ea7b369388ee8b9628682fe415e0e0",
+        "windows": "ec29f7b6c0e298fba2d706723af6a087a3ea7b369388ee8b9628682fe415e0e0"
       }
     },
     {
@@ -5685,13 +6326,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "0cfc676f2f1243767405d1f753cc9c0e4a8ef0af5d967267e05ac15747e1bcd7"
+        "linux": "0cfc676f2f1243767405d1f753cc9c0e4a8ef0af5d967267e05ac15747e1bcd7",
+        "macos": "0cfc676f2f1243767405d1f753cc9c0e4a8ef0af5d967267e05ac15747e1bcd7",
+        "windows": "0cfc676f2f1243767405d1f753cc9c0e4a8ef0af5d967267e05ac15747e1bcd7"
       }
     },
     {
@@ -5887,13 +6530,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "fda63e8b1eafde04587dbd4afd74a652d4915d26818e08d458fcd389ef2a9a37"
+        "linux": "fda63e8b1eafde04587dbd4afd74a652d4915d26818e08d458fcd389ef2a9a37",
+        "macos": "fda63e8b1eafde04587dbd4afd74a652d4915d26818e08d458fcd389ef2a9a37",
+        "windows": "fda63e8b1eafde04587dbd4afd74a652d4915d26818e08d458fcd389ef2a9a37"
       }
     },
     {
@@ -6114,13 +6759,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "9288feadb743e4801d15b03a1c31a45458b07bb1d88982a7fc739c797429b891"
+        "linux": "9288feadb743e4801d15b03a1c31a45458b07bb1d88982a7fc739c797429b891",
+        "macos": "9288feadb743e4801d15b03a1c31a45458b07bb1d88982a7fc739c797429b891",
+        "windows": "9288feadb743e4801d15b03a1c31a45458b07bb1d88982a7fc739c797429b891"
       }
     },
     {
@@ -6319,13 +6966,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "2dfedb9a44c78ea11ffcb21538ba853bfd56ec8854ba2b11e56ebfc2ea977092"
+        "linux": "2dfedb9a44c78ea11ffcb21538ba853bfd56ec8854ba2b11e56ebfc2ea977092",
+        "macos": "2dfedb9a44c78ea11ffcb21538ba853bfd56ec8854ba2b11e56ebfc2ea977092",
+        "windows": "2dfedb9a44c78ea11ffcb21538ba853bfd56ec8854ba2b11e56ebfc2ea977092"
       }
     },
     {
@@ -6516,13 +7165,19 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
-      "platform_overrides": {},
+      "platform_overrides": {
+        "windows": {
+          "summary": "One-shot diagnostic commands for support â€” paste-safe, redacted output"
+        }
+      },
       "source_hashes": {
-        "macos": "48c55e97f39031c513a5247ce7d2af59d1b1d309582183bd8f67e8ae30500ec5"
+        "linux": "48c55e97f39031c513a5247ce7d2af59d1b1d309582183bd8f67e8ae30500ec5",
+        "macos": "48c55e97f39031c513a5247ce7d2af59d1b1d309582183bd8f67e8ae30500ec5",
+        "windows": "51e35268ec39a28d38aecc336b927d8caec84b7667fc3b17c626e2e835235050"
       }
     },
     {
@@ -6714,13 +7369,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "36d1deb2ae17ea4513f32f85cebd124208096bf734693ad5c9329c6f98824e61"
+        "linux": "36d1deb2ae17ea4513f32f85cebd124208096bf734693ad5c9329c6f98824e61",
+        "macos": "36d1deb2ae17ea4513f32f85cebd124208096bf734693ad5c9329c6f98824e61",
+        "windows": "36d1deb2ae17ea4513f32f85cebd124208096bf734693ad5c9329c6f98824e61"
       }
     },
     {
@@ -6911,13 +7568,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "0d470a941e01dd6a3b9735061d5ba42a63bfc27cf198d82397fc71ef2b184fa2"
+        "linux": "0d470a941e01dd6a3b9735061d5ba42a63bfc27cf198d82397fc71ef2b184fa2",
+        "macos": "0d470a941e01dd6a3b9735061d5ba42a63bfc27cf198d82397fc71ef2b184fa2",
+        "windows": "0d470a941e01dd6a3b9735061d5ba42a63bfc27cf198d82397fc71ef2b184fa2"
       }
     },
     {
@@ -7113,13 +7772,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "b3af8d6089453798de5e2b049692734080bc538e5cec33d7a1c7faae45efa1a8"
+        "linux": "b3af8d6089453798de5e2b049692734080bc538e5cec33d7a1c7faae45efa1a8",
+        "macos": "b3af8d6089453798de5e2b049692734080bc538e5cec33d7a1c7faae45efa1a8",
+        "windows": "b3af8d6089453798de5e2b049692734080bc538e5cec33d7a1c7faae45efa1a8"
       }
     },
     {
@@ -7332,13 +7993,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "c4eb63240b7cdd6abc097477c5e48e60171b5f024f59c23e5b1fbac629be8e5c"
+        "linux": "c4eb63240b7cdd6abc097477c5e48e60171b5f024f59c23e5b1fbac629be8e5c",
+        "macos": "c4eb63240b7cdd6abc097477c5e48e60171b5f024f59c23e5b1fbac629be8e5c",
+        "windows": "c4eb63240b7cdd6abc097477c5e48e60171b5f024f59c23e5b1fbac629be8e5c"
       }
     },
     {
@@ -7540,13 +8203,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "df04af41e93130d84dd79a6588ec5522f9a5d44215bc8f680ae70a7862d5b5d3"
+        "linux": "df04af41e93130d84dd79a6588ec5522f9a5d44215bc8f680ae70a7862d5b5d3",
+        "macos": "df04af41e93130d84dd79a6588ec5522f9a5d44215bc8f680ae70a7862d5b5d3",
+        "windows": "df04af41e93130d84dd79a6588ec5522f9a5d44215bc8f680ae70a7862d5b5d3"
       }
     },
     {
@@ -7803,13 +8468,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "f3057a5f578685bbd6a78be93370c03ca825e7174cf32409f26392bc5a830b91"
+        "linux": "f3057a5f578685bbd6a78be93370c03ca825e7174cf32409f26392bc5a830b91",
+        "macos": "f3057a5f578685bbd6a78be93370c03ca825e7174cf32409f26392bc5a830b91",
+        "windows": "f3057a5f578685bbd6a78be93370c03ca825e7174cf32409f26392bc5a830b91"
       }
     },
     {
@@ -8021,13 +8688,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "68a7361f33ccf8a412dc9b985e9b4f7a0fd84553f7046caa33f8223a4b2c0702"
+        "linux": "68a7361f33ccf8a412dc9b985e9b4f7a0fd84553f7046caa33f8223a4b2c0702",
+        "macos": "68a7361f33ccf8a412dc9b985e9b4f7a0fd84553f7046caa33f8223a4b2c0702",
+        "windows": "68a7361f33ccf8a412dc9b985e9b4f7a0fd84553f7046caa33f8223a4b2c0702"
       }
     },
     {
@@ -8239,13 +8908,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "c927d1a880078675cfba7ea223e02188211b4e2e2c48e0a2801de0b9a2c14c43"
+        "linux": "c927d1a880078675cfba7ea223e02188211b4e2e2c48e0a2801de0b9a2c14c43",
+        "macos": "c927d1a880078675cfba7ea223e02188211b4e2e2c48e0a2801de0b9a2c14c43",
+        "windows": "c927d1a880078675cfba7ea223e02188211b4e2e2c48e0a2801de0b9a2c14c43"
       }
     },
     {
@@ -8540,13 +9211,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "194659ce34d576912fc9474a595d147a4eddf21faf80fb5e9cd4aaf676074b3a"
+        "linux": "194659ce34d576912fc9474a595d147a4eddf21faf80fb5e9cd4aaf676074b3a",
+        "macos": "194659ce34d576912fc9474a595d147a4eddf21faf80fb5e9cd4aaf676074b3a",
+        "windows": "194659ce34d576912fc9474a595d147a4eddf21faf80fb5e9cd4aaf676074b3a"
       }
     },
     {
@@ -8808,13 +9481,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "2a3e503876706d12c5c0171e3bfab6f8ee62b89d375f922e3114e41de9f16dff"
+        "linux": "2a3e503876706d12c5c0171e3bfab6f8ee62b89d375f922e3114e41de9f16dff",
+        "macos": "2a3e503876706d12c5c0171e3bfab6f8ee62b89d375f922e3114e41de9f16dff",
+        "windows": "2a3e503876706d12c5c0171e3bfab6f8ee62b89d375f922e3114e41de9f16dff"
       }
     },
     {
@@ -9087,13 +9762,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "3e6fb6ac80a6551cfbdc6e390d04b4f31eb3a81dc8cb5a25740b70490f5a5edb"
+        "linux": "3e6fb6ac80a6551cfbdc6e390d04b4f31eb3a81dc8cb5a25740b70490f5a5edb",
+        "macos": "3e6fb6ac80a6551cfbdc6e390d04b4f31eb3a81dc8cb5a25740b70490f5a5edb",
+        "windows": "3e6fb6ac80a6551cfbdc6e390d04b4f31eb3a81dc8cb5a25740b70490f5a5edb"
       }
     },
     {
@@ -9355,13 +10032,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "471d624c50a85e12bc6f3c0362cc68758e647174347b56ff9d32a23dbd653db8"
+        "linux": "471d624c50a85e12bc6f3c0362cc68758e647174347b56ff9d32a23dbd653db8",
+        "macos": "471d624c50a85e12bc6f3c0362cc68758e647174347b56ff9d32a23dbd653db8",
+        "windows": "471d624c50a85e12bc6f3c0362cc68758e647174347b56ff9d32a23dbd653db8"
       }
     },
     {
@@ -9626,13 +10305,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "b6681efe55fc6f2a4ff4147cc8f302ad0a2216670994ac8919353fbcc6575d6a"
+        "linux": "b6681efe55fc6f2a4ff4147cc8f302ad0a2216670994ac8919353fbcc6575d6a",
+        "macos": "b6681efe55fc6f2a4ff4147cc8f302ad0a2216670994ac8919353fbcc6575d6a",
+        "windows": "b6681efe55fc6f2a4ff4147cc8f302ad0a2216670994ac8919353fbcc6575d6a"
       }
     },
     {
@@ -9883,13 +10564,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "870a330883f7546e0364b6cda4b2b1dc9eb4d4e9e25d942826725ae4bd8b7644"
+        "linux": "870a330883f7546e0364b6cda4b2b1dc9eb4d4e9e25d942826725ae4bd8b7644",
+        "macos": "870a330883f7546e0364b6cda4b2b1dc9eb4d4e9e25d942826725ae4bd8b7644",
+        "windows": "870a330883f7546e0364b6cda4b2b1dc9eb4d4e9e25d942826725ae4bd8b7644"
       }
     },
     {
@@ -10161,13 +10844,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "be2529129fe834dbb137680e1558f8949dae6643b767b961916983e03406b27e"
+        "linux": "be2529129fe834dbb137680e1558f8949dae6643b767b961916983e03406b27e",
+        "macos": "be2529129fe834dbb137680e1558f8949dae6643b767b961916983e03406b27e",
+        "windows": "be2529129fe834dbb137680e1558f8949dae6643b767b961916983e03406b27e"
       }
     },
     {
@@ -10494,13 +11179,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "23adbf7f9b24cd832d29b92eeb139c46a8445427ca0cbda2c99ce69210e488ce"
+        "linux": "23adbf7f9b24cd832d29b92eeb139c46a8445427ca0cbda2c99ce69210e488ce",
+        "macos": "23adbf7f9b24cd832d29b92eeb139c46a8445427ca0cbda2c99ce69210e488ce",
+        "windows": "23adbf7f9b24cd832d29b92eeb139c46a8445427ca0cbda2c99ce69210e488ce"
       }
     },
     {
@@ -10782,13 +11469,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "7b34767fd0a80de38dab673d01ac1cd16a70d083e68bfe2f78a5f8bb55d8326a"
+        "linux": "7b34767fd0a80de38dab673d01ac1cd16a70d083e68bfe2f78a5f8bb55d8326a",
+        "macos": "7b34767fd0a80de38dab673d01ac1cd16a70d083e68bfe2f78a5f8bb55d8326a",
+        "windows": "7b34767fd0a80de38dab673d01ac1cd16a70d083e68bfe2f78a5f8bb55d8326a"
       }
     },
     {
@@ -11070,13 +11759,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "d23ab8cba0e3eb17ad21c5262512d58f8fdb137116b00e114f167f9cb1930349"
+        "linux": "d23ab8cba0e3eb17ad21c5262512d58f8fdb137116b00e114f167f9cb1930349",
+        "macos": "d23ab8cba0e3eb17ad21c5262512d58f8fdb137116b00e114f167f9cb1930349",
+        "windows": "d23ab8cba0e3eb17ad21c5262512d58f8fdb137116b00e114f167f9cb1930349"
       }
     },
     {
@@ -11338,13 +12029,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "8809c91a08202f784c9a465e54bd64000b6a0716431808cd83774af5fe99c131"
+        "linux": "8809c91a08202f784c9a465e54bd64000b6a0716431808cd83774af5fe99c131",
+        "macos": "8809c91a08202f784c9a465e54bd64000b6a0716431808cd83774af5fe99c131",
+        "windows": "8809c91a08202f784c9a465e54bd64000b6a0716431808cd83774af5fe99c131"
       }
     },
     {
@@ -11719,13 +12412,326 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
-      "platform_overrides": {},
+      "platform_overrides": {
+        "windows": {
+          "options": [
+            {
+              "names": [
+                "--all"
+              ],
+              "value": null,
+              "description": "Upgrade every installed editor that has a newer patch",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--replace"
+              ],
+              "value": null,
+              "description": "Uninstall the old editor after the upgrade succeeds",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--remove-old"
+              ],
+              "value": null,
+              "description": "Alias for --replace",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "-a",
+                "--architecture"
+              ],
+              "value": "<architecture>",
+              "description": "Editor architecture (x86_64 or arm64) (default: \"unknown\", env: UNITY_ARCHITECTURE)",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "-m",
+                "--module"
+              ],
+              "value": "<module...>",
+              "description": "Extra module to install, on top of the modules carried over (repeatable)",
+              "required": false,
+              "repeatable": true,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--no-modules"
+              ],
+              "value": null,
+              "description": "Skip carrying over the current editorâ€™s modules",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "-y",
+                "--yes"
+              ],
+              "value": null,
+              "description": "Skip confirmation prompts",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--accept-eula"
+              ],
+              "value": null,
+              "description": "Accept module license agreements automatically",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--dry-run"
+              ],
+              "value": null,
+              "description": "Show available upgrades without installing",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--check"
+              ],
+              "value": null,
+              "description": "Alias for --dry-run",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "-h",
+                "--help"
+              ],
+              "value": null,
+              "description": "display help for command",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "-r",
+                "--releases"
+              ],
+              "value": null,
+              "description": "List available Unity releases for download",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "-i",
+                "--installed"
+              ],
+              "value": null,
+              "description": "List installed Unity editors",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "-a",
+                "--architecture"
+              ],
+              "value": "<architecture>",
+              "description": "Editor architecture (x86_64 or arm64) (default: \"unknown\")",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--verbose"
+              ],
+              "value": null,
+              "description": "Show detailed information (full module names, paths)",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--json"
+              ],
+              "value": null,
+              "description": "Output the list in JSON format",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "-w",
+                "--watch"
+              ],
+              "value": null,
+              "description": "Watch for editor changes and refresh output (Ctrl-C to stop)",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "-V",
+                "--version"
+              ],
+              "value": null,
+              "description": "output the version number",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--format"
+              ],
+              "value": "<format>",
+              "description": "Output format: human, json, tsv, ndjson (env: UNITY_FORMAT)",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--no-banner"
+              ],
+              "value": null,
+              "description": "Suppress the startup banner (env: UNITY_NO_BANNER)",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--non-interactive"
+              ],
+              "value": null,
+              "description": "Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE)",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--quiet"
+              ],
+              "value": null,
+              "description": "Suppress informational output (env: UNITY_QUIET)",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--verbose"
+              ],
+              "value": null,
+              "description": "Show full error details including stack traces on failure (env: UNITY_VERBOSE)",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--proxy"
+              ],
+              "value": "<url>",
+              "description": "HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://user:pass@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY)",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--proxy-disable"
+              ],
+              "value": null,
+              "description": "Disable proxy for this invocation, ignoring all sources",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--log-proxy"
+              ],
+              "value": null,
+              "description": "Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY)",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--no-log-proxy"
+              ],
+              "value": null,
+              "description": "Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation.",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            }
+          ]
+        }
+      },
       "source_hashes": {
-        "macos": "041a91084a3c4d02b196151d1bd54ca81c52051dc740d35f03b2eb66ecf9d847"
+        "linux": "041a91084a3c4d02b196151d1bd54ca81c52051dc740d35f03b2eb66ecf9d847",
+        "macos": "041a91084a3c4d02b196151d1bd54ca81c52051dc740d35f03b2eb66ecf9d847",
+        "windows": "98dec024276bfe5b8c5b861ebf054286ad8716a06feb9f4eef3d8195113dcc42"
       }
     },
     {
@@ -11905,13 +12911,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "4a30d3514eb2290bd788bd91f8f13e74635f24ced7beffd5ebdafc626eb71540"
+        "linux": "4a30d3514eb2290bd788bd91f8f13e74635f24ced7beffd5ebdafc626eb71540",
+        "macos": "4a30d3514eb2290bd788bd91f8f13e74635f24ced7beffd5ebdafc626eb71540",
+        "windows": "4a30d3514eb2290bd788bd91f8f13e74635f24ced7beffd5ebdafc626eb71540"
       }
     },
     {
@@ -12304,13 +13312,232 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
-      "platform_overrides": {},
+      "platform_overrides": {
+        "windows": {
+          "subcommands": [
+            {
+              "name": "analytics",
+              "aliases": [],
+              "summary": "Manage analytics and telemetry consent"
+            },
+            {
+              "name": "auth",
+              "aliases": [
+                "a"
+              ],
+              "summary": "Sign in, check login state, or sign out"
+            },
+            {
+              "name": "bug",
+              "aliases": [],
+              "summary": "Report a bug directly to the Unity bug reporter"
+            },
+            {
+              "name": "build",
+              "aliases": [],
+              "summary": "Build a Unity project from the command line. Spawns the editor in batch mode and forwards conventional CI flags."
+            },
+            {
+              "name": "cache",
+              "aliases": [],
+              "summary": "Manage the download cache"
+            },
+            {
+              "name": "changelog",
+              "aliases": [],
+              "summary": "Show release notes for the installed CLI"
+            },
+            {
+              "name": "cloud",
+              "aliases": [],
+              "summary": "Manage Unity Cloud organizations and projects"
+            },
+            {
+              "name": "completion",
+              "aliases": [],
+              "summary": "Print a shell completion script"
+            },
+            {
+              "name": "config",
+              "aliases": [],
+              "summary": "View or change persistent CLI configuration"
+            },
+            {
+              "name": "diagnose",
+              "aliases": [],
+              "summary": "One-shot diagnostic commands for support â€” paste-safe, redacted output"
+            },
+            {
+              "name": "doctor",
+              "aliases": [],
+              "summary": "Print diagnostic info about your Unity CLI environment"
+            },
+            {
+              "name": "editor",
+              "aliases": [],
+              "summary": "Manage a Unity editor installation"
+            },
+            {
+              "name": "editors",
+              "aliases": [
+                "e"
+              ],
+              "summary": "Manage Unity editors"
+            },
+            {
+              "name": "env",
+              "aliases": [],
+              "summary": "Print Unity Hub environment paths and version"
+            },
+            {
+              "name": "hub",
+              "aliases": [],
+              "summary": "Manage the Unity Hub application"
+            },
+            {
+              "name": "install",
+              "aliases": [
+                "i"
+              ],
+              "summary": "Install a Unity editor"
+            },
+            {
+              "name": "install-modules",
+              "aliases": [
+                "im"
+              ],
+              "summary": "Install or list modules for an installed editor (fully interactive when no arguments provided)"
+            },
+            {
+              "name": "install-path",
+              "aliases": [
+                "ip"
+              ],
+              "summary": "Set or get the editor install path"
+            },
+            {
+              "name": "language",
+              "aliases": [
+                "lang"
+              ],
+              "summary": "Show or change the CLI display language"
+            },
+            {
+              "name": "license",
+              "aliases": [],
+              "summary": "List the Unity licenses active on this machine"
+            },
+            {
+              "name": "list",
+              "aliases": [],
+              "summary": "List tools available on the connected Unity Editor (commands registered by the Pipeline package)"
+            },
+            {
+              "name": "logs",
+              "aliases": [],
+              "summary": "Read and tail the Hub log file"
+            },
+            {
+              "name": "mcp",
+              "aliases": [],
+              "summary": "MCP server and client configuration for Unity Editor"
+            },
+            {
+              "name": "modules",
+              "aliases": [],
+              "summary": "List and manage Unity editor modules"
+            },
+            {
+              "name": "pipeline",
+              "aliases": [
+                "pipe"
+              ],
+              "summary": "Unity Editor Pipeline automation commands"
+            },
+            {
+              "name": "projects",
+              "aliases": [
+                "p"
+              ],
+              "summary": "Manage Unity projects in the Hub registry"
+            },
+            {
+              "name": "command",
+              "aliases": [
+                "cmd"
+              ],
+              "summary": "Execute commands on connected Unity Editor instances, or list available commands"
+            },
+            {
+              "name": "templates",
+              "aliases": [
+                "t"
+              ],
+              "summary": "Browse, inspect, create, edit, and delete Unity project templates"
+            },
+            {
+              "name": "test",
+              "aliases": [],
+              "summary": "Run a project's EditMode/PlayMode tests in the editor and write a results report"
+            },
+            {
+              "name": "open",
+              "aliases": [],
+              "summary": "Open a Unity project with the correct Editor version"
+            },
+            {
+              "name": "run",
+              "aliases": [],
+              "summary": "Run a Unity project in batch mode and forward args to the editor"
+            },
+            {
+              "name": "releases",
+              "aliases": [],
+              "summary": "List available Unity releases"
+            },
+            {
+              "name": "self-uninstall",
+              "aliases": [],
+              "summary": "Uninstall the unity CLI (removes the binary and environment files)"
+            },
+            {
+              "name": "shell",
+              "aliases": [],
+              "summary": "Start an interactive shell (REPL) that runs many commands in one warm process"
+            },
+            {
+              "name": "status",
+              "aliases": [],
+              "summary": "Show live state of every connected Unity Editor (port, project, version, PID, state)"
+            },
+            {
+              "name": "uninstall",
+              "aliases": [
+                "u"
+              ],
+              "summary": "Uninstall an installed Unity editor"
+            },
+            {
+              "name": "upgrade",
+              "aliases": [],
+              "summary": "Upgrade the unity CLI to the latest version"
+            },
+            {
+              "name": "help",
+              "aliases": [],
+              "summary": "display help for command"
+            }
+          ]
+        }
+      },
       "source_hashes": {
-        "macos": "0abfcda20ff8ea359e16782014f20b83cc7f0beb2e6fae5e47c0e3f05f895473"
+        "linux": "0abfcda20ff8ea359e16782014f20b83cc7f0beb2e6fae5e47c0e3f05f895473",
+        "macos": "0abfcda20ff8ea359e16782014f20b83cc7f0beb2e6fae5e47c0e3f05f895473",
+        "windows": "9226a145c00cc89f509f24b629e952874d1ab921f58677233b247a061c0fcea0"
       }
     },
     {
@@ -12501,13 +13728,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "7e3d4a1d0e07c48930ce2a9bb2de0e902fb9fa2ebead5f7b7fbe121831a41afd"
+        "linux": "7e3d4a1d0e07c48930ce2a9bb2de0e902fb9fa2ebead5f7b7fbe121831a41afd",
+        "macos": "7e3d4a1d0e07c48930ce2a9bb2de0e902fb9fa2ebead5f7b7fbe121831a41afd",
+        "windows": "7e3d4a1d0e07c48930ce2a9bb2de0e902fb9fa2ebead5f7b7fbe121831a41afd"
       }
     },
     {
@@ -12749,13 +13978,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "9b9b86e2862309afc20d2ec8566af23c17837ccb0cb4d4fdf1443f29ed831e5f"
+        "linux": "9b9b86e2862309afc20d2ec8566af23c17837ccb0cb4d4fdf1443f29ed831e5f",
+        "macos": "9b9b86e2862309afc20d2ec8566af23c17837ccb0cb4d4fdf1443f29ed831e5f",
+        "windows": "9b9b86e2862309afc20d2ec8566af23c17837ccb0cb4d4fdf1443f29ed831e5f"
       }
     },
     {
@@ -13076,13 +14307,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "d47b28da3eda883f93766f9738492b6ed23a487066e881c9d243653f6cb57871"
+        "linux": "d47b28da3eda883f93766f9738492b6ed23a487066e881c9d243653f6cb57871",
+        "macos": "d47b28da3eda883f93766f9738492b6ed23a487066e881c9d243653f6cb57871",
+        "windows": "d47b28da3eda883f93766f9738492b6ed23a487066e881c9d243653f6cb57871"
       }
     },
     {
@@ -13426,13 +14659,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "14d2adfec7a3267ce0a23f01e54fdd8bd62bf0a9e9fff2cdd3f2e61b383a02e3"
+        "linux": "14d2adfec7a3267ce0a23f01e54fdd8bd62bf0a9e9fff2cdd3f2e61b383a02e3",
+        "macos": "14d2adfec7a3267ce0a23f01e54fdd8bd62bf0a9e9fff2cdd3f2e61b383a02e3",
+        "windows": "14d2adfec7a3267ce0a23f01e54fdd8bd62bf0a9e9fff2cdd3f2e61b383a02e3"
       }
     },
     {
@@ -13638,13 +14873,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "24d400db536746a05d8b6a79af3ae097bc12ed825d578c6851461baf5590ea0a"
+        "linux": "24d400db536746a05d8b6a79af3ae097bc12ed825d578c6851461baf5590ea0a",
+        "macos": "24d400db536746a05d8b6a79af3ae097bc12ed825d578c6851461baf5590ea0a",
+        "windows": "24d400db536746a05d8b6a79af3ae097bc12ed825d578c6851461baf5590ea0a"
       }
     },
     {
@@ -13848,13 +15085,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "32884b093d12e28efcc694acb0b139007136e47d22042de9681bec241b3f3056"
+        "linux": "32884b093d12e28efcc694acb0b139007136e47d22042de9681bec241b3f3056",
+        "macos": "32884b093d12e28efcc694acb0b139007136e47d22042de9681bec241b3f3056",
+        "windows": "32884b093d12e28efcc694acb0b139007136e47d22042de9681bec241b3f3056"
       }
     },
     {
@@ -14071,13 +15310,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "bd887c4a1bc69949d22309223bbbac6f6f51d7c395d2c972fe1fd2bf37265ae0"
+        "linux": "bd887c4a1bc69949d22309223bbbac6f6f51d7c395d2c972fe1fd2bf37265ae0",
+        "macos": "bd887c4a1bc69949d22309223bbbac6f6f51d7c395d2c972fe1fd2bf37265ae0",
+        "windows": "bd887c4a1bc69949d22309223bbbac6f6f51d7c395d2c972fe1fd2bf37265ae0"
       }
     },
     {
@@ -14335,13 +15576,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "46eddf27ab99ca36f78deaa1126ff043efc41822cdaf90b3b55a08eabfd2d486"
+        "linux": "46eddf27ab99ca36f78deaa1126ff043efc41822cdaf90b3b55a08eabfd2d486",
+        "macos": "46eddf27ab99ca36f78deaa1126ff043efc41822cdaf90b3b55a08eabfd2d486",
+        "windows": "46eddf27ab99ca36f78deaa1126ff043efc41822cdaf90b3b55a08eabfd2d486"
       }
     },
     {
@@ -14533,13 +15776,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "8f9e3b494a48583cc7a86139f5432ba69145e73ba7fbaeb7427657f43c875edb"
+        "linux": "8f9e3b494a48583cc7a86139f5432ba69145e73ba7fbaeb7427657f43c875edb",
+        "macos": "8f9e3b494a48583cc7a86139f5432ba69145e73ba7fbaeb7427657f43c875edb",
+        "windows": "8f9e3b494a48583cc7a86139f5432ba69145e73ba7fbaeb7427657f43c875edb"
       }
     },
     {
@@ -14743,13 +15988,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "cd94a3ea913af9bf08d12e23834211de389bdc6e1fb32020bd05b7bcd37418d5"
+        "linux": "cd94a3ea913af9bf08d12e23834211de389bdc6e1fb32020bd05b7bcd37418d5",
+        "macos": "cd94a3ea913af9bf08d12e23834211de389bdc6e1fb32020bd05b7bcd37418d5",
+        "windows": "cd94a3ea913af9bf08d12e23834211de389bdc6e1fb32020bd05b7bcd37418d5"
       }
     },
     {
@@ -14957,13 +16204,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "74b1ae9470f72e8d25d4ea6cde1dec86dff767f6415f20a383b329fe383248a0"
+        "linux": "74b1ae9470f72e8d25d4ea6cde1dec86dff767f6415f20a383b329fe383248a0",
+        "macos": "74b1ae9470f72e8d25d4ea6cde1dec86dff767f6415f20a383b329fe383248a0",
+        "windows": "74b1ae9470f72e8d25d4ea6cde1dec86dff767f6415f20a383b329fe383248a0"
       }
     },
     {
@@ -15156,13 +16405,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "c52eb74712c2fa2a557b31fabd2bfa351a955587dafb4a9f0c50a0244f10afe5"
+        "linux": "c52eb74712c2fa2a557b31fabd2bfa351a955587dafb4a9f0c50a0244f10afe5",
+        "macos": "c52eb74712c2fa2a557b31fabd2bfa351a955587dafb4a9f0c50a0244f10afe5",
+        "windows": "c52eb74712c2fa2a557b31fabd2bfa351a955587dafb4a9f0c50a0244f10afe5"
       }
     },
     {
@@ -15355,13 +16606,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "19812ca795bac94ed9beb0817407625adbc5120d091ddedb1d23be78e71771d0"
+        "linux": "19812ca795bac94ed9beb0817407625adbc5120d091ddedb1d23be78e71771d0",
+        "macos": "19812ca795bac94ed9beb0817407625adbc5120d091ddedb1d23be78e71771d0",
+        "windows": "19812ca795bac94ed9beb0817407625adbc5120d091ddedb1d23be78e71771d0"
       }
     },
     {
@@ -15553,13 +16806,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "11ebb3e93c842141d7645b7734a3a2820b7027f0a115976fe0630474f07004cc"
+        "linux": "11ebb3e93c842141d7645b7734a3a2820b7027f0a115976fe0630474f07004cc",
+        "macos": "11ebb3e93c842141d7645b7734a3a2820b7027f0a115976fe0630474f07004cc",
+        "windows": "11ebb3e93c842141d7645b7734a3a2820b7027f0a115976fe0630474f07004cc"
       }
     },
     {
@@ -15772,13 +17027,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "fc248da40f95029193f78f2ab6e34d574ce414e9fc1967e939ba78dd907a6150"
+        "linux": "fc248da40f95029193f78f2ab6e34d574ce414e9fc1967e939ba78dd907a6150",
+        "macos": "fc248da40f95029193f78f2ab6e34d574ce414e9fc1967e939ba78dd907a6150",
+        "windows": "fc248da40f95029193f78f2ab6e34d574ce414e9fc1967e939ba78dd907a6150"
       }
     },
     {
@@ -15992,13 +17249,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "1cde01aea50332ded8fcacff1e07b4926355d5e8dc491854de861218dc93df7c"
+        "linux": "1cde01aea50332ded8fcacff1e07b4926355d5e8dc491854de861218dc93df7c",
+        "macos": "1cde01aea50332ded8fcacff1e07b4926355d5e8dc491854de861218dc93df7c",
+        "windows": "1cde01aea50332ded8fcacff1e07b4926355d5e8dc491854de861218dc93df7c"
       }
     },
     {
@@ -16222,13 +17481,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "ceac9b21a7f90ec82c208d11a185f4ed8a78371545125aecd61ed10edfc54814"
+        "linux": "ceac9b21a7f90ec82c208d11a185f4ed8a78371545125aecd61ed10edfc54814",
+        "macos": "ceac9b21a7f90ec82c208d11a185f4ed8a78371545125aecd61ed10edfc54814",
+        "windows": "ceac9b21a7f90ec82c208d11a185f4ed8a78371545125aecd61ed10edfc54814"
       }
     },
     {
@@ -16524,13 +17785,52 @@
       "has_unknown_sections": true,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
-      "platform_overrides": {},
+      "platform_overrides": {
+        "windows": {
+          "arguments": [
+            {
+              "name": "client",
+              "description": "Client to configure (claude, cursor, vscode, windsurf, â€¦)",
+              "required": true,
+              "repeatable": false
+            }
+          ],
+          "extra_sections": [
+            {
+              "heading": "Supported clients",
+              "lines": [
+                "  claude          Claude Desktop (global)",
+                "  claude-code     Claude Code CLI (via claude mcp add)",
+                "  cursor          Cursor â€” global (~/.cursor/mcp.json)",
+                "  cursor --local  Cursor â€” project-local (.cursor/mcp.json)",
+                "  vscode          VS Code / GitHub Copilot (.vscode/mcp.json)",
+                "  vscode-insiders VS Code Insiders / GitHub Copilot",
+                "  copilot-cli     GitHub Copilot CLI",
+                "  windsurf        Windsurf â€” global",
+                "  windsurf --local Windsurf â€” project-local",
+                "  cline           Cline VS Code extension",
+                "  codex           OpenAI Codex CLI",
+                "  kiro            AWS Kiro IDE",
+                "  trae            Trae (prints manual instructions)",
+                "  openclaw        OpenClaw (prints manual instructions)",
+                "  antigravity     Antigravity 2.0 / Antigravity IDE",
+                "  zed             Zed editor",
+                "  continue        Continue VS Code extension",
+                "  inspect         Launch MCP Inspector in browser",
+                ""
+              ]
+            }
+          ]
+        }
+      },
       "source_hashes": {
-        "macos": "03c6330d5f030e3d7817c29398ee7e975d4ae406d4e37b79129858d217034e79"
+        "linux": "03c6330d5f030e3d7817c29398ee7e975d4ae406d4e37b79129858d217034e79",
+        "macos": "03c6330d5f030e3d7817c29398ee7e975d4ae406d4e37b79129858d217034e79",
+        "windows": "7764d354abd379df0ec229c4b9322d41b3550f74b19a249e260be4a962806c52"
       }
     },
     {
@@ -16721,13 +18021,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "0a5e6dc9dd1cb15a61767d23a5a3e6d8d9ef8431181fc38e9e3e103acc67bcba"
+        "linux": "0a5e6dc9dd1cb15a61767d23a5a3e6d8d9ef8431181fc38e9e3e103acc67bcba",
+        "macos": "0a5e6dc9dd1cb15a61767d23a5a3e6d8d9ef8431181fc38e9e3e103acc67bcba",
+        "windows": "0a5e6dc9dd1cb15a61767d23a5a3e6d8d9ef8431181fc38e9e3e103acc67bcba"
       }
     },
     {
@@ -16927,13 +18229,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "de5592bd948805868eb012c4f5b0e4bd05a5f27a910b38e062eab9dda39eb335"
+        "linux": "de5592bd948805868eb012c4f5b0e4bd05a5f27a910b38e062eab9dda39eb335",
+        "macos": "de5592bd948805868eb012c4f5b0e4bd05a5f27a910b38e062eab9dda39eb335",
+        "windows": "de5592bd948805868eb012c4f5b0e4bd05a5f27a910b38e062eab9dda39eb335"
       }
     },
     {
@@ -17212,13 +18516,29 @@
       "has_unknown_sections": true,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
-      "platform_overrides": {},
+      "platform_overrides": {
+        "windows": {
+          "extra_sections": [
+            {
+              "heading": "The project argument is matched against the Hub project registry first",
+              "lines": [
+                "  - Exact name or path â†’ opens immediately",
+                "  - Glob pattern (e.g. \"My Game*\") â†’ prompts to select when multiple match",
+                "  - No registry match â†’ falls back to treating the argument as a file system path",
+                ""
+              ]
+            }
+          ]
+        }
+      },
       "source_hashes": {
-        "macos": "af57c8fe082893ba16f1bce18060e7fe866d1da20fc7864071268254e93671a5"
+        "linux": "af57c8fe082893ba16f1bce18060e7fe866d1da20fc7864071268254e93671a5",
+        "macos": "af57c8fe082893ba16f1bce18060e7fe866d1da20fc7864071268254e93671a5",
+        "windows": "837d44accea84e8f62202a8be99b098f8af7e43707415db528bbaa059ca8a471"
       }
     },
     {
@@ -17445,13 +18765,15 @@
       "has_unknown_sections": true,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "80559da974995992dedab3897b13aaef890502cd9bf089e6db64f181149c5a72"
+        "linux": "80559da974995992dedab3897b13aaef890502cd9bf089e6db64f181149c5a72",
+        "macos": "80559da974995992dedab3897b13aaef890502cd9bf089e6db64f181149c5a72",
+        "windows": "80559da974995992dedab3897b13aaef890502cd9bf089e6db64f181149c5a72"
       }
     },
     {
@@ -17665,13 +18987,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "d9e829436eee3e7204c08936f9293fb65e11fd0845ed6dd46d63c803ea19aa15"
+        "linux": "d9e829436eee3e7204c08936f9293fb65e11fd0845ed6dd46d63c803ea19aa15",
+        "macos": "d9e829436eee3e7204c08936f9293fb65e11fd0845ed6dd46d63c803ea19aa15",
+        "windows": "d9e829436eee3e7204c08936f9293fb65e11fd0845ed6dd46d63c803ea19aa15"
       }
     },
     {
@@ -17852,13 +19176,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "94b1df30f773d0761e8c6576e4266ce9c206efa962e042b4d033393cb7c0ae7a"
+        "linux": "94b1df30f773d0761e8c6576e4266ce9c206efa962e042b4d033393cb7c0ae7a",
+        "macos": "94b1df30f773d0761e8c6576e4266ce9c206efa962e042b4d033393cb7c0ae7a",
+        "windows": "94b1df30f773d0761e8c6576e4266ce9c206efa962e042b4d033393cb7c0ae7a"
       }
     },
     {
@@ -18039,13 +19365,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "683c341216ebfc3cc0d88e7993f5b119a6d259f666deb44a780657baaadafc21"
+        "linux": "683c341216ebfc3cc0d88e7993f5b119a6d259f666deb44a780657baaadafc21",
+        "macos": "683c341216ebfc3cc0d88e7993f5b119a6d259f666deb44a780657baaadafc21",
+        "windows": "683c341216ebfc3cc0d88e7993f5b119a6d259f666deb44a780657baaadafc21"
       }
     },
     {
@@ -18237,13 +19565,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "89bd7988512925a35f9033f6cf81dcd992d9ee02be71ea66c92987e5b940367b"
+        "linux": "89bd7988512925a35f9033f6cf81dcd992d9ee02be71ea66c92987e5b940367b",
+        "macos": "89bd7988512925a35f9033f6cf81dcd992d9ee02be71ea66c92987e5b940367b",
+        "windows": "89bd7988512925a35f9033f6cf81dcd992d9ee02be71ea66c92987e5b940367b"
       }
     },
     {
@@ -18511,13 +19841,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "f83ccd02a447b6180d2de1dee0ff44f19b62e241240d462f4565db72293a9a09"
+        "linux": "f83ccd02a447b6180d2de1dee0ff44f19b62e241240d462f4565db72293a9a09",
+        "macos": "f83ccd02a447b6180d2de1dee0ff44f19b62e241240d462f4565db72293a9a09",
+        "windows": "f83ccd02a447b6180d2de1dee0ff44f19b62e241240d462f4565db72293a9a09"
       }
     },
     {
@@ -18719,13 +20051,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "0e513f6a0e7334ac22ed485f46bbde955b33d722ba6bdfd9b5b6e12449962fb5"
+        "linux": "0e513f6a0e7334ac22ed485f46bbde955b33d722ba6bdfd9b5b6e12449962fb5",
+        "macos": "0e513f6a0e7334ac22ed485f46bbde955b33d722ba6bdfd9b5b6e12449962fb5",
+        "windows": "0e513f6a0e7334ac22ed485f46bbde955b33d722ba6bdfd9b5b6e12449962fb5"
       }
     },
     {
@@ -19029,13 +20363,15 @@
       "has_unknown_sections": true,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "49b969304f5a27bc267a6d83a2e8995d4375a568577bc01d24a23708e53bfbb5"
+        "linux": "49b969304f5a27bc267a6d83a2e8995d4375a568577bc01d24a23708e53bfbb5",
+        "macos": "49b969304f5a27bc267a6d83a2e8995d4375a568577bc01d24a23708e53bfbb5",
+        "windows": "49b969304f5a27bc267a6d83a2e8995d4375a568577bc01d24a23708e53bfbb5"
       }
     },
     {
@@ -19445,13 +20781,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "06de623d256ea1be3338bd944f2ac45cacbeb96b61a8fe51054d63ff242a3bbd"
+        "linux": "06de623d256ea1be3338bd944f2ac45cacbeb96b61a8fe51054d63ff242a3bbd",
+        "macos": "06de623d256ea1be3338bd944f2ac45cacbeb96b61a8fe51054d63ff242a3bbd",
+        "windows": "06de623d256ea1be3338bd944f2ac45cacbeb96b61a8fe51054d63ff242a3bbd"
       }
     },
     {
@@ -19648,13 +20986,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "758069edb734dbfeeb01d992d12ab16deed9048d0fbebf8523c66219a3a4f2b9"
+        "linux": "758069edb734dbfeeb01d992d12ab16deed9048d0fbebf8523c66219a3a4f2b9",
+        "macos": "758069edb734dbfeeb01d992d12ab16deed9048d0fbebf8523c66219a3a4f2b9",
+        "windows": "758069edb734dbfeeb01d992d12ab16deed9048d0fbebf8523c66219a3a4f2b9"
       }
     },
     {
@@ -19870,13 +21210,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "c829f1e0b910a498172a51d94e246e2e21ee85ace0432d5ec8d50a1dcd1921fd"
+        "linux": "c829f1e0b910a498172a51d94e246e2e21ee85ace0432d5ec8d50a1dcd1921fd",
+        "macos": "c829f1e0b910a498172a51d94e246e2e21ee85ace0432d5ec8d50a1dcd1921fd",
+        "windows": "c829f1e0b910a498172a51d94e246e2e21ee85ace0432d5ec8d50a1dcd1921fd"
       }
     },
     {
@@ -20080,13 +21422,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "98be5dfbbc269dc9dd93907084cfd1b5cc19538c0b962fd9af278c1d110abf7a"
+        "linux": "98be5dfbbc269dc9dd93907084cfd1b5cc19538c0b962fd9af278c1d110abf7a",
+        "macos": "98be5dfbbc269dc9dd93907084cfd1b5cc19538c0b962fd9af278c1d110abf7a",
+        "windows": "98be5dfbbc269dc9dd93907084cfd1b5cc19538c0b962fd9af278c1d110abf7a"
       }
     },
     {
@@ -20283,13 +21627,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "31840cc5cb3c712a44400c57d50b2722a5a4af808bbb659c13a5a61c7e631ee7"
+        "linux": "31840cc5cb3c712a44400c57d50b2722a5a4af808bbb659c13a5a61c7e631ee7",
+        "macos": "31840cc5cb3c712a44400c57d50b2722a5a4af808bbb659c13a5a61c7e631ee7",
+        "windows": "31840cc5cb3c712a44400c57d50b2722a5a4af808bbb659c13a5a61c7e631ee7"
       }
     },
     {
@@ -20515,13 +21861,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "33fff43d6731decf3fcb6ce53aa627b8b96e582c47c8b62082ad2e4eebf88b8a"
+        "linux": "33fff43d6731decf3fcb6ce53aa627b8b96e582c47c8b62082ad2e4eebf88b8a",
+        "macos": "33fff43d6731decf3fcb6ce53aa627b8b96e582c47c8b62082ad2e4eebf88b8a",
+        "windows": "33fff43d6731decf3fcb6ce53aa627b8b96e582c47c8b62082ad2e4eebf88b8a"
       }
     },
     {
@@ -20857,13 +22205,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "93dcc6b8d0d2b1a1aef40d1aabf427341d32058bb6930119343c3e6e53b97efd"
+        "linux": "93dcc6b8d0d2b1a1aef40d1aabf427341d32058bb6930119343c3e6e53b97efd",
+        "macos": "93dcc6b8d0d2b1a1aef40d1aabf427341d32058bb6930119343c3e6e53b97efd",
+        "windows": "93dcc6b8d0d2b1a1aef40d1aabf427341d32058bb6930119343c3e6e53b97efd"
       }
     },
     {
@@ -21171,13 +22521,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "d41b55a4958a6b89d556825cb4819b6ccb45f93079d57d8e5973898b5ac5fae9"
+        "linux": "d41b55a4958a6b89d556825cb4819b6ccb45f93079d57d8e5973898b5ac5fae9",
+        "macos": "d41b55a4958a6b89d556825cb4819b6ccb45f93079d57d8e5973898b5ac5fae9",
+        "windows": "d41b55a4958a6b89d556825cb4819b6ccb45f93079d57d8e5973898b5ac5fae9"
       }
     },
     {
@@ -21436,13 +22788,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "f0a0f9b7683df695c555433bf24ebcd83eb48838c6ceeae0128a0ead2dc735ad"
+        "linux": "f0a0f9b7683df695c555433bf24ebcd83eb48838c6ceeae0128a0ead2dc735ad",
+        "macos": "f0a0f9b7683df695c555433bf24ebcd83eb48838c6ceeae0128a0ead2dc735ad",
+        "windows": "f0a0f9b7683df695c555433bf24ebcd83eb48838c6ceeae0128a0ead2dc735ad"
       }
     },
     {
@@ -21723,13 +23077,15 @@
       "has_unknown_sections": true,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "4fc594b268dd7ec478ca8fc0da8f5b523540f6a6b9cd58f589425fdb3c357b80"
+        "linux": "4fc594b268dd7ec478ca8fc0da8f5b523540f6a6b9cd58f589425fdb3c357b80",
+        "macos": "4fc594b268dd7ec478ca8fc0da8f5b523540f6a6b9cd58f589425fdb3c357b80",
+        "windows": "4fc594b268dd7ec478ca8fc0da8f5b523540f6a6b9cd58f589425fdb3c357b80"
       }
     },
     {
@@ -21932,13 +23288,26 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
-      "platform_overrides": {},
+      "platform_overrides": {
+        "windows": {
+          "arguments": [
+            {
+              "name": "pattern",
+              "description": "Glob filter on project title or path â€” pins all matching projects",
+              "required": true,
+              "repeatable": false
+            }
+          ]
+        }
+      },
       "source_hashes": {
-        "macos": "ec0f67b2bca37178856f40c7883c47d1ced2f5b86cc61a3c25a76491bef8441c"
+        "linux": "ec0f67b2bca37178856f40c7883c47d1ced2f5b86cc61a3c25a76491bef8441c",
+        "macos": "ec0f67b2bca37178856f40c7883c47d1ced2f5b86cc61a3c25a76491bef8441c",
+        "windows": "1657a9ddcd00087201bbae834965978155bbae97fe19a38b81401ced5011fe2d"
       }
     },
     {
@@ -22152,13 +23521,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "830f59f14036caf568f163ee0fe7ba3e0037609fd54fe8e5718a19e86459cc0e"
+        "linux": "830f59f14036caf568f163ee0fe7ba3e0037609fd54fe8e5718a19e86459cc0e",
+        "macos": "830f59f14036caf568f163ee0fe7ba3e0037609fd54fe8e5718a19e86459cc0e",
+        "windows": "830f59f14036caf568f163ee0fe7ba3e0037609fd54fe8e5718a19e86459cc0e"
       }
     },
     {
@@ -22374,13 +23745,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "ad19eac1da0c3d3096e6baf52528a5a3ac0677b21ebaf503b76912dfb484c454"
+        "linux": "ad19eac1da0c3d3096e6baf52528a5a3ac0677b21ebaf503b76912dfb484c454",
+        "macos": "ad19eac1da0c3d3096e6baf52528a5a3ac0677b21ebaf503b76912dfb484c454",
+        "windows": "ad19eac1da0c3d3096e6baf52528a5a3ac0677b21ebaf503b76912dfb484c454"
       }
     },
     {
@@ -22577,13 +23950,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "f1d0221175f8dd277a950269b8c5dfd954a17309cf4c06edeae9b66ca395c344"
+        "linux": "f1d0221175f8dd277a950269b8c5dfd954a17309cf4c06edeae9b66ca395c344",
+        "macos": "f1d0221175f8dd277a950269b8c5dfd954a17309cf4c06edeae9b66ca395c344",
+        "windows": "f1d0221175f8dd277a950269b8c5dfd954a17309cf4c06edeae9b66ca395c344"
       }
     },
     {
@@ -22805,13 +24180,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "038a6ae83b8f3e2e4c770a3f6a75c96392a1ffcd34be9d29c0ca391ce0ecc192"
+        "linux": "038a6ae83b8f3e2e4c770a3f6a75c96392a1ffcd34be9d29c0ca391ce0ecc192",
+        "macos": "038a6ae83b8f3e2e4c770a3f6a75c96392a1ffcd34be9d29c0ca391ce0ecc192",
+        "windows": "038a6ae83b8f3e2e4c770a3f6a75c96392a1ffcd34be9d29c0ca391ce0ecc192"
       }
     },
     {
@@ -23022,13 +24399,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "9d309c0a45a35d45c90ccb0f13cd5f9e3c4c14f02ebce7bd9b766f1224015f8d"
+        "linux": "9d309c0a45a35d45c90ccb0f13cd5f9e3c4c14f02ebce7bd9b766f1224015f8d",
+        "macos": "9d309c0a45a35d45c90ccb0f13cd5f9e3c4c14f02ebce7bd9b766f1224015f8d",
+        "windows": "9d309c0a45a35d45c90ccb0f13cd5f9e3c4c14f02ebce7bd9b766f1224015f8d"
       }
     },
     {
@@ -23231,13 +24610,26 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
-      "platform_overrides": {},
+      "platform_overrides": {
+        "windows": {
+          "arguments": [
+            {
+              "name": "pattern",
+              "description": "Glob filter on project title or path â€” unpins all matching projects",
+              "required": true,
+              "repeatable": false
+            }
+          ]
+        }
+      },
       "source_hashes": {
-        "macos": "88689de45eebf148e5effb36ece2790412dbbdcf58f4eea4be35ac22017c6f78"
+        "linux": "88689de45eebf148e5effb36ece2790412dbbdcf58f4eea4be35ac22017c6f78",
+        "macos": "88689de45eebf148e5effb36ece2790412dbbdcf58f4eea4be35ac22017c6f78",
+        "windows": "16d5fe136582f1029f76daebaee818b06311526ff78a07f7afae17a41bd3eaba"
       }
     },
     {
@@ -23464,13 +24856,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "f2e60846c07a0be08189408687d4d65eb3039ee1e6c686501788a3ece08c22f2"
+        "linux": "f2e60846c07a0be08189408687d4d65eb3039ee1e6c686501788a3ece08c22f2",
+        "macos": "f2e60846c07a0be08189408687d4d65eb3039ee1e6c686501788a3ece08c22f2",
+        "windows": "f2e60846c07a0be08189408687d4d65eb3039ee1e6c686501788a3ece08c22f2"
       }
     },
     {
@@ -23716,13 +25110,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "47705514dae72bdef1d5372b0c5439cc856fa9e5b1b2bbfd6df80b3f16e786cc"
+        "linux": "47705514dae72bdef1d5372b0c5439cc856fa9e5b1b2bbfd6df80b3f16e786cc",
+        "macos": "47705514dae72bdef1d5372b0c5439cc856fa9e5b1b2bbfd6df80b3f16e786cc",
+        "windows": "47705514dae72bdef1d5372b0c5439cc856fa9e5b1b2bbfd6df80b3f16e786cc"
       }
     },
     {
@@ -23983,13 +25379,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "ae4f234fb3e3088f34e041e5ef6360d5c38823443e4e381e42adb381ebd04aab"
+        "linux": "ae4f234fb3e3088f34e041e5ef6360d5c38823443e4e381e42adb381ebd04aab",
+        "macos": "ae4f234fb3e3088f34e041e5ef6360d5c38823443e4e381e42adb381ebd04aab",
+        "windows": "ae4f234fb3e3088f34e041e5ef6360d5c38823443e4e381e42adb381ebd04aab"
       }
     },
     {
@@ -24203,13 +25601,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "8df28e6683015238767d2fd23c5aedf921f7c908957f5751f46f37df576cc92a"
+        "linux": "8df28e6683015238767d2fd23c5aedf921f7c908957f5751f46f37df576cc92a",
+        "macos": "8df28e6683015238767d2fd23c5aedf921f7c908957f5751f46f37df576cc92a",
+        "windows": "8df28e6683015238767d2fd23c5aedf921f7c908957f5751f46f37df576cc92a"
       }
     },
     {
@@ -24389,13 +25789,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "2beac26795103c460a2e6769fa398902aaaf75ae271b45fe3719389371ea4a83"
+        "linux": "2beac26795103c460a2e6769fa398902aaaf75ae271b45fe3719389371ea4a83",
+        "macos": "2beac26795103c460a2e6769fa398902aaaf75ae271b45fe3719389371ea4a83",
+        "windows": "2beac26795103c460a2e6769fa398902aaaf75ae271b45fe3719389371ea4a83"
       }
     },
     {
@@ -24597,13 +25999,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "24d54e2777e22bb83250ce987884f58663914cebc41585a80f6822d592acc4aa"
+        "linux": "24d54e2777e22bb83250ce987884f58663914cebc41585a80f6822d592acc4aa",
+        "macos": "24d54e2777e22bb83250ce987884f58663914cebc41585a80f6822d592acc4aa",
+        "windows": "24d54e2777e22bb83250ce987884f58663914cebc41585a80f6822d592acc4aa"
       }
     },
     {
@@ -24821,13 +26225,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "6ce8e4827de3c3c59056e79be1c3102f0ed43c752b27b5a303eac035200a37d9"
+        "linux": "6ce8e4827de3c3c59056e79be1c3102f0ed43c752b27b5a303eac035200a37d9",
+        "macos": "6ce8e4827de3c3c59056e79be1c3102f0ed43c752b27b5a303eac035200a37d9",
+        "windows": "6ce8e4827de3c3c59056e79be1c3102f0ed43c752b27b5a303eac035200a37d9"
       }
     },
     {
@@ -25118,13 +26524,242 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
-      "platform_overrides": {},
+      "platform_overrides": {
+        "windows": {
+          "options": [
+            {
+              "names": [
+                "--name"
+              ],
+              "value": "<package-name>",
+              "description": "Template package name (e.g. com.myorg.template.mytemplate)",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--display-name"
+              ],
+              "value": "<name>",
+              "description": "Human-readable template name (e.g. \"My Template\")",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--description"
+              ],
+              "value": "<text>",
+              "description": "Short description of the template",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--template-version"
+              ],
+              "value": "<version>",
+              "description": "Template version (e.g. 1.0.0) â€” use --template-version to avoid conflict with the global --version flag",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--output"
+              ],
+              "value": "<path>",
+              "description": "Directory to write the template archive to (default: configured user templates location)",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--keep-embedded-packages"
+              ],
+              "value": null,
+              "description": "Keep embedded packages in the template archive",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--keep-project-settings"
+              ],
+              "value": null,
+              "description": "Keep project settings in the template archive",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--overwrite"
+              ],
+              "value": null,
+              "description": "Replace an existing template archive without error",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--json"
+              ],
+              "value": null,
+              "description": "Output result as JSON",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "-h",
+                "--help"
+              ],
+              "value": null,
+              "description": "display help for command",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "-V",
+                "--version"
+              ],
+              "value": null,
+              "description": "output the version number",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--format"
+              ],
+              "value": "<format>",
+              "description": "Output format: human, json, tsv, ndjson (env: UNITY_FORMAT)",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--no-banner"
+              ],
+              "value": null,
+              "description": "Suppress the startup banner (env: UNITY_NO_BANNER)",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--non-interactive"
+              ],
+              "value": null,
+              "description": "Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE)",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--quiet"
+              ],
+              "value": null,
+              "description": "Suppress informational output (env: UNITY_QUIET)",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--verbose"
+              ],
+              "value": null,
+              "description": "Show full error details including stack traces on failure (env: UNITY_VERBOSE)",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--proxy"
+              ],
+              "value": "<url>",
+              "description": "HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://user:pass@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY)",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--proxy-disable"
+              ],
+              "value": null,
+              "description": "Disable proxy for this invocation, ignoring all sources",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--log-proxy"
+              ],
+              "value": null,
+              "description": "Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY)",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            },
+            {
+              "names": [
+                "--no-log-proxy"
+              ],
+              "value": null,
+              "description": "Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation.",
+              "required": false,
+              "repeatable": false,
+              "default": null,
+              "choices": []
+            }
+          ]
+        }
+      },
       "source_hashes": {
-        "macos": "ebdba64c264e6f0230c18df8ef4394a8450106d97074ba7ddb5d7f0beaf42a8a"
+        "linux": "ebdba64c264e6f0230c18df8ef4394a8450106d97074ba7ddb5d7f0beaf42a8a",
+        "macos": "ebdba64c264e6f0230c18df8ef4394a8450106d97074ba7ddb5d7f0beaf42a8a",
+        "windows": "9ab0ba2c308dc37e621799d06c1800f1fe19b0da98e9019a8e77c74ac6026608"
       }
     },
     {
@@ -25351,13 +26986,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "2d9da4ce7184528beff32440c2a30db1097d5bc8405dfec93254465d5456506a"
+        "linux": "2d9da4ce7184528beff32440c2a30db1097d5bc8405dfec93254465d5456506a",
+        "macos": "2d9da4ce7184528beff32440c2a30db1097d5bc8405dfec93254465d5456506a",
+        "windows": "2d9da4ce7184528beff32440c2a30db1097d5bc8405dfec93254465d5456506a"
       }
     },
     {
@@ -25641,13 +27278,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "48aef9f02023884e8399d30fd84869f055d7e187d2055ed1fac6158cc9b28349"
+        "linux": "48aef9f02023884e8399d30fd84869f055d7e187d2055ed1fac6158cc9b28349",
+        "macos": "48aef9f02023884e8399d30fd84869f055d7e187d2055ed1fac6158cc9b28349",
+        "windows": "48aef9f02023884e8399d30fd84869f055d7e187d2055ed1fac6158cc9b28349"
       }
     },
     {
@@ -25861,13 +27500,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "2ed7b13aa16fd585a5f9e3311fcbef8553dd8fbe413a187945152018482fe378"
+        "linux": "2ed7b13aa16fd585a5f9e3311fcbef8553dd8fbe413a187945152018482fe378",
+        "macos": "2ed7b13aa16fd585a5f9e3311fcbef8553dd8fbe413a187945152018482fe378",
+        "windows": "2ed7b13aa16fd585a5f9e3311fcbef8553dd8fbe413a187945152018482fe378"
       }
     },
     {
@@ -26112,13 +27753,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "264e1ad308d674da2f37ff5784e947543e361749f9a19b7a466ea626e2db9633"
+        "linux": "264e1ad308d674da2f37ff5784e947543e361749f9a19b7a466ea626e2db9633",
+        "macos": "264e1ad308d674da2f37ff5784e947543e361749f9a19b7a466ea626e2db9633",
+        "windows": "264e1ad308d674da2f37ff5784e947543e361749f9a19b7a466ea626e2db9633"
       }
     },
     {
@@ -26339,13 +27982,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "88225587c03f8c89d4eb05f2d58723fd75379f74694d47c8d3091c6838590187"
+        "linux": "88225587c03f8c89d4eb05f2d58723fd75379f74694d47c8d3091c6838590187",
+        "macos": "88225587c03f8c89d4eb05f2d58723fd75379f74694d47c8d3091c6838590187",
+        "windows": "88225587c03f8c89d4eb05f2d58723fd75379f74694d47c8d3091c6838590187"
       }
     },
     {
@@ -26640,13 +28285,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "ba28455f22ab18ed7507c9b777af6336644cc8da18dbc6cf691fe24199d5be57"
+        "linux": "ba28455f22ab18ed7507c9b777af6336644cc8da18dbc6cf691fe24199d5be57",
+        "macos": "ba28455f22ab18ed7507c9b777af6336644cc8da18dbc6cf691fe24199d5be57",
+        "windows": "ba28455f22ab18ed7507c9b777af6336644cc8da18dbc6cf691fe24199d5be57"
       }
     },
     {
@@ -26875,13 +28522,44 @@
       "has_unknown_sections": true,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
-      "platform_overrides": {},
+      "platform_overrides": {
+        "windows": {
+          "arguments": [
+            {
+              "name": "version",
+              "description": "Version of the editor to uninstall â€” full (6000.2.12f1) or short alias (6.2.12f1, 6.2). Uses stored default if omitted.",
+              "required": true,
+              "repeatable": false
+            }
+          ],
+          "examples": [
+            "$ unity uninstall 6000.2.12f1        # exact internal version",
+            "$ unity uninstall 6.2.12f1           # short alias (same editor)",
+            "$ unity uninstall 6.2                # matches all 6.2.x â€” prompts if ambiguous",
+            "$ unity uninstall 6.2 -y             # auto-select first match, no prompt",
+            "$ unity uninstall 6.2 -a x86_64     # narrow by architecture",
+            "$ unity uninstall                    # uses stored default editor version"
+          ],
+          "extra_sections": [
+            {
+              "heading": "Version aliases",
+              "lines": [
+                "  Unity 6 and later use a short alias form â€” run \"unity editors\" to see the",
+                "  \"Alias\" column alongside each installed editor.",
+                ""
+              ]
+            }
+          ]
+        }
+      },
       "source_hashes": {
-        "macos": "c23b8a192cf445a3d4cc709f6b9258ef4754b96a472789830f192ccd52dca242"
+        "linux": "c23b8a192cf445a3d4cc709f6b9258ef4754b96a472789830f192ccd52dca242",
+        "macos": "c23b8a192cf445a3d4cc709f6b9258ef4754b96a472789830f192ccd52dca242",
+        "windows": "aca1f3fd17b2b631a485595d2546dab6c5da362772a47fe5fed79ad5a0172ff9"
       }
     },
     {
@@ -27139,13 +28817,15 @@
       "has_unknown_sections": false,
       "raw_mentions_experimental": false,
       "availability": {
-        "linux": false,
+        "linux": true,
         "macos": true,
-        "windows": false
+        "windows": true
       },
       "platform_overrides": {},
       "source_hashes": {
-        "macos": "2b8a5116c00bcca0fae551a61de34665970e68c36437c54011e3729f59fe07a3"
+        "linux": "2b8a5116c00bcca0fae551a61de34665970e68c36437c54011e3729f59fe07a3",
+        "macos": "2b8a5116c00bcca0fae551a61de34665970e68c36437c54011e3729f59fe07a3",
+        "windows": "2b8a5116c00bcca0fae551a61de34665970e68c36437c54011e3729f59fe07a3"
       }
     }
   ]

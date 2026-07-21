@@ -9,7 +9,7 @@ Installed help is authoritative; this file is a versioned snapshot.
 ## unity analytics
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Manage analytics and telemetry consent
@@ -71,7 +71,7 @@ Confirm behavior with `unity analytics --help` on the target machine before exec
 ## unity analytics opt-in
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Enable anonymous usage data collection
@@ -130,7 +130,7 @@ Confirm behavior with `unity analytics opt-in --help` on the target machine befo
 ## unity analytics opt-out
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Disable anonymous usage data collection
@@ -189,7 +189,7 @@ Confirm behavior with `unity analytics opt-out --help` on the target machine bef
 ## unity analytics status
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Show current analytics consent status

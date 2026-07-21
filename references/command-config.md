@@ -9,7 +9,7 @@ Installed help is authoritative; this file is a versioned snapshot.
 ## unity config
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 View or change persistent CLI configuration
@@ -70,7 +70,7 @@ Confirm behavior with `unity config --help` on the target machine before executi
 ## unity config proxy
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 View or change the configured proxy server
@@ -133,7 +133,7 @@ Confirm behavior with `unity config proxy --help` on the target machine before e
 ## unity config update-check
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Enable or disable the background check for CLI updates

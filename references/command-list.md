@@ -9,7 +9,7 @@ Installed help is authoritative; this file is a versioned snapshot.
 ## unity list
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 List tools available on the connected Unity Editor (commands registered by the

@@ -9,7 +9,7 @@ Installed help is authoritative; this file is a versioned snapshot.
 ## unity cache
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Manage the download cache
@@ -70,7 +70,7 @@ Confirm behavior with `unity cache --help` on the target machine before executio
 ## unity cache clean
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Remove all files from the download cache
@@ -129,7 +129,7 @@ Confirm behavior with `unity cache clean --help` on the target machine before ex
 ## unity cache info
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Show download cache location and size

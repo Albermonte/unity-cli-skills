@@ -9,7 +9,7 @@ Installed help is authoritative; this file is a versioned snapshot.
 ## unity modules
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 List and manage Unity editor modules
@@ -69,7 +69,7 @@ Confirm behavior with `unity modules --help` on the target machine before execut
 ## unity modules list
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 List available modules for an editor version

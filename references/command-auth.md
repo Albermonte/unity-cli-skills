@@ -9,7 +9,7 @@ Installed help is authoritative; this file is a versioned snapshot.
 ## unity auth
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: `a`
 
 Sign in, check login state, or sign out
@@ -71,7 +71,7 @@ Confirm behavior with `unity auth --help` on the target machine before execution
 ## unity auth login
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Sign in to your Unity account (opens browser, or pass
@@ -135,7 +135,7 @@ Confirm behavior with `unity auth login --help` on the target machine before exe
 ## unity auth logout
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Sign out and clear stored credentials
@@ -194,7 +194,7 @@ Confirm behavior with `unity auth logout --help` on the target machine before ex
 ## unity auth status
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Show whether you are signed in

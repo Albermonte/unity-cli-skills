@@ -9,7 +9,7 @@ Installed help is authoritative; this file is a versioned snapshot.
 ## unity mcp
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 MCP server and client configuration for Unity Editor
@@ -75,7 +75,7 @@ Confirm behavior with `unity mcp --help` on the target machine before execution.
 ## unity mcp configure
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Write MCP server config for an AI agent client
@@ -167,5 +167,9 @@ None.
 
 ```
 
+
+### Platform-specific differences
+
+- **windows:** differs in arguments, extra_sections.
 
 Confirm behavior with `unity mcp configure --help` on the target machine before execution.

@@ -9,7 +9,7 @@ Installed help is authoritative; this file is a versioned snapshot.
 ## unity pipeline
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: `pipe`
 
 Unity Editor Pipeline automation commands
@@ -91,7 +91,7 @@ Confirm behavior with `unity pipeline --help` on the target machine before execu
 ## unity pipeline install
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Install the Unity Pipeline package to a Unity project
@@ -152,7 +152,7 @@ Confirm behavior with `unity pipeline install --help` on the target machine befo
 ## unity pipeline list
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 List all Unity Editor instances and their Pipeline package status
@@ -210,7 +210,7 @@ Confirm behavior with `unity pipeline list --help` on the target machine before 
 ## unity pipeline list-versions
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 List all available versions of the Unity Pipeline package
@@ -268,7 +268,7 @@ Confirm behavior with `unity pipeline list-versions --help` on the target machin
 ## unity pipeline upgrade
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Upgrade the Unity Pipeline package to the latest version if a newer one is

@@ -9,7 +9,7 @@ Installed help is authoritative; this file is a versioned snapshot.
 ## unity uninstall
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: `u`
 
 Uninstall an installed Unity editor
@@ -81,5 +81,9 @@ None.
 
 ```
 
+
+### Platform-specific differences
+
+- **windows:** differs in arguments, examples, extra_sections.
 
 Confirm behavior with `unity uninstall --help` on the target machine before execution.

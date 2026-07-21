@@ -9,7 +9,7 @@ Installed help is authoritative; this file is a versioned snapshot.
 ## unity editors
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: `e`
 
 Manage Unity editors
@@ -82,7 +82,7 @@ Confirm behavior with `unity editors --help` on the target machine before execut
 ## unity editors add
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Add an existing Unity editor to the Hub
@@ -147,7 +147,7 @@ Confirm behavior with `unity editors add --help` on the target machine before ex
 ## unity editors default
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Show or set the default editor version used when no version is specified
@@ -213,7 +213,7 @@ Confirm behavior with `unity editors default --help` on the target machine befor
 ## unity editors info
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Show release details for a Unity editor version
@@ -281,7 +281,7 @@ Confirm behavior with `unity editors info --help` on the target machine before e
 ## unity editors install-path
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: `ip`
 
 Show or change the global editor install path
@@ -346,7 +346,7 @@ Confirm behavior with `unity editors install-path --help` on the target machine 
 ## unity editors list
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 List installed Unity editors or available releases for download
@@ -410,7 +410,7 @@ Confirm behavior with `unity editors list --help` on the target machine before e
 ## unity editors module
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Manage modules for an installed editor
@@ -478,7 +478,7 @@ Confirm behavior with `unity editors module --help` on the target machine before
 ## unity editors module add
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Add modules to an installed editor
@@ -550,7 +550,7 @@ Confirm behavior with `unity editors module add --help` on the target machine be
 ## unity editors module list
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 List available modules for an installed editor
@@ -618,7 +618,7 @@ Confirm behavior with `unity editors module list --help` on the target machine b
 ## unity editors module refresh
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Re-fetch the module list for a located editor.
@@ -686,7 +686,7 @@ Confirm behavior with `unity editors module refresh --help` on the target machin
 ## unity editors path
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Print the install directory of an installed Unity editor version
@@ -754,7 +754,7 @@ Confirm behavior with `unity editors path --help` on the target machine before e
 ## unity editors upgrade
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Upgrade an installed editor to the newest patch in its release line
@@ -825,5 +825,9 @@ None.
 ### Exit codes
 
 None.
+
+### Platform-specific differences
+
+- **windows:** differs in options.
 
 Confirm behavior with `unity editors upgrade --help` on the target machine before execution.

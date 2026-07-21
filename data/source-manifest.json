@@ -5,11 +5,25 @@
   "generated_without_ai": true,
   "snapshots": [
     {
+      "platform": "linux",
+      "architecture": "x86_64",
+      "source": "live_help",
+      "path": "snapshots/linux/help.json",
+      "sha256": "eda345bee950a5e921c11f475c2ab2695ebe16132500dfe8d29f6fc04eae76ce"
+    },
+    {
       "platform": "macos",
       "architecture": "arm64",
       "source": "live_help",
       "path": "snapshots/macos/help.json",
       "sha256": "753c9789c738e2d74930b869f77fe23becc2b1fe5a55eee77bf0e051f5a3bc7b"
+    },
+    {
+      "platform": "windows",
+      "architecture": "amd64",
+      "source": "live_help",
+      "path": "snapshots/windows/help.json",
+      "sha256": "fe4df45d40d5dd5721d9f3289f0d13ace814f6a763fc241a54f4513d0901875e"
     }
   ]
 }

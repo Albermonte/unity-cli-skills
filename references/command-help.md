@@ -9,7 +9,7 @@ Installed help is authoritative; this file is a versioned snapshot.
 ## unity help
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 CLI for Unity
@@ -99,5 +99,9 @@ None.
 ### Exit codes
 
 None.
+
+### Platform-specific differences
+
+- **windows:** differs in subcommands.
 
 Confirm behavior with `unity help --help` on the target machine before execution.

@@ -9,7 +9,7 @@ Installed help is authoritative; this file is a versioned snapshot.
 ## unity projects
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: `p`
 
 Manage Unity projects in the Hub registry
@@ -84,7 +84,7 @@ Confirm behavior with `unity projects --help` on the target machine before execu
 ## unity projects add
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Register existing Unity project folders in the Hub registry
@@ -146,7 +146,7 @@ Confirm behavior with `unity projects add --help` on the target machine before e
 ## unity projects clone
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Clone a remote repository and register the Unity project it contains
@@ -227,7 +227,7 @@ Confirm behavior with `unity projects clone --help` on the target machine before
 ## unity projects create
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Create a new Unity project and register it in the Hub
@@ -313,7 +313,7 @@ Confirm behavior with `unity projects create --help` on the target machine befor
 ## unity projects export
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Export the Hub project list to a JSON file
@@ -374,7 +374,7 @@ Confirm behavior with `unity projects export --help` on the target machine befor
 ## unity projects import
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Import a Hub project list from a previously exported JSON file
@@ -439,7 +439,7 @@ Confirm behavior with `unity projects import --help` on the target machine befor
 ## unity projects info
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Show details for a local Unity project. Defaults to the current directory; pass
@@ -505,7 +505,7 @@ Confirm behavior with `unity projects info --help` on the target machine before 
 ## unity projects link
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Connect a local project to its cloud or version-control link
@@ -566,7 +566,7 @@ Confirm behavior with `unity projects link --help` on the target machine before 
 ## unity projects link cloud
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Connect a local project to a Unity Cloud project (creates one, or links an
@@ -632,7 +632,7 @@ Confirm behavior with `unity projects link cloud --help` on the target machine b
 ## unity projects link vcs
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Publish a local project to a new GitHub or GitLab repository
@@ -706,7 +706,7 @@ Confirm behavior with `unity projects link vcs --help` on the target machine bef
 ## unity projects list
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 List Unity projects registered in the Hub
@@ -780,7 +780,7 @@ Confirm behavior with `unity projects list --help` on the target machine before 
 ## unity projects new
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Create a new Unity project (non-interactive, CI-friendly)
@@ -848,7 +848,7 @@ Confirm behavior with `unity projects new --help` on the target machine before e
 ## unity projects open
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Open a Unity project by name, fuzzy title match, or path
@@ -933,7 +933,7 @@ Confirm behavior with `unity projects open --help` on the target machine before 
 ## unity projects pin
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Pin (favorite) one or more projects by name or path pattern
@@ -991,12 +991,16 @@ None.
 
 None.
 
+### Platform-specific differences
+
+- **windows:** differs in arguments.
+
 Confirm behavior with `unity projects pin --help` on the target machine before execution.
 
 ## unity projects remove
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Remove projects from the Hub registry (does not delete files on disk)
@@ -1059,7 +1063,7 @@ Confirm behavior with `unity projects remove --help` on the target machine befor
 ## unity projects require
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Assert that the required editor version is installed, installing it if necessary
@@ -1124,7 +1128,7 @@ Confirm behavior with `unity projects require --help` on the target machine befo
 ## unity projects unlink
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Disconnect a local project from its cloud or version-control link
@@ -1185,7 +1189,7 @@ Confirm behavior with `unity projects unlink --help` on the target machine befor
 ## unity projects unlink cloud
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Disconnect a local project from its Unity Cloud project
@@ -1248,7 +1252,7 @@ Confirm behavior with `unity projects unlink cloud --help` on the target machine
 ## unity projects unlink vcs
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Remove all git remotes from a local project, including any you added yourself
@@ -1312,7 +1316,7 @@ Confirm behavior with `unity projects unlink vcs --help` on the target machine b
 ## unity projects unpin
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Unpin (unfavorite) one or more projects by name or path pattern
@@ -1370,12 +1374,16 @@ None.
 
 None.
 
+### Platform-specific differences
+
+- **windows:** differs in arguments.
+
 Confirm behavior with `unity projects unpin --help` on the target machine before execution.
 
 ## unity projects upgrade
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Upgrade a Unity project to a different editor version

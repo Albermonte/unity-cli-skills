@@ -9,7 +9,7 @@ Installed help is authoritative; this file is a versioned snapshot.
 ## unity templates
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: `t`
 
 Browse, inspect, create, edit, and delete Unity project templates
@@ -74,7 +74,7 @@ Confirm behavior with `unity templates --help` on the target machine before exec
 ## unity templates create
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Create a custom template from an existing Unity project
@@ -140,12 +140,16 @@ None.
 
 None.
 
+### Platform-specific differences
+
+- **windows:** differs in options.
+
 Confirm behavior with `unity templates create --help` on the target machine before execution.
 
 ## unity templates delete
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Delete a user-generated custom template
@@ -210,7 +214,7 @@ Confirm behavior with `unity templates delete --help` on the target machine befo
 ## unity templates edit
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Edit a custom (user-generated) template's metadata
@@ -282,7 +286,7 @@ Confirm behavior with `unity templates edit --help` on the target machine before
 ## unity templates info
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Show detailed information about a Unity project template
@@ -345,7 +349,7 @@ Confirm behavior with `unity templates info --help` on the target machine before
 ## unity templates list
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 List Unity project templates for an editor version
@@ -412,7 +416,7 @@ Confirm behavior with `unity templates list --help` on the target machine before
 ## unity templates location
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Get, set, or reset the default storage path for custom templates

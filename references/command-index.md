@@ -8,41 +8,41 @@ Installed help remains authoritative. Run `unity --help` and the complete comman
 
 | Command | Aliases | Platforms | Summary |
 | --- | --- | --- | --- |
-| [`analytics`](command-analytics.md) | — | macos | Manage analytics and telemetry consent |
-| [`auth`](command-auth.md) | `a` | macos | Sign in, check login state, or sign out |
-| [`bug`](command-bug.md) | — | macos | Report a bug directly to the Unity bug reporter |
-| [`build`](command-build.md) | — | macos | Build a Unity project from the command line. Spawns the editor in batch mode and |
-| [`cache`](command-cache.md) | — | macos | Manage the download cache |
-| [`changelog`](command-changelog.md) | — | macos | Show release notes for the installed CLI |
-| [`cloud`](command-cloud.md) | — | macos | Manage Unity Cloud organizations and projects |
-| [`command`](command-command.md) | `cmd` | macos | Execute commands on connected Unity Editor instances, or list available commands |
-| [`completion`](command-completion.md) | — | macos | Print a shell completion script |
-| [`config`](command-config.md) | — | macos | View or change persistent CLI configuration |
-| [`diagnose`](command-diagnose.md) | — | macos | One-shot diagnostic commands for support — paste-safe, redacted output |
-| [`doctor`](command-doctor.md) | — | macos | Print diagnostic info about your Unity CLI environment |
-| [`editor`](command-editor.md) | — | macos | Manage a Unity editor installation |
-| [`editors`](command-editors.md) | `e` | macos | Manage Unity editors |
-| [`env`](command-env.md) | — | macos | Print Unity Hub environment paths and version |
-| [`help`](command-help.md) | — | macos | CLI for Unity |
-| [`hub`](command-hub.md) | — | macos | Manage the Unity Hub application |
-| [`install`](command-install.md) | `i` | macos | Install a Unity editor |
-| [`install-modules`](command-install-modules.md) | `im` | macos | Install or list modules for an installed editor (fully interactive when no |
-| [`install-path`](command-install-path.md) | `ip` | macos | Set or get the editor install path |
-| [`language`](command-language.md) | `lang` | macos | Show or change the CLI display language |
-| [`license`](command-license.md) | — | macos | List the Unity licenses active on this machine |
-| [`list`](command-list.md) | — | macos | List tools available on the connected Unity Editor (commands registered by the |
-| [`logs`](command-logs.md) | — | macos | Read and tail the Hub log file |
-| [`mcp`](command-mcp.md) | — | macos | MCP server and client configuration for Unity Editor |
-| [`modules`](command-modules.md) | — | macos | List and manage Unity editor modules |
-| [`open`](command-open.md) | — | macos | Open a Unity project with the correct Editor version |
-| [`pipeline`](command-pipeline.md) | `pipe` | macos | Unity Editor Pipeline automation commands |
-| [`projects`](command-projects.md) | `p` | macos | Manage Unity projects in the Hub registry |
-| [`releases`](command-releases.md) | — | macos | List available Unity releases |
-| [`run`](command-run.md) | — | macos | Run a Unity project in batch mode and forward args to the editor |
-| [`self-uninstall`](command-self-uninstall.md) | — | macos | Uninstall the unity CLI (removes the binary and environment files) |
-| [`shell`](command-shell.md) | — | macos | Start an interactive shell (REPL) that runs many commands in one warm process |
-| [`status`](command-status.md) | — | macos | Show live state of every connected Unity Editor (port, project, version, PID, |
-| [`templates`](command-templates.md) | `t` | macos | Browse, inspect, create, edit, and delete Unity project templates |
-| [`test`](command-test.md) | — | macos | Run a project's EditMode/PlayMode tests in the editor and write a results report |
-| [`uninstall`](command-uninstall.md) | `u` | macos | Uninstall an installed Unity editor |
-| [`upgrade`](command-upgrade.md) | — | macos | Upgrade the unity CLI to the latest version |
+| [`analytics`](command-analytics.md) | — | linux, macos, windows | Manage analytics and telemetry consent |
+| [`auth`](command-auth.md) | `a` | linux, macos, windows | Sign in, check login state, or sign out |
+| [`bug`](command-bug.md) | — | linux, macos, windows | Report a bug directly to the Unity bug reporter |
+| [`build`](command-build.md) | — | linux, macos, windows | Build a Unity project from the command line. Spawns the editor in batch mode and |
+| [`cache`](command-cache.md) | — | linux, macos, windows | Manage the download cache |
+| [`changelog`](command-changelog.md) | — | linux, macos, windows | Show release notes for the installed CLI |
+| [`cloud`](command-cloud.md) | — | linux, macos, windows | Manage Unity Cloud organizations and projects |
+| [`command`](command-command.md) | `cmd` | linux, macos, windows | Execute commands on connected Unity Editor instances, or list available commands |
+| [`completion`](command-completion.md) | — | linux, macos, windows | Print a shell completion script |
+| [`config`](command-config.md) | — | linux, macos, windows | View or change persistent CLI configuration |
+| [`diagnose`](command-diagnose.md) | — | linux, macos, windows | One-shot diagnostic commands for support — paste-safe, redacted output |
+| [`doctor`](command-doctor.md) | — | linux, macos, windows | Print diagnostic info about your Unity CLI environment |
+| [`editor`](command-editor.md) | — | linux, macos, windows | Manage a Unity editor installation |
+| [`editors`](command-editors.md) | `e` | linux, macos, windows | Manage Unity editors |
+| [`env`](command-env.md) | — | linux, macos, windows | Print Unity Hub environment paths and version |
+| [`help`](command-help.md) | — | linux, macos, windows | CLI for Unity |
+| [`hub`](command-hub.md) | — | linux, macos, windows | Manage the Unity Hub application |
+| [`install`](command-install.md) | `i` | linux, macos, windows | Install a Unity editor |
+| [`install-modules`](command-install-modules.md) | `im` | linux, macos, windows | Install or list modules for an installed editor (fully interactive when no |
+| [`install-path`](command-install-path.md) | `ip` | linux, macos, windows | Set or get the editor install path |
+| [`language`](command-language.md) | `lang` | linux, macos, windows | Show or change the CLI display language |
+| [`license`](command-license.md) | — | linux, macos, windows | List the Unity licenses active on this machine |
+| [`list`](command-list.md) | — | linux, macos, windows | List tools available on the connected Unity Editor (commands registered by the |
+| [`logs`](command-logs.md) | — | linux, macos, windows | Read and tail the Hub log file |
+| [`mcp`](command-mcp.md) | — | linux, macos, windows | MCP server and client configuration for Unity Editor |
+| [`modules`](command-modules.md) | — | linux, macos, windows | List and manage Unity editor modules |
+| [`open`](command-open.md) | — | linux, macos, windows | Open a Unity project with the correct Editor version |
+| [`pipeline`](command-pipeline.md) | `pipe` | linux, macos, windows | Unity Editor Pipeline automation commands |
+| [`projects`](command-projects.md) | `p` | linux, macos, windows | Manage Unity projects in the Hub registry |
+| [`releases`](command-releases.md) | — | linux, macos, windows | List available Unity releases |
+| [`run`](command-run.md) | — | linux, macos, windows | Run a Unity project in batch mode and forward args to the editor |
+| [`self-uninstall`](command-self-uninstall.md) | — | linux, macos, windows | Uninstall the unity CLI (removes the binary and environment files) |
+| [`shell`](command-shell.md) | — | linux, macos, windows | Start an interactive shell (REPL) that runs many commands in one warm process |
+| [`status`](command-status.md) | — | linux, macos, windows | Show live state of every connected Unity Editor (port, project, version, PID, |
+| [`templates`](command-templates.md) | `t` | linux, macos, windows | Browse, inspect, create, edit, and delete Unity project templates |
+| [`test`](command-test.md) | — | linux, macos, windows | Run a project's EditMode/PlayMode tests in the editor and write a results report |
+| [`uninstall`](command-uninstall.md) | `u` | linux, macos, windows | Uninstall an installed Unity editor |
+| [`upgrade`](command-upgrade.md) | — | linux, macos, windows | Upgrade the unity CLI to the latest version |

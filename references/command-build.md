@@ -9,7 +9,7 @@ Installed help is authoritative; this file is a versioned snapshot.
 ## unity build
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Build a Unity project from the command line. Spawns the editor in batch mode and
@@ -91,5 +91,9 @@ None.
 ### Exit codes
 
 None.
+
+### Platform-specific differences
+
+- **windows:** differs in options.
 
 Confirm behavior with `unity build --help` on the target machine before execution.

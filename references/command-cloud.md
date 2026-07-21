@@ -9,7 +9,7 @@ Installed help is authoritative; this file is a versioned snapshot.
 ## unity cloud
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Manage Unity Cloud organizations and projects
@@ -71,7 +71,7 @@ Confirm behavior with `unity cloud --help` on the target machine before executio
 ## unity cloud org
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Manage Unity Cloud organizations
@@ -134,7 +134,7 @@ Confirm behavior with `unity cloud org --help` on the target machine before exec
 ## unity cloud org clear-default
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Clear the active default organization (revert to 'All Organizations')
@@ -192,7 +192,7 @@ Confirm behavior with `unity cloud org clear-default --help` on the target machi
 ## unity cloud org current
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Print the active default organization id
@@ -250,7 +250,7 @@ Confirm behavior with `unity cloud org current --help` on the target machine bef
 ## unity cloud org list
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 List your Unity Cloud organizations
@@ -308,7 +308,7 @@ Confirm behavior with `unity cloud org list --help` on the target machine before
 ## unity cloud org set-default
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Set the active default organization
@@ -368,7 +368,7 @@ Confirm behavior with `unity cloud org set-default --help` on the target machine
 ## unity cloud project
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Manage Unity Cloud projects
@@ -430,7 +430,7 @@ Confirm behavior with `unity cloud project --help` on the target machine before 
 ## unity cloud project list
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 List Unity Cloud projects in the active organization
@@ -493,7 +493,7 @@ Confirm behavior with `unity cloud project list --help` on the target machine be
 ## unity cloud status
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Show cloud sign-in state and active organization

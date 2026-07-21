@@ -9,7 +9,7 @@ Installed help is authoritative; this file is a versioned snapshot.
 ## unity license
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 List the Unity licenses active on this machine
@@ -74,7 +74,7 @@ Confirm behavior with `unity license --help` on the target machine before execut
 ## unity license activate
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Activate a Unity license
@@ -139,7 +139,7 @@ Confirm behavior with `unity license activate --help` on the target machine befo
 ## unity license list
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 List the Unity licenses active on this machine
@@ -198,7 +198,7 @@ Confirm behavior with `unity license list --help` on the target machine before e
 ## unity license return
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Return the active Unity licenses
@@ -258,7 +258,7 @@ Confirm behavior with `unity license return --help` on the target machine before
 ## unity license server
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Manage the floating license server
@@ -320,7 +320,7 @@ Confirm behavior with `unity license server --help` on the target machine before
 ## unity license server list
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 List the configured floating license servers
@@ -379,7 +379,7 @@ Confirm behavior with `unity license server list --help` on the target machine b
 ## unity license server status
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Show the floating license server status and available seats
@@ -438,7 +438,7 @@ Confirm behavior with `unity license server status --help` on the target machine
 ## unity license status
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Show the current Unity license state

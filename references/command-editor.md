@@ -9,7 +9,7 @@ Installed help is authoritative; this file is a versioned snapshot.
 ## unity editor
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Manage a Unity editor installation
@@ -70,7 +70,7 @@ Confirm behavior with `unity editor --help` on the target machine before executi
 ## unity editor add
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Add an existing Unity editor to the Hub
@@ -133,7 +133,7 @@ Confirm behavior with `unity editor add --help` on the target machine before exe
 ## unity editor module
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Manage modules for an installed editor
@@ -195,7 +195,7 @@ Confirm behavior with `unity editor module --help` on the target machine before 
 ## unity editor module add
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Add modules to an installed editor
@@ -261,7 +261,7 @@ Confirm behavior with `unity editor module add --help` on the target machine bef
 ## unity editor module list
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 List available modules for an installed editor
@@ -323,7 +323,7 @@ Confirm behavior with `unity editor module list --help` on the target machine be
 ## unity editor module refresh
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Re-fetch the module list for a located editor.

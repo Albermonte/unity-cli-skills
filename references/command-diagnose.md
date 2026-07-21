@@ -9,7 +9,7 @@ Installed help is authoritative; this file is a versioned snapshot.
 ## unity diagnose
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 One-shot diagnostic commands for support — paste-safe, redacted output
@@ -64,12 +64,16 @@ None.
 
 None.
 
+### Platform-specific differences
+
+- **windows:** differs in summary.
+
 Confirm behavior with `unity diagnose --help` on the target machine before execution.
 
 ## unity diagnose proxy
 
 - CLI version: `1.0.0-beta.2`
-- Supported platforms: macos
+- Supported platforms: linux, macos, windows
 - Aliases: None
 
 Print a redacted proxy diagnostic report and write a copy to the logs directory

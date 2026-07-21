@@ -168,6 +168,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          remote_ref=$(git ls-remote origin "refs/heads/${UPDATE_BRANCH}")
+          if [ -n "$remote_ref" ]; then
+            git fetch origin "refs/heads/${UPDATE_BRANCH}:refs/remotes/origin/${UPDATE_BRANCH}"
+          fi
           git switch -C "$UPDATE_BRANCH"
           git add data snapshots references
           git commit -m "chore: update Unity CLI references for ${CLI_VERSION}"

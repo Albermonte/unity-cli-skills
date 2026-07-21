@@ -9,7 +9,11 @@ from pathlib import Path
 import pytest
 
 from scripts.skills_ref_cli import validation_errors
-from scripts.validate_generated import ValidationError, validate_repository
+from scripts.validate_generated import (
+    ValidationError,
+    count_discovered_skill,
+    validate_repository,
+)
 
 ROOT = Path(__file__).parents[1]
 
@@ -23,6 +27,11 @@ def copy_repository(tmp_path: Path) -> Path:
 def test_repository_validates() -> None:
     validate_repository(ROOT)
     assert validation_errors(ROOT) == []
+
+
+def test_counts_decorated_skills_cli_row() -> None:
+    output = "\x1b[?25l│\n◇  Available Skills\n│\n│    unity-cli\n│\n│      Use unity-cli safely\n"
+    assert count_discovered_skill(output, "unity-cli") == 1
 
 
 def test_broken_link_fails(tmp_path: Path) -> None:

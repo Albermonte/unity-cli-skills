@@ -55,13 +55,7 @@ jobs:
       - name: Verify root Skills CLI discovery
         run: |
           npx skills add . --list | tee /tmp/unity-cli-skills-list.txt
-          python - <<'PY'
-          import re
-          from pathlib import Path
-          text = re.sub(r"\x1b\[[0-9;]*m", "", Path("/tmp/unity-cli-skills-list.txt").read_text())
-          if len(re.findall(r"(?m)^\s*unity-cli\s*$", text)) != 1:
-              raise SystemExit("expected exactly one discovered unity-cli skill")
-          PY
+          uv run python -m scripts.validate_generated --skills-list /tmp/unity-cli-skills-list.txt
 
       - name: Verify temporary local installation
         run: |

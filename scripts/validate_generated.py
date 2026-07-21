@@ -29,6 +29,11 @@ class ValidationError(RuntimeError):
     """Raised when the repository violates an invariant."""
 
 
+def count_discovered_skill(output: str, name: str) -> int:
+    clean = ANSI_RE.sub("", output)
+    return len(re.findall(rf"(?m)^[ \t│]*{re.escape(name)}[ \t\r]*$", clean))
+
+
 def _frontmatter(path: Path) -> dict[str, Any]:
     text = path.read_text(encoding="utf-8")
     if not text.startswith("---\n") or "\n---\n" not in text[4:]:
@@ -135,9 +140,16 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("root", type=Path, nargs="?", default=Path("."))
     parser.add_argument("--external", action="store_true")
+    parser.add_argument("--skills-list", type=Path)
     args = parser.parse_args()
     try:
         validate_repository(args.root.resolve(), run_external=args.external)
+        if (
+            args.skills_list
+            and count_discovered_skill(args.skills_list.read_text(encoding="utf-8"), "unity-cli")
+            != 1
+        ):
+            raise ValidationError("Skills CLI did not discover exactly one unity-cli skill")
     except (
         OSError,
         json.JSONDecodeError,

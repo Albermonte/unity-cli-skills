@@ -7,7 +7,6 @@ import subprocess
 from pathlib import Path
 
 import pytest
-
 from scripts.skills_ref_cli import validation_errors
 from scripts.validate_generated import (
     ValidationError,
@@ -16,6 +15,7 @@ from scripts.validate_generated import (
 )
 
 ROOT = Path(__file__).parents[1]
+SKILL_ROOT = ROOT / "skills" / "unity-cli"
 
 
 def copy_repository(tmp_path: Path) -> Path:
@@ -26,7 +26,7 @@ def copy_repository(tmp_path: Path) -> Path:
 
 def test_repository_validates() -> None:
     validate_repository(ROOT)
-    assert validation_errors(ROOT) == []
+    assert validation_errors(SKILL_ROOT) == []
 
 
 def test_counts_decorated_skills_cli_row() -> None:
@@ -36,7 +36,7 @@ def test_counts_decorated_skills_cli_row() -> None:
 
 def test_broken_link_fails(tmp_path: Path) -> None:
     root = copy_repository(tmp_path)
-    with (root / "SKILL.md").open("a") as handle:
+    with (root / "skills" / "unity-cli" / "SKILL.md").open("a") as handle:
         handle.write("\n[broken](references/missing.md)\n")
     with pytest.raises(ValidationError, match="broken relative link"):
         validate_repository(root)
@@ -44,19 +44,20 @@ def test_broken_link_fails(tmp_path: Path) -> None:
 
 def test_invalid_schema_fails(tmp_path: Path) -> None:
     root = copy_repository(tmp_path)
-    tree = json.loads((root / "data" / "command-tree.json").read_text())
+    tree_path = root / "skills" / "unity-cli" / "data" / "command-tree.json"
+    tree = json.loads(tree_path.read_text())
     tree["schema_version"] = 2
-    (root / "data" / "command-tree.json").write_text(json.dumps(tree))
+    tree_path.write_text(json.dumps(tree))
     with pytest.raises(Exception, match="1 was expected"):
         validate_repository(root)
 
 
 def test_multiple_skill_files_fail(tmp_path: Path) -> None:
     root = copy_repository(tmp_path)
-    extra = root / "nested" / "SKILL.md"
+    extra = root / "skills" / "nested" / "SKILL.md"
     extra.parent.mkdir()
     extra.write_text("---\nname: nested\ndescription: Use when testing.\n---\n")
-    with pytest.raises(ValidationError, match="only SKILL.md"):
+    with pytest.raises(ValidationError, match="must be the only SKILL.md"):
         validate_repository(root)
 
 

@@ -1,17 +1,17 @@
 # Contributing
 
-The root `SKILL.md` is the only skill definition. Never add another `SKILL.md` or a `skills/` wrapper.
+`skills/unity-cli/SKILL.md` is the only skill definition.
 
 ## Generated and curated files
 
-Do not manually edit `references/command-index.md`, `references/command-*.md`, `data/command-tree.json`, `data/source-manifest.json`, or snapshots. Edit curated references directly, ground factual commands in current official sources and installed help, and avoid copying Unity documentation verbatim.
+Do not manually edit generated command references, normalized data, source manifests, or snapshots under `skills/unity-cli`. Edit curated references directly, ground factual commands in current official sources and installed help, and avoid copying Unity documentation verbatim.
 
 ## Behavior changes
 
 1. Add the smallest real help fixture that demonstrates the behavior.
 2. Write or update a failing test first.
 3. Change the parser, collector, merger, generator, diff, or validator.
-4. If normalized structure changes, version and update `data/command-tree.schema.json` plus validation tests.
+4. If normalized structure changes, version and update `skills/unity-cli/data/command-tree.schema.json` plus validation tests.
 5. Regenerate references.
 6. Review the deterministic semantic diff.
 7. Run `make check`.

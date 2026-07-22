@@ -75,17 +75,17 @@ jobs:
         run: unity --version
 
       - name: Collect recursive help
-        run: uv run python -m scripts.collect_help --platform ${{ matrix.platform }} --output snapshots/${{ matrix.platform }}/help.json --progress
+        run: uv run python -m scripts.collect_help --platform ${{ matrix.platform }} --output skills/unity-cli/snapshots/${{ matrix.platform }}/help.json --progress
 
       - name: Parse and validate platform collection
-        run: uv run python -m scripts.parse_help snapshots/${{ matrix.platform }}/help.json snapshots/${{ matrix.platform }}/command-tree.json
+        run: uv run python -m scripts.parse_help skills/unity-cli/snapshots/${{ matrix.platform }}/help.json skills/unity-cli/snapshots/${{ matrix.platform }}/command-tree.json
 
       - name: Upload platform output
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: unity-help-${{ matrix.platform }}
-          path: snapshots/${{ matrix.platform }}/
+          path: skills/unity-cli/snapshots/${{ matrix.platform }}/
           if-no-files-found: warn
 
       - name: Write failure summary
@@ -99,6 +99,11 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: "24"
 
       - name: Set up Python
         uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
@@ -121,27 +126,27 @@ jobs:
 
       - name: Assemble snapshots
         run: |
-          cp collected/unity-help-linux/help.json snapshots/linux/help.json
-          cp collected/unity-help-macos/help.json snapshots/macos/help.json
-          cp collected/unity-help-windows/help.json snapshots/windows/help.json
+          cp collected/unity-help-linux/help.json skills/unity-cli/snapshots/linux/help.json
+          cp collected/unity-help-macos/help.json skills/unity-cli/snapshots/macos/help.json
+          cp collected/unity-help-windows/help.json skills/unity-cli/snapshots/windows/help.json
 
       - name: Merge, diff, and generate
         run: |
           uv run python -m scripts.update_skill \
-            --snapshot linux=snapshots/linux/help.json \
-            --snapshot macos=snapshots/macos/help.json \
-            --snapshot windows=snapshots/windows/help.json
+            --snapshot linux=skills/unity-cli/snapshots/linux/help.json \
+            --snapshot macos=skills/unity-cli/snapshots/macos/help.json \
+            --snapshot windows=skills/unity-cli/snapshots/windows/help.json
 
       - name: Run deterministic validation suite
         run: |
           uv run ruff format --check .
           uv run ruff check .
-          uv run mypy scripts tests
+          uv run mypy skills/unity-cli/scripts tests
           uv run pytest
           uv run python -m scripts.validate_generated
-          uv run skills-ref validate .
-          uv run python -m scripts.generate_references data/command-tree.json --output references
-          uv run python -m scripts.generate_references data/command-tree.json --output references
+          uv run skills-ref validate skills/unity-cli
+          uv run python -m scripts.generate_references skills/unity-cli/data/command-tree.json --output skills/unity-cli/references
+          uv run python -m scripts.generate_references skills/unity-cli/data/command-tree.json --output skills/unity-cli/references
           npx skills add . --list | tee /tmp/unity-cli-skills-list.txt
           uv run python -m scripts.validate_generated --skills-list /tmp/unity-cli-skills-list.txt
 
@@ -149,8 +154,8 @@ jobs:
         id: change
         run: |
           changed=$(python -c "import json; print(str(json.load(open('semantic-diff.json'))['changed']).lower())")
-          version=$(python -c "import json; print(json.load(open('data/command-tree.json'))['cli_version'])")
-          tree_hash=$(sha256sum data/command-tree.json | cut -c1-12)
+          version=$(python -c "import json; print(json.load(open('skills/unity-cli/data/command-tree.json'))['cli_version'])")
+          tree_hash=$(sha256sum skills/unity-cli/data/command-tree.json | cut -c1-12)
           echo "changed=$changed" >> "$GITHUB_OUTPUT"
           echo "version=$version" >> "$GITHUB_OUTPUT"
           echo "branch=automation/unity-cli-${version}-${tree_hash}" >> "$GITHUB_OUTPUT"
@@ -173,7 +178,7 @@ jobs:
             git fetch origin "refs/heads/${UPDATE_BRANCH}:refs/remotes/origin/${UPDATE_BRANCH}"
           fi
           git switch -C "$UPDATE_BRANCH"
-          git add data snapshots references
+          git add skills/unity-cli/data skills/unity-cli/snapshots skills/unity-cli/references
           git commit -m "chore: update Unity CLI references for ${CLI_VERSION}"
           git push --force-with-lease origin "$UPDATE_BRANCH"
           existing=$(gh pr list --head "$UPDATE_BRANCH" --state open --json number --jq '.[0].number // empty')
@@ -195,7 +200,7 @@ jobs:
           name: unity-help-merge-failure
           path: |
             collected/
-            snapshots/
+            skills/unity-cli/snapshots/
             semantic-diff.json
             semantic-diff.md
           if-no-files-found: warn

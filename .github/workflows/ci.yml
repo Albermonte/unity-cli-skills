@@ -15,6 +15,11 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
+      - name: Set up Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: "24"
+
       - name: Set up Python
         uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
@@ -35,7 +40,7 @@ jobs:
         run: uv run ruff check .
 
       - name: Run type checking
-        run: uv run mypy scripts tests
+        run: uv run mypy skills/unity-cli/scripts tests
 
       - name: Run tests
         run: uv run pytest
@@ -44,15 +49,15 @@ jobs:
         run: uv run python -m scripts.validate_generated
 
       - name: Validate Agent Skills specification
-        run: uv run skills-ref validate .
+        run: uv run skills-ref validate skills/unity-cli
 
       - name: Verify generated files are current and idempotent
         run: |
-          uv run python -m scripts.generate_references data/command-tree.json --output references
-          uv run python -m scripts.generate_references data/command-tree.json --output references
-          git diff --exit-code -- data references
+          uv run python -m scripts.generate_references skills/unity-cli/data/command-tree.json --output skills/unity-cli/references
+          uv run python -m scripts.generate_references skills/unity-cli/data/command-tree.json --output skills/unity-cli/references
+          git diff --exit-code -- skills/unity-cli/data skills/unity-cli/references
 
-      - name: Verify root Skills CLI discovery
+      - name: Verify Skills CLI discovery
         run: |
           npx skills add . --list | tee /tmp/unity-cli-skills-list.txt
           uv run python -m scripts.validate_generated --skills-list /tmp/unity-cli-skills-list.txt

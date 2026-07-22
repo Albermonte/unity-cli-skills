@@ -56,33 +56,36 @@ def _check_links(root: Path) -> None:
 
 
 def validate_repository(root: Path, *, run_external: bool = False) -> None:
+    skill_root = root / "skills" / "unity-cli"
     skill_files = sorted(root.rglob("SKILL.md"))
-    if skill_files != [root / "SKILL.md"]:
-        raise ValidationError("the root SKILL.md must be the only SKILL.md")
-    metadata = _frontmatter(root / "SKILL.md")
+    if skill_files != [skill_root / "SKILL.md"]:
+        raise ValidationError("skills/unity-cli/SKILL.md must be the only SKILL.md")
+    metadata = _frontmatter(skill_root / "SKILL.md")
     if set(metadata) != {"name", "description"}:
         raise ValidationError("SKILL.md frontmatter must contain only name and description")
     if metadata["name"] != "unity-cli":
         raise ValidationError("skill name must equal unity-cli")
     if not str(metadata["description"]).startswith("Use when"):
         raise ValidationError("skill description must begin with 'Use when'")
-    if len((root / "SKILL.md").read_text(encoding="utf-8").splitlines()) >= 500:
+    if len((skill_root / "SKILL.md").read_text(encoding="utf-8").splitlines()) >= 500:
         raise ValidationError("SKILL.md must remain below 500 lines")
-    _check_links(root)
+    _check_links(skill_root)
 
-    tree_path = root / "data" / "command-tree.json"
-    schema = json.loads((root / "data" / "command-tree.schema.json").read_text(encoding="utf-8"))
+    tree_path = skill_root / "data" / "command-tree.json"
+    schema = json.loads(
+        (skill_root / "data" / "command-tree.schema.json").read_text(encoding="utf-8")
+    )
     tree = json.loads(tree_path.read_text(encoding="utf-8"))
     jsonschema.Draft202012Validator(schema).validate(tree)
     for command in tree["commands"]:
         if not command["source_hashes"]:
             raise ValidationError(f"missing source hashes for {command['path']}")
     expected = generated_files(tree)
-    actual_names = {path.name for path in (root / "references").glob("command-*.md")}
+    actual_names = {path.name for path in (skill_root / "references").glob("command-*.md")}
     if actual_names != set(expected):
         raise ValidationError("generated command reference set is stale")
     for name, content in expected.items():
-        path = root / "references" / name
+        path = skill_root / "references" / name
         if path.read_text(encoding="utf-8") != content:
             raise ValidationError(f"generated file differs from generator output: {path}")
         if tree["cli_version"] not in content:
@@ -90,8 +93,8 @@ def validate_repository(root: Path, *, run_external: bool = False) -> None:
 
     scanned = [
         tree_path,
-        *sorted((root / "snapshots").rglob("*.json")),
-        *sorted((root / "references").glob("command-*.md")),
+        *sorted((skill_root / "snapshots").rglob("*.json")),
+        *sorted((skill_root / "references").glob("command-*.md")),
     ]
     for path in scanned:
         text = path.read_text(encoding="utf-8")
@@ -113,7 +116,7 @@ def validate_repository(root: Path, *, run_external: bool = False) -> None:
                 raise ValidationError(f"unfinished placeholder in {path}")
 
     if run_external:
-        subprocess.run(["skills-ref", "validate", "."], cwd=root, check=True)
+        subprocess.run(["skills-ref", "validate", str(skill_root)], cwd=root, check=True)
         result = subprocess.run(
             ["npx", "skills", "add", ".", "--list"],
             cwd=root,
@@ -160,7 +163,11 @@ def main() -> int:
     ) as exc:
         print(f"validation failed: {exc}", file=sys.stderr)
         return 1
-    tree = json.loads((args.root / "data" / "command-tree.json").read_text(encoding="utf-8"))
+    tree = json.loads(
+        (args.root / "skills" / "unity-cli" / "data" / "command-tree.json").read_text(
+            encoding="utf-8"
+        )
+    )
     for command in tree["commands"]:
         if command["extra_sections"]:
             headings = ", ".join(section["heading"] for section in command["extra_sections"])

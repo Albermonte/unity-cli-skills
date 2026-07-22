@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run the reference validator for a repository-root skill."""
+"""Run the reference validator for a skill directory."""
 
 from __future__ import annotations
 

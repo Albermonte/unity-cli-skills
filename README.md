@@ -2,7 +2,7 @@
 
 [![skills.sh](https://skills.sh/b/OWNER/REPOSITORY)](https://skills.sh/OWNER/REPOSITORY)
 
-Unofficial, standalone Agent Skill for safe use of the experimental Unity CLI. The repository root is the single public skill: `unity-cli`.
+Unofficial Agent Skill for safe use of the experimental Unity CLI. The public skill is `skills/unity-cli`.
 
 ## Install
 
@@ -36,20 +36,20 @@ Use the skill by asking an installed compatible agent to install, inspect, autom
 ## Structure
 
 ```text
-SKILL.md                       single skill definition
-references/                    curated guidance and generated command files
-scripts/                       deterministic collection and generation pipeline
-data/                          normalized schema, tree, and provenance
-snapshots/                     raw normalized platform help
+skills/
+└── unity-cli/
+    ├── SKILL.md               skill definition
+    ├── references/            curated guidance and generated command files
+    ├── scripts/               deterministic collection and generation pipeline
+    ├── data/                  normalized schema, tree, and provenance
+    └── snapshots/             raw normalized platform help
 tests/                         offline fixtures, golden files, and tests
 .github/workflows/             CI and scheduled cross-platform updates
 ```
 
-There is no `skills/` wrapper directory and no second `SKILL.md`.
-
 ## Generated references
 
-The collector runs only `unity --version` and argv ending in `--help`, recursively discovers command paths, strips terminal control sequences, and stores stdout and stderr separately. Parsers retain unknown sections. Platform trees merge into `data/command-tree.json`; generation creates the index and one file per top-level command.
+The collector runs only `unity --version` and argv ending in `--help`, recursively discovers command paths, strips terminal control sequences, and stores stdout and stderr separately. Parsers retain unknown sections. Platform trees merge into `skills/unity-cli/data/command-tree.json`; generation creates the index and one file per top-level command.
 
 Curated conceptual files are reviewed by humans. Scheduled updates modify only snapshots, normalized data, manifests, and generated command references. No AI model, inference API, local model, embedding service, or generative summarizer is used. The updater does not scrape Unity documentation, so prose-only website changes require manual review.
 
@@ -57,7 +57,7 @@ The current baseline was collected live from Unity CLI `1.0.0-beta.2` on macOS a
 
 ## Development
 
-Requires Python 3.12+, [uv](https://docs.astral.sh/uv/), Node.js, and `npx`.
+Requires Python 3.12+, [uv](https://docs.astral.sh/uv/), Node.js 22.20+, and `npx`.
 
 ```bash
 make install
@@ -70,10 +70,10 @@ Equivalent direct commands:
 uv sync --frozen
 uv run ruff format --check .
 uv run ruff check .
-uv run mypy scripts tests
+uv run mypy skills/unity-cli/scripts tests
 uv run pytest
 uv run python -m scripts.validate_generated
-uv run skills-ref validate .
+uv run skills-ref validate skills/unity-cli
 npx skills add . --list
 ```
 
@@ -92,9 +92,9 @@ make validate
 
 ```bash
 uv run python -m scripts.update_skill \
-  --snapshot linux=snapshots/linux/help.json \
-  --snapshot macos=snapshots/macos/help.json \
-  --snapshot windows=snapshots/windows/help.json
+  --snapshot linux=skills/unity-cli/snapshots/linux/help.json \
+  --snapshot macos=skills/unity-cli/snapshots/macos/help.json \
+  --snapshot windows=skills/unity-cli/snapshots/windows/help.json
 ```
 
 ## Review an update pull request

@@ -40,9 +40,9 @@ skills/
 └── unity-cli/
     ├── SKILL.md               skill definition
     ├── references/            curated guidance and generated command files
-    ├── scripts/               deterministic collection and generation pipeline
     ├── data/                  normalized schema, tree, and provenance
     └── snapshots/             raw normalized platform help
+scripts/                       deterministic collection and generation pipeline
 tests/                         offline fixtures, golden files, and tests
 .github/workflows/             CI and scheduled cross-platform updates
 ```
@@ -70,7 +70,7 @@ Equivalent direct commands:
 uv sync --frozen
 uv run ruff format --check .
 uv run ruff check .
-uv run mypy skills/unity-cli/scripts tests
+uv run mypy scripts tests
 uv run pytest
 uv run python -m scripts.validate_generated
 uv run skills-ref validate skills/unity-cli

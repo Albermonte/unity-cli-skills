@@ -141,7 +141,7 @@ jobs:
         run: |
           uv run ruff format --check .
           uv run ruff check .
-          uv run mypy skills/unity-cli/scripts tests
+          uv run mypy scripts tests
           uv run pytest
           uv run python -m scripts.validate_generated
           uv run skills-ref validate skills/unity-cli

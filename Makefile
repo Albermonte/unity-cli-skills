@@ -16,7 +16,7 @@ lint:
 	uv run ruff check .
 
 typecheck:
-	uv run mypy $(SKILL_DIR)/scripts tests
+	uv run mypy scripts tests
 
 test:
 	uv run pytest

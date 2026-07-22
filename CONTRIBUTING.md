@@ -32,6 +32,6 @@ The list must contain exactly `unity-cli`. Test installation in a temporary proj
 npx skills add . --skill unity-cli --agent codex --yes
 ```
 
-Verify the installed skill includes `SKILL.md`, `references/`, `scripts/`, and `data/`, and that relative links still resolve.
+Verify the installed skill includes `SKILL.md`, `references/`, and `data/`, and that relative links still resolve.
 
 Before publication, use the repository URL with `--list` to test skills.sh-compatible discovery. Do not commit temporary installations, semantic-diff output, credentials, or diagnostic logs.

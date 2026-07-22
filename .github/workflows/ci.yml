@@ -40,7 +40,7 @@ jobs:
         run: uv run ruff check .
 
       - name: Run type checking
-        run: uv run mypy skills/unity-cli/scripts tests
+        run: uv run mypy scripts tests
 
       - name: Run tests
         run: uv run pytest
@@ -70,5 +70,4 @@ jobs:
           npx skills add "$GITHUB_WORKSPACE" --skill unity-cli --agent codex --yes
           test -f "$target/.agents/skills/unity-cli/SKILL.md"
           test -d "$target/.agents/skills/unity-cli/references"
-          test -d "$target/.agents/skills/unity-cli/scripts"
           test -d "$target/.agents/skills/unity-cli/data"

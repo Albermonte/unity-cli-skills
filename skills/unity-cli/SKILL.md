@@ -5,13 +5,9 @@ description: Use when installing, configuring, automating, troubleshooting, or m
 
 # Unity CLI
 
-## Purpose
+Treat installed help as authoritative. The CLI is experimental. Syntax changes.
 
-Operate the standalone `unity` CLI safely. Treat the installed CLI's help as authoritative because the CLI is experimental and command surfaces can change between releases.
-
-## Identify the correct CLI
-
-Confirm the executable is the standalone Unity CLI before acting:
+## Identify and inspect
 
 ```bash
 command -v unity
@@ -19,94 +15,71 @@ unity --version
 unity --help
 ```
 
-Do not confuse it with:
+Confirm this is the standalone Unity CLI. Not:
 
-- Unity Editor command-line arguments passed to an Editor executable.
-- The deprecated Unity Hub CLI and its `-- --headless` wrapper.
+- Unity Editor arguments.
+- Deprecated Unity Hub CLI or `-- --headless`.
 - Unity Gaming Services CLI (`ugs`).
 - Unity Version Control (`cm`).
-- Package Manager commands.
-- A third-party executable or plugin named `unity`.
+- Package Manager.
+- Third-party `unity` tools.
 
-Read [references/overview.md](references/overview.md) when identity or scope is unclear.
+Before each command:
 
-## Required preflight checks
+1. Detect OS and architecture.
+2. Check `unity --version` and relevant help.
+3. Use the complete nested path: `unity projects clone --help`.
+4. Classify the operation: read-only or state-changing.
+5. Check platform support and experimental notices.
 
-Before selecting or running a command:
+Use generated references only for discovery. Confirm locally with `--help`.
 
-1. Determine the operating system and architecture.
-2. Run `unity --version`.
-3. Run `unity --help`.
-4. Run `unity <relevant-command> --help`.
-5. For nested commands, run the complete path, such as `unity projects clone --help`.
-6. Prefer installed help over remembered syntax, generated references, or website examples.
-7. Determine whether the operation is read-only or state-changing.
-8. Verify platform-specific availability and experimental notices.
-9. Never assume experimental syntax is stable across versions.
+## Execute
 
-Use [references/command-index.md](references/command-index.md) only to locate the versioned generated reference, then confirm locally with `--help`.
+- Start with the narrowest read-only inspection.
+- Resolve aliases, versions, paths, architectures, modules, and required values from installed help.
+- Use preview or dry-run only when that command exposes it.
+- In automation, build separate argv. Never interpolate discovered values into shell code.
+- Before mutations: explain target and effect; get required authorization.
+- Check exit code. Verify state with a read-only command.
 
-## Command selection workflow
+## Automation
 
-1. Start with the narrowest read-only inspection command exposed by help.
-2. Resolve aliases, version selectors, paths, architectures, modules, and required values from the installed help.
-3. Prefer preview or dry-run options only when that exact command's help exposes them.
-4. Build argv as separate arguments in automation; do not interpolate discovered values into shell code.
-5. Explain the target and effect before a state-changing command.
-6. Execute only after required user authorization.
-7. Check the process exit code and verify the resulting state with a read-only command.
+- Use only help-confirmed structured formats.
+- Separate stdout and stderr. Parse stdout; retain stderr.
+- Always check exit code. Never parse animated progress.
+- Avoid CI prompts. Use non-interactive flags only when exposed by help.
+- Pin CLI and Editor versions when reproducibility matters.
+- Never log credentials, tokens, serials, offline licenses, or service-account secrets.
+- Never copy flags across platforms without checking each platform's help.
 
-## Automation and structured output
+## Mutations
 
-- Use an explicitly supported structured format for automation. Confirm formats with installed help.
-- Keep stdout and stderr separate. Parse stdout as data; retain stderr for diagnostics.
-- Check the process exit code even when structured output is present.
-- Do not parse animated progress output.
-- Avoid interactive prompts in CI. Use non-interactive and confirmation options only when help exposes them.
-- Pin the CLI and Editor versions when reproducibility matters.
-- Never log credentials, bearer tokens, serials, offline license material, or service-account secrets.
+Mutations include:
 
-Read [references/output-and-automation.md](references/output-and-automation.md) for stream, format, environment, cancellation, and CI guidance.
+- Install, upgrade, or uninstall CLI/Editor/modules.
+- Register Editors; change defaults or global paths.
+- Create, import, clone, link, unlink, delete, or upgrade projects.
+- Change credentials, authentication, licenses, caches, proxy, language, analytics, or persistent config.
 
-## Platform-specific handling
+Require explicit authorization before license activation/return, credential removal, project deletion/upgrade, cache clearing, uninstall, or global-path changes. First inspect the complete command path with `--help`.
 
-Determine OS and architecture before installation, Editor architecture selection, path changes, or module work. Do not transplant flags between platforms unless each target platform's help exposes them. Read [references/installation-and-upgrade.md](references/installation-and-upgrade.md).
+## Troubleshoot
 
-## State-changing operations
+1. Capture OS, architecture, executable path, version, exact argv, exit code, stdout, and stderr.
+2. Check the complete command path with `--help`.
+3. Use help-exposed read-only diagnostics.
+4. Check PATH, permissions, network/proxy, credential store, non-interactive settings, Editor/version/module resolution, and platform support.
+5. Redact secrets and user paths.
+6. Stop on incomplete help, unexpected output shape, or unexpected mutation risk.
 
-Treat these as state-changing or destructive and explain them before execution:
+## References
 
-- Installing, upgrading, or uninstalling the CLI or an Editor.
-- Adding or removing Editor modules.
-- Registering Editors or changing defaults and global install paths.
-- Creating, importing, cloning, linking, unlinking, deleting, or upgrading projects.
-- Removing credentials or changing authentication state.
-- Activating, returning, or modifying licenses.
-- Clearing caches.
-- Changing proxy, language, analytics, or persistent configuration.
-
-Never activate or return a license, remove credentials, delete or upgrade a project, clear a cache, uninstall software, or change a global path without explicit authorization. Inspect exact behavior with the complete command path and `--help` first.
-
-Read [references/authentication-and-licensing.md](references/authentication-and-licensing.md) before auth or license work. Read [references/migration-from-hub-cli.md](references/migration-from-hub-cli.md) before changing Hub CLI scripts.
-
-## Troubleshooting workflow
-
-1. Capture OS, architecture, `command -v unity` or platform equivalent, `unity --version`, exact argv, exit code, stdout, and stderr.
-2. Re-run the complete command path with `--help`.
-3. Use read-only diagnostic commands exposed by installed help.
-4. Check PATH, permissions, proxy/network access, credential-store access, non-interactive settings, Editor/version/module resolution, and platform support.
-5. Redact secrets and user-specific paths before sharing diagnostics.
-6. Stop if help parsing is incomplete, output is structurally unexpected, or the command may mutate state unexpectedly.
-
-Read [references/troubleshooting.md](references/troubleshooting.md) for targeted checks.
-
-## Reference map
-
-- Concepts and boundaries: [references/overview.md](references/overview.md)
-- Installation and upgrades: [references/installation-and-upgrade.md](references/installation-and-upgrade.md)
-- Automation and output: [references/output-and-automation.md](references/output-and-automation.md)
-- Authentication and licensing: [references/authentication-and-licensing.md](references/authentication-and-licensing.md)
-- Hub CLI migration: [references/migration-from-hub-cli.md](references/migration-from-hub-cli.md)
-- Troubleshooting: [references/troubleshooting.md](references/troubleshooting.md)
-- Generated commands: [references/command-index.md](references/command-index.md)
-- Provenance: [references/sources.md](references/sources.md)
+- Unclear identity/scope: [overview.md](references/overview.md)
+- Install, upgrade, platform handling: [installation-and-upgrade.md](references/installation-and-upgrade.md)
+- Automation, streams, formats, CI: [output-and-automation.md](references/output-and-automation.md)
+- Before auth/license work: [authentication-and-licensing.md](references/authentication-and-licensing.md)
+- Before changing Hub CLI scripts: [migration-from-hub-cli.md](references/migration-from-hub-cli.md)
+- Diagnostics: [troubleshooting.md](references/troubleshooting.md)
+- Generated command discovery: [command-index.md](references/command-index.md)
+- Provenance: [sources.md](references/sources.md)

@@ -7,6 +7,7 @@ import subprocess
 from pathlib import Path
 
 import pytest
+
 from scripts.skills_ref_cli import validation_errors
 from scripts.validate_generated import (
     ValidationError,

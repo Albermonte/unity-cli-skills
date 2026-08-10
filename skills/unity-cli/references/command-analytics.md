@@ -2,13 +2,13 @@
 
 # `unity analytics` command reference
 
-Generated from Unity CLI `1.0.0-beta.2` help output.
+Generated from Unity CLI `1.0.0-beta.3` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity analytics
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.3`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -37,6 +37,7 @@ None.
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
@@ -70,7 +71,7 @@ Confirm behavior with `unity analytics --help` on the target machine before exec
 
 ## unity analytics opt-in
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.3`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -92,10 +93,10 @@ None.
 
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
-| `--json` | — | False | False | — | Output result as JSON |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
@@ -129,7 +130,7 @@ Confirm behavior with `unity analytics opt-in --help` on the target machine befo
 
 ## unity analytics opt-out
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.3`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -151,10 +152,10 @@ None.
 
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
-| `--json` | — | False | False | — | Output result as JSON |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
@@ -188,7 +189,7 @@ Confirm behavior with `unity analytics opt-out --help` on the target machine bef
 
 ## unity analytics status
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.3`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -210,10 +211,10 @@ None.
 
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
-| `--json` | — | False | False | — | Output result as JSON |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |

@@ -2,13 +2,13 @@
 
 # `unity templates` command reference
 
-Generated from Unity CLI `1.0.0-beta.2` help output.
+Generated from Unity CLI `1.0.0-beta.3` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity templates
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.3`
 - Supported platforms: linux, macos, windows
 - Aliases: `t`
 
@@ -40,6 +40,7 @@ None.
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
@@ -73,7 +74,7 @@ Confirm behavior with `unity templates --help` on the target machine before exec
 
 ## unity templates create
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.3`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -105,10 +106,10 @@ None.
 | `--keep-embedded-packages` | — | False | False | — | Keep embedded packages in the template archive |
 | `--keep-project-settings` | — | False | False | — | Keep project settings in the template archive |
 | `--overwrite` | — | False | False | — | Replace an existing template archive without error |
-| `--json` | — | False | False | — | Output result as JSON |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
@@ -148,7 +149,7 @@ Confirm behavior with `unity templates create --help` on the target machine befo
 
 ## unity templates delete
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.3`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -174,10 +175,10 @@ None.
 | --- | --- | --- | --- | --- | --- |
 | `-e`, `--editor` | `<version>` | False | False | — | Unity editor version (uses stored default if omitted) |
 | `-y`, `--yes` | — | False | False | — | Skip confirmation prompt |
-| `--json` | — | False | False | — | Output result as JSON |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
@@ -213,7 +214,7 @@ Confirm behavior with `unity templates delete --help` on the target machine befo
 
 ## unity templates edit
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.3`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -244,10 +245,10 @@ None.
 | `--preview-image` | `<path>` | False | False | — | Path to a new preview image for the template |
 | `--remove-preview-image` | — | False | False | — | Remove the current preview image from the template |
 | `-y`, `--yes` | — | False | False | — | Skip confirmation prompt |
-| `--json` | — | False | False | — | Output result as JSON |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
@@ -285,7 +286,7 @@ Confirm behavior with `unity templates edit --help` on the target machine before
 
 ## unity templates info
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.3`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -310,10 +311,10 @@ None.
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
 | `-e`, `--editor` | `<version>` | False | False | — | Unity editor version (uses stored default if omitted) |
-| `--json` | — | False | False | — | Output as JSON |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
@@ -348,7 +349,7 @@ Confirm behavior with `unity templates info --help` on the target machine before
 
 ## unity templates list
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.3`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -374,10 +375,10 @@ None.
 | `-i`, `--installed` | — | False | False | — | Show only locally installed templates |
 | `-t`, `--type` | `<type>` | False | False | — | Filter by template type (core, learning, sample, custom, new, all) |
 | `--custom` | — | False | False | — | Show only user-generated (custom) templates |
-| `--json` | — | False | False | — | Output as JSON |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
@@ -415,7 +416,7 @@ Confirm behavior with `unity templates list --help` on the target machine before
 
 ## unity templates location
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.3`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -439,10 +440,10 @@ None.
 | --- | --- | --- | --- | --- | --- |
 | `-s`, `--set` | `<path>` | False | False | — | Set the default templates storage path |
 | `-r`, `--reset` | — | False | False | — | Reset to the Hub default templates path |
-| `--json` | — | False | False | — | Output result as JSON |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |

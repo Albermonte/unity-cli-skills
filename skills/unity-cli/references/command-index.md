@@ -2,7 +2,7 @@
 
 # Unity CLI command index
 
-Generated from Unity CLI `1.0.0-beta.2` help output.
+Generated from Unity CLI `1.0.0-beta.3` help output.
 
 Installed help remains authoritative. Run `unity --help` and the complete command path with `--help` before use.
 

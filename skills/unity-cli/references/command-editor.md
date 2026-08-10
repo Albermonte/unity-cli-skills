@@ -2,13 +2,13 @@
 
 # `unity editor` command reference
 
-Generated from Unity CLI `1.0.0-beta.2` help output.
+Generated from Unity CLI `1.0.0-beta.3` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity editor
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.3`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -36,6 +36,7 @@ None.
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
@@ -69,7 +70,7 @@ Confirm behavior with `unity editor --help` on the target machine before executi
 
 ## unity editor add
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.3`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -93,11 +94,11 @@ None.
 
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
-| `--json` | — | False | False | — | Output the list in JSON format |
 | `--no-fetch-modules` | — | False | False | — | Skip fetching the module list from Unity Cloud. |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
@@ -132,7 +133,7 @@ Confirm behavior with `unity editor add --help` on the target machine before exe
 
 ## unity editor module
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.3`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -149,6 +150,7 @@ Manage modules for an installed editor
 | `list` | — | List available modules for an installed editor |
 | `add` | — | Add modules to an installed editor |
 | `refresh` | — | Re-fetch the module list for a located editor. |
+| `remove` | — | Remove installed modules from an editor |
 
 ### Positional arguments
 
@@ -161,6 +163,7 @@ None.
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
@@ -194,7 +197,7 @@ Confirm behavior with `unity editor module --help` on the target machine before 
 
 ## unity editor module add
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.3`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -227,6 +230,7 @@ None.
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
@@ -260,7 +264,7 @@ Confirm behavior with `unity editor module add --help` on the target machine bef
 
 ## unity editor module list
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.3`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -285,10 +289,10 @@ None.
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
 | `-a`, `--architecture` | `<architecture>` | False | False | — | Editor architecture (x86_64 or arm64) (default: "unknown") |
-| `--json` | — | False | False | — | Output as JSON |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
@@ -322,7 +326,7 @@ Confirm behavior with `unity editor module list --help` on the target machine be
 
 ## unity editor module refresh
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.3`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -347,10 +351,10 @@ None.
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
 | `-a`, `--architecture` | `<architecture>` | False | False | — | Editor architecture (x86_64 or arm64) (default: "unknown") |
-| `--json` | — | False | False | — | Output as JSON |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
@@ -381,3 +385,67 @@ None.
 None.
 
 Confirm behavior with `unity editor module refresh --help` on the target machine before execution.
+
+## unity editor module remove
+
+- CLI version: `1.0.0-beta.3`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Remove installed modules from an editor
+
+### Usage
+
+`unity editor module remove [options] <version>`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+| Argument | Required | Repeatable | Description |
+| --- | --- | --- | --- |
+| `version` | True | False | Editor version to remove modules from |
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-m`, `--module` | `<module...>` | False | False | — | Module ID(s) to remove |
+| `-a`, `--architecture` | `<architecture>` | False | False | — | Editor architecture (x86_64 or arm64) (default: "unknown") |
+| `-y`, `--yes` | — | False | False | — | Skip the confirmation prompt |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://user:pass@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+None.
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity editor module remove --help` on the target machine before execution.

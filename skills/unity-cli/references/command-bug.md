@@ -2,13 +2,13 @@
 
 # `unity bug` command reference
 
-Generated from Unity CLI `1.0.0-beta.2` help output.
+Generated from Unity CLI `1.0.0-beta.3` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity bug
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.3`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -30,9 +30,15 @@ None.
 
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
+| `--email` | `<email>` | True | False | — | Contact email for the report (defaults to your Unity account email when signed in; otherwise required for non-interactive runs) |
+| `--title` | `<title>` | False | False | — | One-line summary of the bug (at least 3 characters) |
+| `--description` | `<description>` | False | False | — | What happened (at least 10 characters) |
+| `--steps` | `<steps...>` | False | True | — | Steps to reproduce; repeat values to add lines |
+| `--reproducibility` | `<value>` | False | False | — | How often the bug reproduces (choices: "first-time", "sometimes", "always") |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |

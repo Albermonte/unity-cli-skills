@@ -2,13 +2,13 @@
 
 # `unity mcp` command reference
 
-Generated from Unity CLI `1.0.0-beta.2` help output.
+Generated from Unity CLI `1.0.0-beta.5` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity mcp
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.5`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -38,11 +38,13 @@ None.
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
-| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://user:pass@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
 | `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
@@ -53,6 +55,7 @@ None.
 | --- | --- |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
 | `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
 | `UNITY_QUIET` | Mirrors --quiet. |
 | `UNITY_VERBOSE` | Mirrors --verbose. |
@@ -74,7 +77,7 @@ Confirm behavior with `unity mcp --help` on the target machine before execution.
 
 ## unity mcp configure
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.5`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -99,7 +102,7 @@ None.
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
 | `--list` | — | False | False | — | List all supported clients and their config paths |
-| `--local` | — | False | False | — | Write project-local config (for clients that support it, e.g. cursor, windsurf) |
+| `--local` | — | False | False | — | Write project-local config (for clients that support it, e.g. cursor, vscode) |
 | `--yes` | — | False | False | — | Skip the "already exists, update?" confirmation prompt |
 | `--dry-run` | — | False | False | — | Print what would be written without modifying any files |
 | `-h`, `--help` | — | False | False | — | display help for command |
@@ -108,11 +111,13 @@ None.
 | `--runtime-path` | `<path>` | False | False | — | Directory containing the Unity Player port descriptor file |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
-| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://user:pass@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
 | `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
@@ -123,6 +128,7 @@ None.
 | --- | --- |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
 | `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
 | `UNITY_QUIET` | Mirrors --quiet. |
 | `UNITY_VERBOSE` | Mirrors --verbose. |
@@ -154,7 +160,6 @@ None.
   vscode-insiders VS Code Insiders / GitHub Copilot
   copilot-cli     GitHub Copilot CLI
   windsurf        Windsurf — global
-  windsurf --local Windsurf — project-local
   cline           Cline VS Code extension
   codex           OpenAI Codex CLI
   kiro            AWS Kiro IDE

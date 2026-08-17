@@ -2,13 +2,13 @@
 
 # `unity editors` command reference
 
-Generated from Unity CLI `1.0.0-beta.2` help output.
+Generated from Unity CLI `1.0.0-beta.5` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity editors
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.5`
 - Supported platforms: linux, macos, windows
 - Aliases: `e`
 
@@ -25,6 +25,9 @@ Manage Unity editors
 | `add` | — | Add an existing Unity editor to the Hub |
 | `default` | — | Show or set the default editor version used when no version is specified |
 | `list` | — | List installed Unity editors or available releases for download |
+| `running` | — | List running Unity editors and the project each has open |
+| `prune` | — | Find editors no registered project uses, and optionally uninstall them |
+| `verify` | — | Structurally verify an installed editor — check its files and modules are present on disk |
 | `info` | — | Show release details for a Unity editor version |
 | `module` | — | Manage modules for an installed editor |
 | `install-path` | `ip` | Show or change the global editor install path |
@@ -43,16 +46,17 @@ None.
 | `-i`, `--installed` | — | False | False | — | List installed Unity editors |
 | `-a`, `--architecture` | `<architecture>` | False | False | — | Editor architecture (x86_64 or arm64) (default: "unknown") |
 | `--verbose` | — | False | False | — | Show detailed information (full module names, paths) |
-| `--json` | — | False | False | — | Output the list in JSON format |
 | `-w`, `--watch` | — | False | False | — | Watch for editor changes and refresh output (Ctrl-C to stop) |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
-| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://user:pass@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
 | `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
@@ -63,6 +67,7 @@ None.
 | --- | --- |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
 | `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
 | `UNITY_QUIET` | Mirrors --quiet. |
 | `UNITY_VERBOSE` | Mirrors --verbose. |
@@ -77,11 +82,15 @@ None.
 
 None.
 
+### Platform-specific differences
+
+- **windows:** differs in subcommands.
+
 Confirm behavior with `unity editors --help` on the target machine before execution.
 
 ## unity editors add
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.5`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -109,15 +118,16 @@ None.
 | `-i`, `--installed` | — | False | False | — | List installed Unity editors |
 | `-a`, `--architecture` | `<architecture>` | False | False | — | Editor architecture (x86_64 or arm64) (default: "unknown") |
 | `--verbose` | — | False | False | — | Show detailed information (full module names, paths) |
-| `--json` | — | False | False | — | Output the list in JSON format |
 | `-w`, `--watch` | — | False | False | — | Watch for editor changes and refresh output (Ctrl-C to stop) |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
-| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://user:pass@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
 | `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
@@ -128,6 +138,7 @@ None.
 | --- | --- |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
 | `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
 | `UNITY_QUIET` | Mirrors --quiet. |
 | `UNITY_VERBOSE` | Mirrors --verbose. |
@@ -146,7 +157,7 @@ Confirm behavior with `unity editors add --help` on the target machine before ex
 
 ## unity editors default
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.5`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -169,21 +180,21 @@ None.
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
 | `--unset` | — | False | False | — | Clear the stored default editor version |
-| `--json` | — | False | False | — | Output as JSON |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-r`, `--releases` | — | False | False | — | List available Unity releases for download |
 | `-i`, `--installed` | — | False | False | — | List installed Unity editors |
 | `-a`, `--architecture` | `<architecture>` | False | False | — | Editor architecture (x86_64 or arm64) (default: "unknown") |
 | `--verbose` | — | False | False | — | Show detailed information (full module names, paths) |
-| `--json` | — | False | False | — | Output the list in JSON format |
 | `-w`, `--watch` | — | False | False | — | Watch for editor changes and refresh output (Ctrl-C to stop) |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
-| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://user:pass@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
 | `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
@@ -194,6 +205,7 @@ None.
 | --- | --- |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
 | `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
 | `UNITY_QUIET` | Mirrors --quiet. |
 | `UNITY_VERBOSE` | Mirrors --verbose. |
@@ -212,7 +224,7 @@ Confirm behavior with `unity editors default --help` on the target machine befor
 
 ## unity editors info
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.5`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -241,15 +253,16 @@ None.
 | `-i`, `--installed` | — | False | False | — | List installed Unity editors |
 | `-a`, `--architecture` | `<architecture>` | False | False | — | Editor architecture (x86_64 or arm64) (default: "unknown") |
 | `--verbose` | — | False | False | — | Show detailed information (full module names, paths) |
-| `--json` | — | False | False | — | Output the list in JSON format |
 | `-w`, `--watch` | — | False | False | — | Watch for editor changes and refresh output (Ctrl-C to stop) |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
-| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://user:pass@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
 | `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
@@ -260,6 +273,7 @@ None.
 | --- | --- |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
 | `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
 | `UNITY_QUIET` | Mirrors --quiet. |
 | `UNITY_VERBOSE` | Mirrors --verbose. |
@@ -280,7 +294,7 @@ Confirm behavior with `unity editors info --help` on the target machine before e
 
 ## unity editors install-path
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.5`
 - Supported platforms: linux, macos, windows
 - Aliases: `ip`
 
@@ -308,15 +322,16 @@ None.
 | `-i`, `--installed` | — | False | False | — | List installed Unity editors |
 | `-a`, `--architecture` | `<architecture>` | False | False | — | Editor architecture (x86_64 or arm64) (default: "unknown") |
 | `--verbose` | — | False | False | — | Show detailed information (full module names, paths) |
-| `--json` | — | False | False | — | Output the list in JSON format |
 | `-w`, `--watch` | — | False | False | — | Watch for editor changes and refresh output (Ctrl-C to stop) |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
-| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://user:pass@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
 | `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
@@ -327,6 +342,7 @@ None.
 | --- | --- |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
 | `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
 | `UNITY_QUIET` | Mirrors --quiet. |
 | `UNITY_VERBOSE` | Mirrors --verbose. |
@@ -345,7 +361,7 @@ Confirm behavior with `unity editors install-path --help` on the target machine 
 
 ## unity editors list
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.5`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -372,15 +388,16 @@ None.
 | `-i`, `--installed` | — | False | False | — | List installed Unity editors |
 | `-a`, `--architecture` | `<architecture>` | False | False | — | Editor architecture (x86_64 or arm64) (default: "unknown") |
 | `--verbose` | — | False | False | — | Show detailed information (full module names, paths) |
-| `--json` | — | False | False | — | Output the list in JSON format |
 | `-w`, `--watch` | — | False | False | — | Watch for editor changes and refresh output (Ctrl-C to stop) |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
-| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://user:pass@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
 | `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
@@ -391,6 +408,7 @@ None.
 | --- | --- |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
 | `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
 | `UNITY_QUIET` | Mirrors --quiet. |
 | `UNITY_VERBOSE` | Mirrors --verbose. |
@@ -409,7 +427,7 @@ Confirm behavior with `unity editors list --help` on the target machine before e
 
 ## unity editors module
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.5`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -426,6 +444,7 @@ Manage modules for an installed editor
 | `list` | — | List available modules for an installed editor |
 | `add` | — | Add modules to an installed editor |
 | `refresh` | — | Re-fetch the module list for a located editor. |
+| `remove` | — | Remove installed modules from an editor |
 
 ### Positional arguments
 
@@ -440,15 +459,16 @@ None.
 | `-i`, `--installed` | — | False | False | — | List installed Unity editors |
 | `-a`, `--architecture` | `<architecture>` | False | False | — | Editor architecture (x86_64 or arm64) (default: "unknown") |
 | `--verbose` | — | False | False | — | Show detailed information (full module names, paths) |
-| `--json` | — | False | False | — | Output the list in JSON format |
 | `-w`, `--watch` | — | False | False | — | Watch for editor changes and refresh output (Ctrl-C to stop) |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
-| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://user:pass@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
 | `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
@@ -459,6 +479,7 @@ None.
 | --- | --- |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
 | `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
 | `UNITY_QUIET` | Mirrors --quiet. |
 | `UNITY_VERBOSE` | Mirrors --verbose. |
@@ -477,7 +498,7 @@ Confirm behavior with `unity editors module --help` on the target machine before
 
 ## unity editors module add
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.5`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -512,15 +533,16 @@ None.
 | `-i`, `--installed` | — | False | False | — | List installed Unity editors |
 | `-a`, `--architecture` | `<architecture>` | False | False | — | Editor architecture (x86_64 or arm64) (default: "unknown") |
 | `--verbose` | — | False | False | — | Show detailed information (full module names, paths) |
-| `--json` | — | False | False | — | Output the list in JSON format |
 | `-w`, `--watch` | — | False | False | — | Watch for editor changes and refresh output (Ctrl-C to stop) |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
-| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://user:pass@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
 | `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
@@ -531,6 +553,7 @@ None.
 | --- | --- |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
 | `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
 | `UNITY_QUIET` | Mirrors --quiet. |
 | `UNITY_VERBOSE` | Mirrors --verbose. |
@@ -549,7 +572,7 @@ Confirm behavior with `unity editors module add --help` on the target machine be
 
 ## unity editors module list
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.5`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -574,21 +597,21 @@ None.
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
 | `-a`, `--architecture` | `<architecture>` | False | False | — | Editor architecture (x86_64 or arm64) (default: "unknown") |
-| `--json` | — | False | False | — | Output as JSON |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-r`, `--releases` | — | False | False | — | List available Unity releases for download |
 | `-i`, `--installed` | — | False | False | — | List installed Unity editors |
 | `-a`, `--architecture` | `<architecture>` | False | False | — | Editor architecture (x86_64 or arm64) (default: "unknown") |
 | `--verbose` | — | False | False | — | Show detailed information (full module names, paths) |
-| `--json` | — | False | False | — | Output the list in JSON format |
 | `-w`, `--watch` | — | False | False | — | Watch for editor changes and refresh output (Ctrl-C to stop) |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
-| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://user:pass@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
 | `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
@@ -599,6 +622,7 @@ None.
 | --- | --- |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
 | `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
 | `UNITY_QUIET` | Mirrors --quiet. |
 | `UNITY_VERBOSE` | Mirrors --verbose. |
@@ -617,7 +641,7 @@ Confirm behavior with `unity editors module list --help` on the target machine b
 
 ## unity editors module refresh
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.5`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -642,21 +666,21 @@ None.
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
 | `-a`, `--architecture` | `<architecture>` | False | False | — | Editor architecture (x86_64 or arm64) (default: "unknown") |
-| `--json` | — | False | False | — | Output as JSON |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-r`, `--releases` | — | False | False | — | List available Unity releases for download |
 | `-i`, `--installed` | — | False | False | — | List installed Unity editors |
 | `-a`, `--architecture` | `<architecture>` | False | False | — | Editor architecture (x86_64 or arm64) (default: "unknown") |
 | `--verbose` | — | False | False | — | Show detailed information (full module names, paths) |
-| `--json` | — | False | False | — | Output the list in JSON format |
 | `-w`, `--watch` | — | False | False | — | Watch for editor changes and refresh output (Ctrl-C to stop) |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
-| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://user:pass@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
 | `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
@@ -667,6 +691,7 @@ None.
 | --- | --- |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
 | `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
 | `UNITY_QUIET` | Mirrors --quiet. |
 | `UNITY_VERBOSE` | Mirrors --verbose. |
@@ -683,9 +708,80 @@ None.
 
 Confirm behavior with `unity editors module refresh --help` on the target machine before execution.
 
+## unity editors module remove
+
+- CLI version: `1.0.0-beta.5`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Remove installed modules from an editor
+
+### Usage
+
+`unity editors module remove [options] <version>`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+| Argument | Required | Repeatable | Description |
+| --- | --- | --- | --- |
+| `version` | True | False | Editor version to remove modules from |
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-m`, `--module` | `<module...>` | False | False | — | Module ID(s) to remove |
+| `-a`, `--architecture` | `<architecture>` | False | False | — | Editor architecture (x86_64 or arm64) (default: "unknown") |
+| `-y`, `--yes` | — | False | False | — | Skip the confirmation prompt |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `-r`, `--releases` | — | False | False | — | List available Unity releases for download |
+| `-i`, `--installed` | — | False | False | — | List installed Unity editors |
+| `-a`, `--architecture` | `<architecture>` | False | False | — | Editor architecture (x86_64 or arm64) (default: "unknown") |
+| `--verbose` | — | False | False | — | Show detailed information (full module names, paths) |
+| `-w`, `--watch` | — | False | False | — | Watch for editor changes and refresh output (Ctrl-C to stop) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+None.
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity editors module remove --help` on the target machine before execution.
+
 ## unity editors path
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.5`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -714,15 +810,16 @@ None.
 | `-i`, `--installed` | — | False | False | — | List installed Unity editors |
 | `-a`, `--architecture` | `<architecture>` | False | False | — | Editor architecture (x86_64 or arm64) (default: "unknown") |
 | `--verbose` | — | False | False | — | Show detailed information (full module names, paths) |
-| `--json` | — | False | False | — | Output the list in JSON format |
 | `-w`, `--watch` | — | False | False | — | Watch for editor changes and refresh output (Ctrl-C to stop) |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
-| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://user:pass@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
 | `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
@@ -733,6 +830,7 @@ None.
 | --- | --- |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
 | `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
 | `UNITY_QUIET` | Mirrors --quiet. |
 | `UNITY_VERBOSE` | Mirrors --verbose. |
@@ -751,9 +849,145 @@ None.
 
 Confirm behavior with `unity editors path --help` on the target machine before execution.
 
+## unity editors prune
+
+- CLI version: `1.0.0-beta.5`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Find editors no registered project uses, and optionally uninstall them
+
+### Usage
+
+`unity editors prune [options]`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `--remove` | — | False | False | — | Uninstall the unused editors (default is report-only) |
+| `-y`, `--yes` | — | False | False | — | Skip the confirmation prompt |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `-r`, `--releases` | — | False | False | — | List available Unity releases for download |
+| `-i`, `--installed` | — | False | False | — | List installed Unity editors |
+| `-a`, `--architecture` | `<architecture>` | False | False | — | Editor architecture (x86_64 or arm64) (default: "unknown") |
+| `--verbose` | — | False | False | — | Show detailed information (full module names, paths) |
+| `-w`, `--watch` | — | False | False | — | Watch for editor changes and refresh output (Ctrl-C to stop) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity editors prune`
+`$ unity editors prune --remove`
+`$ unity editors prune --remove --yes`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity editors prune --help` on the target machine before execution.
+
+## unity editors running
+
+- CLI version: `1.0.0-beta.5`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+List running Unity editors and the project each has open
+
+### Usage
+
+`unity editors running [options]`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `-r`, `--releases` | — | False | False | — | List available Unity releases for download |
+| `-i`, `--installed` | — | False | False | — | List installed Unity editors |
+| `-a`, `--architecture` | `<architecture>` | False | False | — | Editor architecture (x86_64 or arm64) (default: "unknown") |
+| `--verbose` | — | False | False | — | Show detailed information (full module names, paths) |
+| `-w`, `--watch` | — | False | False | — | Watch for editor changes and refresh output (Ctrl-C to stop) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+None.
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity editors running --help` on the target machine before execution.
+
 ## unity editors upgrade
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.5`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -792,15 +1026,16 @@ None.
 | `-i`, `--installed` | — | False | False | — | List installed Unity editors |
 | `-a`, `--architecture` | `<architecture>` | False | False | — | Editor architecture (x86_64 or arm64) (default: "unknown") |
 | `--verbose` | — | False | False | — | Show detailed information (full module names, paths) |
-| `--json` | — | False | False | — | Output the list in JSON format |
 | `-w`, `--watch` | — | False | False | — | Watch for editor changes and refresh output (Ctrl-C to stop) |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
-| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://user:pass@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
 | `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
@@ -812,6 +1047,7 @@ None.
 | `UNITY_ARCHITECTURE` | Mirrors -a, --architecture. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
 | `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
 | `UNITY_QUIET` | Mirrors --quiet. |
 | `UNITY_VERBOSE` | Mirrors --verbose. |
@@ -831,3 +1067,77 @@ None.
 - **windows:** differs in options.
 
 Confirm behavior with `unity editors upgrade --help` on the target machine before execution.
+
+## unity editors verify
+
+- CLI version: `1.0.0-beta.5`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Structurally verify an installed editor — check its files and modules are
+
+present on disk
+
+### Usage
+
+`unity editors verify [options] <version>`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `-r`, `--releases` | — | False | False | — | List available Unity releases for download |
+| `-i`, `--installed` | — | False | False | — | List installed Unity editors |
+| `-a`, `--architecture` | `<architecture>` | False | False | — | Editor architecture (x86_64 or arm64) (default: "unknown") |
+| `--verbose` | — | False | False | — | Show detailed information (full module names, paths) |
+| `-w`, `--watch` | — | False | False | — | Watch for editor changes and refresh output (Ctrl-C to stop) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity editors verify 6000.1.0f1`
+`$ unity editors verify 6000.1.0f1 --architecture arm64`
+`$ unity editors verify 6000.1.0f1 --json`
+
+### Exit codes
+
+None.
+
+### Platform-specific differences
+
+- **windows:** differs in summary.
+
+Confirm behavior with `unity editors verify --help` on the target machine before execution.

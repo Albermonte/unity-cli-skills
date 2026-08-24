@@ -2,13 +2,13 @@
 
 # `unity build` command reference
 
-Generated from Unity CLI `1.0.0-beta.2` help output.
+Generated from Unity CLI `1.0.0-beta.5` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity build
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.5`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -34,11 +34,12 @@ None.
 
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
-| `--target` | `<target>` | True | False | — | Build target (e.g. StandaloneWindows64, Android, iOS, WebGL). Required. |
-| `--execute-method` | `<method>` | True | False | — | Static C# method to invoke (e.g. Builder.PerformBuild). Required — Unity has no built-in command-line build. |
+| `--target` | `<target>` | True | False | — | Build target (e.g. StandaloneWindows64, Android, iOS, WebGL). Required unless --profile is used. |
+| `--execute-method` | `<method>` | False | False | — | Static C# method to invoke (e.g. Builder.PerformBuild). Optional: without it, the CLI uses Unity's built-in build — a build profile on Unity 6+, or the legacy desktop player flags. |
+| `--profile` | `<profile>` | False | False | — | Build profile to build with: a path to a .asset file, or a profile name in Assets/Settings/Build Profiles (Unity 6+ only; the profile defines the target) |
 | `--build-target-group` | `<group>` | False | False | — | Optional build target group, forwarded to Unity as -buildTargetGroup |
-| `-o`, `--output-path` | `<path>` | False | False | — | Output path passed to Unity as -buildOutput (your executeMethod is responsible for honoring it) |
-| `-l`, `--log-file` | `<path>` | False | False | — | Log file path (default: <project>/Logs/build-<target>-<timestamp>.log) |
+| `-o`, `--output-path` | `<path>` | True | False | — | Output path for the build. Forwarded as -buildOutput with --execute-method (your method is responsible for honoring it); otherwise the built-in build's destination, and required |
+| `-l`, `--log-file` | `<path>` | False | False | — | Log file path (default: <project>/Logs/build-<target>-<timestamp>.log). The log also streams to the console by default; --no-tail disables it. |
 | `--editor-version` | `<version>` | False | False | — | Override editor version (default: from ProjectVersion.txt) |
 | `-e`, `--editor-path` | `<path>` | False | False | — | Path to a specific editor binary |
 | `-a`, `--architecture` | `<arch>` | False | False | — | Editor architecture (x86_64 or arm64) (default: "unknown") |
@@ -59,11 +60,13 @@ None.
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
-| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://user:pass@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
 | `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
@@ -74,6 +77,7 @@ None.
 | --- | --- |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
 | `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
 | `UNITY_QUIET` | Mirrors --quiet. |
 | `UNITY_VERBOSE` | Mirrors --verbose. |
@@ -82,11 +86,15 @@ None.
 
 ### Examples exposed by help
 
+`$ unity build --target StandaloneWindows64 --output-path ./Build/MyGame.exe`
+`$ unity build ./MyGame --profile "Windows Release" --output-path ./Build/MyGame.exe`
 `$ unity build --target StandaloneWindows64 --execute-method Builder.PerformBuild`
 `$ unity build ./MyGame --target Android --execute-method Builder.AndroidBuild --output-path ./out/app.apk`
 `$ unity build "My Game" --target WebGL --execute-method Builder.WebGLBuild --editor-version 6000.0`
 `$ unity build --target iOS --execute-method Builder.iOSBuild --allow-install --no-tail`
-`$ unity build --target Android --execute-method Builder.Build --android-export-type aab --android-keystore-base64 <b64> --android-keystore-password secret --android-key-alias mykey`
+`$ unity build --target Android --execute-method Builder.Build --android-export-type aab --android-keystore-base64 <b64> --android-keystore-password <password> --android-key-alias mykey`
+`The build log is always written to the log file and, by default, streamed to the console at the same time. Pass --no-tail to write the file only; --quiet and --format ndjson also disable the stream.`
+`For a generic batch-mode run or a registered Editor command, use unity run.`
 
 ### Exit codes
 

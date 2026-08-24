@@ -2,14 +2,14 @@
 
 # Unity CLI command index
 
-Generated from Unity CLI `1.0.0-beta.2` help output.
+Generated from Unity CLI `1.0.0-beta.5` help output.
 
 Installed help remains authoritative. Run `unity --help` and the complete command path with `--help` before use.
 
 | Command | Aliases | Platforms | Summary |
 | --- | --- | --- | --- |
 | [`analytics`](command-analytics.md) | — | linux, macos, windows | Manage analytics and telemetry consent |
-| [`auth`](command-auth.md) | `a` | linux, macos, windows | Sign in, check login state, or sign out |
+| [`auth`](command-auth.md) | `a` | linux, macos, windows | Sign in, manage accounts, check login state, or sign out |
 | [`bug`](command-bug.md) | — | linux, macos, windows | Report a bug directly to the Unity bug reporter |
 | [`build`](command-build.md) | — | linux, macos, windows | Build a Unity project from the command line. Spawns the editor in batch mode and |
 | [`cache`](command-cache.md) | — | linux, macos, windows | Manage the download cache |
@@ -28,6 +28,7 @@ Installed help remains authoritative. Run `unity --help` and the complete comman
 | [`install`](command-install.md) | `i` | linux, macos, windows | Install a Unity editor |
 | [`install-modules`](command-install-modules.md) | `im` | linux, macos, windows | Install or list modules for an installed editor (fully interactive when no |
 | [`install-path`](command-install-path.md) | `ip` | linux, macos, windows | Set or get the editor install path |
+| [`job`](command-job.md) | — | linux, macos, windows | Manage detached Editor command jobs |
 | [`language`](command-language.md) | `lang` | linux, macos, windows | Show or change the CLI display language |
 | [`license`](command-license.md) | — | linux, macos, windows | List the Unity licenses active on this machine |
 | [`list`](command-list.md) | — | linux, macos, windows | List tools available on the connected Unity Editor (commands registered by the |
@@ -41,6 +42,7 @@ Installed help remains authoritative. Run `unity --help` and the complete comman
 | [`run`](command-run.md) | — | linux, macos, windows | Run a Unity project in batch mode and forward args to the editor |
 | [`self-uninstall`](command-self-uninstall.md) | — | linux, macos, windows | Uninstall the unity CLI (removes the binary and environment files) |
 | [`shell`](command-shell.md) | — | linux, macos, windows | Start an interactive shell (REPL) that runs many commands in one warm process |
+| [`skill`](command-skill.md) | — | linux, macos, windows | Install the Unity CLI agent skill into an AI client's skills directory |
 | [`status`](command-status.md) | — | linux, macos, windows | Show live state of every connected Unity Editor (port, project, version, PID, |
 | [`templates`](command-templates.md) | `t` | linux, macos, windows | Browse, inspect, create, edit, and delete Unity project templates |
 | [`test`](command-test.md) | — | linux, macos, windows | Run a project's EditMode/PlayMode tests in the editor and write a results report |

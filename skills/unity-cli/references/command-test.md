@@ -2,13 +2,13 @@
 
 # `unity test` command reference
 
-Generated from Unity CLI `1.0.0-beta.2` help output.
+Generated from Unity CLI `1.0.0-beta.6` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity test
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.6`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -34,7 +34,16 @@ None.
 | --- | --- | --- | --- | --- | --- |
 | `--mode` | `<mode>` | False | False | — | Test platform to run: EditMode or PlayMode. If omitted, the editor's default test platform runs. |
 | `--filter` | `<pattern>` | False | False | — | Run only tests whose names match this filter |
-| `--output` | `<path>` | False | False | — | Path to write the NUnit XML results report (default: "test-results.xml") |
+| `--output` | `<path>` | False | False | — | Path to write the results report (NUnit XML by default) (default: "test-results.xml") |
+| `--report-format` | `<formats>` | False | False | — | Report formats to produce, comma-separated: nunit, junit, or both (default: nunit) |
+| `--junit-output` | `<path>` | False | False | — | Path to write the JUnit report to when both report formats are produced |
+| `--shard` | `<n/m>` | False | False | — | Run only one slice of the suite, written as N/M, so parallel CI jobs can split it |
+| `--shard-inventory` | `<path>` | False | False | — | Path to the results report a full run wrote, whose test list the shards are computed from (default: the unsharded output path) |
+| `--retries` | `<n>` | False | False | — | Re-run failing tests up to this many extra times (0-10), and report any that pass on a retry as flaky (default: 0) |
+| `--rerun-failed` | — | False | False | — | Run only the tests that failed in the previous run's results report, instead of the whole suite |
+| `--coverage` | — | False | False | — | Collect code coverage (requires the Unity Code Coverage package in the project) |
+| `--coverage-output` | `<path>` | False | False | — | Directory to write the coverage report to (default: CodeCoverage) |
+| `--coverage-options` | `<options>` | False | False | — | Semicolon-separated options passed through to the Code Coverage package |
 | `--editor-version` | `<version>` | False | False | — | Override editor version (default: from ProjectVersion.txt) (env: UNITY_EDITOR_VERSION) |
 | `-e`, `--editor-path` | `<path>` | False | False | — | Path to a specific editor binary |
 | `-a`, `--architecture` | `<arch>` | False | False | — | Editor architecture (x86_64 or arm64) (default: "unknown", env: UNITY_ARCHITECTURE) |
@@ -42,12 +51,14 @@ None.
 | `--timeout` | `<seconds>` | False | False | — | Kill the Unity process after this many seconds (disabled by default) (env: UNITY_TEST_TIMEOUT) |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
-| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
-| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://user:pass@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
 | `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
@@ -61,6 +72,7 @@ None.
 | `UNITY_TEST_TIMEOUT` | Mirrors --timeout. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
 | `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
 | `UNITY_QUIET` | Mirrors --quiet. |
 | `UNITY_VERBOSE` | Mirrors --verbose. |
@@ -73,6 +85,9 @@ None.
 `$ unity test ./MyProject --mode EditMode`
 `$ unity test "My Game" --mode PlayMode --output ./results/play.xml`
 `$ unity test . --filter "MyNamespace.MyTests" --editor-version 6000.0`
+`$ unity test . --report-format junit`
+`$ unity test . --report-format nunit,junit --junit-output ./results/junit.xml`
+`$ unity test . --coverage --coverage-output ./coverage`
 `$ unity test . -- -nographics`
 
 ### Exit codes

@@ -2,13 +2,13 @@
 
 # `unity license` command reference
 
-Generated from Unity CLI `1.0.0-beta.2` help output.
+Generated from Unity CLI `1.0.0-beta.3` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity license
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.3`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -36,10 +36,10 @@ None.
 
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
-| `--json` | — | False | False | — | Output licenses as JSON |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
@@ -73,7 +73,7 @@ Confirm behavior with `unity license --help` on the target machine before execut
 
 ## unity license activate
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.3`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -102,9 +102,9 @@ None.
 | `--generate-request` | `<path>` | False | False | — | Save an offline activation request (.alf) to the given path |
 | `--accept-eula` | — | True | False | — | Accept the Unity Personal license terms (required with --personal) |
 | `-h`, `--help` | — | False | False | — | display help for command |
-| `--json` | — | False | False | — | Output licenses as JSON |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
@@ -138,7 +138,7 @@ Confirm behavior with `unity license activate --help` on the target machine befo
 
 ## unity license list
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.3`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -161,9 +161,9 @@ None.
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
 | `-h`, `--help` | — | False | False | — | display help for command |
-| `--json` | — | False | False | — | Output licenses as JSON |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
@@ -197,7 +197,7 @@ Confirm behavior with `unity license list --help` on the target machine before e
 
 ## unity license return
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.3`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -221,9 +221,9 @@ None.
 | --- | --- | --- | --- | --- | --- |
 | `-y`, `--yes` | — | False | False | — | Return without confirmation |
 | `-h`, `--help` | — | False | False | — | display help for command |
-| `--json` | — | False | False | — | Output licenses as JSON |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
@@ -257,7 +257,7 @@ Confirm behavior with `unity license return --help` on the target machine before
 
 ## unity license server
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.3`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -283,9 +283,9 @@ None.
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
 | `-h`, `--help` | — | False | False | — | display help for command |
-| `--json` | — | False | False | — | Output licenses as JSON |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
@@ -319,7 +319,7 @@ Confirm behavior with `unity license server --help` on the target machine before
 
 ## unity license server list
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.3`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -342,9 +342,9 @@ None.
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
 | `-h`, `--help` | — | False | False | — | display help for command |
-| `--json` | — | False | False | — | Output licenses as JSON |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
@@ -378,7 +378,7 @@ Confirm behavior with `unity license server list --help` on the target machine b
 
 ## unity license server status
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.3`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -401,9 +401,9 @@ None.
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
 | `-h`, `--help` | — | False | False | — | display help for command |
-| `--json` | — | False | False | — | Output licenses as JSON |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
@@ -437,7 +437,7 @@ Confirm behavior with `unity license server status --help` on the target machine
 
 ## unity license status
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.3`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -460,9 +460,9 @@ None.
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
 | `-h`, `--help` | — | False | False | — | display help for command |
-| `--json` | — | False | False | — | Output licenses as JSON |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |

@@ -2,13 +2,13 @@
 
 # `unity command` command reference
 
-Generated from Unity CLI `1.0.0-beta.2` help output.
+Generated from Unity CLI `1.0.0-beta.3` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity command
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.3`
 - Supported platforms: linux, macos, windows
 - Aliases: `cmd`
 
@@ -33,13 +33,14 @@ None.
 
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
-| `--project-path` | `<path>` | False | False | — | Path to Unity project (auto-detected if not specified) |
+| `--project-path` | `<path>` | False | False | — | Path to Unity project (auto-detected if not specified) (env: UNITY_PROJECT_PATH) |
 | `--runtime` | `<player exec name>` | False | False | — | Connect to a Unity Player runtime instance (search by process name) |
 | `--runtime-path` | `<path>` | False | False | — | Connect to a Unity Player by path to port file |
 | `--timeout` | `<seconds>` | False | False | — | Timeout for command execution (default: 30) (default: "30") |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
@@ -53,6 +54,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_PROJECT_PATH` | Mirrors --project-path. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |

@@ -2,13 +2,13 @@
 
 # `unity releases` command reference
 
-Generated from Unity CLI `1.0.0-beta.2` help output.
+Generated from Unity CLI `1.0.0-beta.3` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity releases
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.3`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -35,10 +35,10 @@ None.
 | `--since` | `<year>` | False | False | — | Show releases from this year onwards (e.g. 2023) |
 | `--limit` | `<n>` | False | False | — | Maximum number of releases to show (default: 20) (default: 20) |
 | `--skip` | `<n>` | False | False | — | Skip the first N releases (for pagination) (default: 0) |
-| `--json` | — | False | False | — | Output the list in JSON format |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |

@@ -2,13 +2,13 @@
 
 # `unity install` command reference
 
-Generated from Unity CLI `1.0.0-beta.2` help output.
+Generated from Unity CLI `1.0.0-beta.3` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity install
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.3`
 - Supported platforms: linux, macos, windows
 - Aliases: `i`
 
@@ -43,9 +43,11 @@ None.
 | `--dry-run` | — | False | False | — | Print what would be downloaded without installing |
 | `--resume` | — | False | False | — | Resume interrupted downloads from cache |
 | `--no-elevate` | — | False | False | — | Skip the elevated (UAC) install helper on Windows; installs into protected paths fail instead of prompting |
+| `--list-components` | — | False | False | — | List the editor's modules with the Hub id and unity-downloader-cli-compatible name, then exit |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |

@@ -2,13 +2,13 @@
 
 # `unity help` command reference
 
-Generated from Unity CLI `1.0.0-beta.2` help output.
+Generated from Unity CLI `1.0.0-beta.6` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity help
 
-- CLI version: `1.0.0-beta.2`
+- CLI version: `1.0.0-beta.6`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -23,12 +23,13 @@ CLI for Unity
 | Name | Aliases | Summary |
 | --- | --- | --- |
 | `analytics` | — | Manage analytics and telemetry consent |
-| `auth` | `a` | Sign in, check login state, or sign out |
-| `bug` | — | Report a bug directly to the Unity bug reporter |
+| `auth` | `a` | Sign in, manage accounts, check login state, or sign out |
+| `bug` | — | Report a bug directly to the Unity bug reporter (requires you to be signed in) |
 | `build` | — | Build a Unity project from the command line. Spawns the editor in batch mode and forwards conventional CI flags. |
 | `cache` | — | Manage the download cache |
 | `changelog` | — | Show release notes for the installed CLI |
 | `cloud` | — | Manage Unity Cloud organizations and projects |
+| `collaboration` | `collab` | Manage Unity Collaboration resources (annotations, attachments, Jira, reactions) |
 | `completion` | — | Print a shell completion script |
 | `config` | — | View or change persistent CLI configuration |
 | `diagnose` | — | One-shot diagnostic commands for support — paste-safe, redacted output |
@@ -38,6 +39,7 @@ CLI for Unity
 | `env` | — | Print Unity Hub environment paths and version |
 | `hub` | — | Manage the Unity Hub application |
 | `install` | `i` | Install a Unity editor |
+| `job` | — | Manage detached Editor command jobs |
 | `install-modules` | `im` | Install or list modules for an installed editor (fully interactive when no arguments provided) |
 | `install-path` | `ip` | Set or get the editor install path |
 | `language` | `lang` | Show or change the CLI display language |
@@ -56,6 +58,7 @@ CLI for Unity
 | `releases` | — | List available Unity releases |
 | `self-uninstall` | — | Uninstall the unity CLI (removes the binary and environment files) |
 | `shell` | — | Start an interactive shell (REPL) that runs many commands in one warm process |
+| `skill` | — | Install the Unity CLI agent skill into an AI client's skills directory |
 | `status` | — | Show live state of every connected Unity Editor (port, project, version, PID, state) |
 | `uninstall` | `u` | Uninstall an installed Unity editor |
 | `upgrade` | — | Upgrade the unity CLI to the latest version |
@@ -69,12 +72,14 @@ None.
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
 | `-V`, `--version` | — | False | False | — | output the version number |
-| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson (env: UNITY_FORMAT) |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
 | `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
-| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://user:pass@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
 | `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
@@ -86,6 +91,7 @@ None.
 | --- | --- |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
 | `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
 | `UNITY_QUIET` | Mirrors --quiet. |
 | `UNITY_VERBOSE` | Mirrors --verbose. |
@@ -99,9 +105,5 @@ None.
 ### Exit codes
 
 None.
-
-### Platform-specific differences
-
-- **windows:** differs in subcommands.
 
 Confirm behavior with `unity help --help` on the target machine before execution.

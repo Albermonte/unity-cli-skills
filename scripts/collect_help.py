@@ -85,6 +85,7 @@ def run_invocation(
             check=False,
             capture_output=True,
             text=True,
+            encoding="utf-8",
             timeout=timeout,
             env=collection_environment(),
             shell=False,

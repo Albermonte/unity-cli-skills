@@ -40,6 +40,30 @@ def test_invocation_uses_argv_and_separate_streams(monkeypatch: pytest.MonkeyPat
     assert result["stderr"] == "warning\n"
 
 
+def test_invocation_decodes_utf8_independent_of_windows_code_page(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    raw_stdout = "Emoji reaction, e.g. 👍\n".encode()
+
+    def fake_run(argv: list[str], **kwargs: Any) -> subprocess.CompletedProcess[str]:
+        encoding = kwargs.get("encoding", "cp1252")
+        stdout = raw_stdout.decode(encoding)
+        return subprocess.CompletedProcess(argv, 0, stdout, "")
+
+    monkeypatch.setattr(subprocess, "run", fake_run)
+
+    result = collect_help.run_invocation(
+        "unity",
+        ["collaboration", "reactions", "add"],
+        timeout=3,
+        platform_name="windows",
+        architecture="x86_64",
+        cli_version="1.0.0-beta.6",
+    )
+
+    assert result["stdout"] == "Emoji reaction, e.g. 👍\n"
+
+
 def test_timeout_fails_closed(monkeypatch: pytest.MonkeyPatch) -> None:
     def timeout(*args: Any, **kwargs: Any) -> Any:
         raise subprocess.TimeoutExpired(["unity", "--help"], 1)

@@ -1,6 +1,6 @@
 # unity-cli Agent Skill
 
-[![skills.sh](https://skills.sh/b/OWNER/REPOSITORY)](https://skills.sh/OWNER/REPOSITORY)
+[![skills.sh](https://skills.sh/b/Albermonte/unity-cli-skills)](https://skills.sh/Albermonte/unity-cli-skills)
 
 Unofficial Agent Skill for safe use of the experimental Unity CLI. The public skill is `skills/unity-cli`.
 

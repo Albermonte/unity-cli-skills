@@ -2,13 +2,13 @@
 
 # `unity editors` command reference
 
-Generated from Unity CLI `1.0.0-beta.6` help output.
+Generated from Unity CLI `1.0.0-beta.8` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity editors
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: `e`
 
@@ -86,7 +86,7 @@ Confirm behavior with `unity editors --help` on the target machine before execut
 
 ## unity editors add
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -153,7 +153,7 @@ Confirm behavior with `unity editors add --help` on the target machine before ex
 
 ## unity editors default
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -220,7 +220,7 @@ Confirm behavior with `unity editors default --help` on the target machine befor
 
 ## unity editors info
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -290,7 +290,7 @@ Confirm behavior with `unity editors info --help` on the target machine before e
 
 ## unity editors install-path
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: `ip`
 
@@ -357,7 +357,7 @@ Confirm behavior with `unity editors install-path --help` on the target machine 
 
 ## unity editors list
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -423,7 +423,7 @@ Confirm behavior with `unity editors list --help` on the target machine before e
 
 ## unity editors module
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -494,7 +494,7 @@ Confirm behavior with `unity editors module --help` on the target machine before
 
 ## unity editors module add
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -568,7 +568,7 @@ Confirm behavior with `unity editors module add --help` on the target machine be
 
 ## unity editors module list
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -637,7 +637,7 @@ Confirm behavior with `unity editors module list --help` on the target machine b
 
 ## unity editors module refresh
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -706,7 +706,7 @@ Confirm behavior with `unity editors module refresh --help` on the target machin
 
 ## unity editors module remove
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -777,7 +777,7 @@ Confirm behavior with `unity editors module remove --help` on the target machine
 
 ## unity editors path
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -847,7 +847,7 @@ Confirm behavior with `unity editors path --help` on the target machine before e
 
 ## unity editors prune
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -871,6 +871,7 @@ None.
 | --- | --- | --- | --- | --- | --- |
 | `--remove` | — | False | False | — | Uninstall the unused editors (default is report-only) |
 | `-y`, `--yes` | — | False | False | — | Skip the confirmation prompt |
+| `--force` | — | False | False | — | Remove even when the running-editor check cannot be completed |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-r`, `--releases` | — | False | False | — | List available Unity releases for download |
 | `-i`, `--installed` | — | False | False | — | List installed Unity editors |
@@ -917,7 +918,7 @@ Confirm behavior with `unity editors prune --help` on the target machine before 
 
 ## unity editors running
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -983,7 +984,7 @@ Confirm behavior with `unity editors running --help` on the target machine befor
 
 ## unity editors upgrade
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -1062,7 +1063,7 @@ Confirm behavior with `unity editors upgrade --help` on the target machine befor
 
 ## unity editors verify
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 

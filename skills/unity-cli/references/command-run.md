@@ -2,13 +2,13 @@
 
 # `unity run` command reference
 
-Generated from Unity CLI `1.0.0-beta.6` help output.
+Generated from Unity CLI `1.0.0-beta.8` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity run
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 

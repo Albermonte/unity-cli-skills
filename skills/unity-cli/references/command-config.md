@@ -2,13 +2,13 @@
 
 # `unity config` command reference
 
-Generated from Unity CLI `1.0.0-beta.6` help output.
+Generated from Unity CLI `1.0.0-beta.8` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity config
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -24,6 +24,7 @@ View or change persistent CLI configuration
 | --- | --- | --- |
 | `proxy` | — | View or change the configured proxy server |
 | `update-check` | — | Enable or disable the background check for CLI updates |
+| `accelerator` | — | View or change the configured Unity Accelerator |
 
 ### Positional arguments
 
@@ -70,9 +71,73 @@ None.
 
 Confirm behavior with `unity config --help` on the target machine before execution.
 
+## unity config accelerator
+
+- CLI version: `1.0.0-beta.8`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+View or change the configured Unity Accelerator
+
+### Usage
+
+`unity config accelerator [options] [endpoint]`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+| Argument | Required | Repeatable | Description |
+| --- | --- | --- | --- |
+| `endpoint` | True | False | Unity Accelerator endpoint as host:port. A bare host defaults to port 10080. |
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `--unset` | — | False | False | — | Remove the persisted Unity Accelerator configuration |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+None.
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity config accelerator --help` on the target machine before execution.
+
 ## unity config proxy
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -137,7 +202,7 @@ Confirm behavior with `unity config proxy --help` on the target machine before e
 
 ## unity config update-check
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 

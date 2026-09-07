@@ -2,13 +2,13 @@
 
 # `unity cache` command reference
 
-Generated from Unity CLI `1.0.0-beta.6` help output.
+Generated from Unity CLI `1.0.0-beta.8` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity cache
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -73,7 +73,7 @@ Confirm behavior with `unity cache --help` on the target machine before executio
 
 ## unity cache clean
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -135,7 +135,7 @@ Confirm behavior with `unity cache clean --help` on the target machine before ex
 
 ## unity cache info
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -196,7 +196,7 @@ Confirm behavior with `unity cache info --help` on the target machine before exe
 
 ## unity cache key
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 

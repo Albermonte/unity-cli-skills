@@ -2,13 +2,13 @@
 
 # `unity pipeline` command reference
 
-Generated from Unity CLI `1.0.0-beta.6` help output.
+Generated from Unity CLI `1.0.0-beta.8` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity pipeline
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: `pipe`
 
@@ -93,7 +93,7 @@ Confirm behavior with `unity pipeline --help` on the target machine before execu
 
 ## unity pipeline install
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -158,7 +158,7 @@ Confirm behavior with `unity pipeline install --help` on the target machine befo
 
 ## unity pipeline list
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -219,7 +219,7 @@ Confirm behavior with `unity pipeline list --help` on the target machine before 
 
 ## unity pipeline list-versions
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -280,7 +280,7 @@ Confirm behavior with `unity pipeline list-versions --help` on the target machin
 
 ## unity pipeline upgrade
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 

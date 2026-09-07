@@ -2,13 +2,13 @@
 
 # `unity license` command reference
 
-Generated from Unity CLI `1.0.0-beta.6` help output.
+Generated from Unity CLI `1.0.0-beta.8` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity license
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -75,7 +75,7 @@ Confirm behavior with `unity license --help` on the target machine before execut
 
 ## unity license activate
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -142,7 +142,7 @@ Confirm behavior with `unity license activate --help` on the target machine befo
 
 ## unity license list
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -203,7 +203,7 @@ Confirm behavior with `unity license list --help` on the target machine before e
 
 ## unity license return
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -265,7 +265,7 @@ Confirm behavior with `unity license return --help` on the target machine before
 
 ## unity license server
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -329,7 +329,7 @@ Confirm behavior with `unity license server --help` on the target machine before
 
 ## unity license server list
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -390,7 +390,7 @@ Confirm behavior with `unity license server list --help` on the target machine b
 
 ## unity license server status
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -451,7 +451,7 @@ Confirm behavior with `unity license server status --help` on the target machine
 
 ## unity license status
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 

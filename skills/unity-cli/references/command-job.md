@@ -2,13 +2,13 @@
 
 # `unity job` command reference
 
-Generated from Unity CLI `1.0.0-beta.6` help output.
+Generated from Unity CLI `1.0.0-beta.8` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity job
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -73,7 +73,7 @@ Confirm behavior with `unity job --help` on the target machine before execution.
 
 ## unity job cancel
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -140,7 +140,7 @@ Confirm behavior with `unity job cancel --help` on the target machine before exe
 
 ## unity job status
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -207,7 +207,7 @@ Confirm behavior with `unity job status --help` on the target machine before exe
 
 ## unity job wait
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 

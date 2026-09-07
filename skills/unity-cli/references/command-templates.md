@@ -2,13 +2,13 @@
 
 # `unity templates` command reference
 
-Generated from Unity CLI `1.0.0-beta.6` help output.
+Generated from Unity CLI `1.0.0-beta.8` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity templates
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: `t`
 
@@ -77,7 +77,7 @@ Confirm behavior with `unity templates --help` on the target machine before exec
 
 ## unity templates create
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -150,7 +150,7 @@ Confirm behavior with `unity templates create --help` on the target machine befo
 
 ## unity templates delete
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -217,7 +217,7 @@ Confirm behavior with `unity templates delete --help` on the target machine befo
 
 ## unity templates edit
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -291,7 +291,7 @@ Confirm behavior with `unity templates edit --help` on the target machine before
 
 ## unity templates info
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -356,7 +356,7 @@ Confirm behavior with `unity templates info --help` on the target machine before
 
 ## unity templates list
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -425,7 +425,7 @@ Confirm behavior with `unity templates list --help` on the target machine before
 
 ## unity templates location
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -491,7 +491,7 @@ Confirm behavior with `unity templates location --help` on the target machine be
 
 ## unity templates pack
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 

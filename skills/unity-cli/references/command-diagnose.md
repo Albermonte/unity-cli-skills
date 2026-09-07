@@ -2,13 +2,13 @@
 
 # `unity diagnose` command reference
 
-Generated from Unity CLI `1.0.0-beta.6` help output.
+Generated from Unity CLI `1.0.0-beta.8` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity diagnose
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -72,7 +72,7 @@ Confirm behavior with `unity diagnose --help` on the target machine before execu
 
 ## unity diagnose proxy
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -133,7 +133,7 @@ Confirm behavior with `unity diagnose proxy --help` on the target machine before
 
 ## unity diagnose update
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 

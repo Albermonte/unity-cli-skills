@@ -2,13 +2,13 @@
 
 # `unity analytics` command reference
 
-Generated from Unity CLI `1.0.0-beta.6` help output.
+Generated from Unity CLI `1.0.0-beta.8` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity analytics
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -22,8 +22,8 @@ Manage analytics and telemetry consent
 
 | Name | Aliases | Summary |
 | --- | --- | --- |
-| `opt-in` | — | Enable anonymous usage data collection |
-| `opt-out` | — | Disable anonymous usage data collection |
+| `opt-in` | — | Enable usage data collection |
+| `opt-out` | — | Disable usage data collection |
 | `status` | — | Show current analytics consent status |
 
 ### Positional arguments
@@ -73,11 +73,11 @@ Confirm behavior with `unity analytics --help` on the target machine before exec
 
 ## unity analytics opt-in
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
-Enable anonymous usage data collection
+Enable usage data collection
 
 ### Usage
 
@@ -134,11 +134,11 @@ Confirm behavior with `unity analytics opt-in --help` on the target machine befo
 
 ## unity analytics opt-out
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
-Disable anonymous usage data collection
+Disable usage data collection
 
 ### Usage
 
@@ -195,7 +195,7 @@ Confirm behavior with `unity analytics opt-out --help` on the target machine bef
 
 ## unity analytics status
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 

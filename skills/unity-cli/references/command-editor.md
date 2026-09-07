@@ -2,13 +2,13 @@
 
 # `unity editor` command reference
 
-Generated from Unity CLI `1.0.0-beta.6` help output.
+Generated from Unity CLI `1.0.0-beta.8` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity editor
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -72,7 +72,7 @@ Confirm behavior with `unity editor --help` on the target machine before executi
 
 ## unity editor add
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -137,7 +137,7 @@ Confirm behavior with `unity editor add --help` on the target machine before exe
 
 ## unity editor module
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -203,7 +203,7 @@ Confirm behavior with `unity editor module --help` on the target machine before 
 
 ## unity editor module add
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -272,7 +272,7 @@ Confirm behavior with `unity editor module add --help` on the target machine bef
 
 ## unity editor module list
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -336,7 +336,7 @@ Confirm behavior with `unity editor module list --help` on the target machine be
 
 ## unity editor module refresh
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -400,7 +400,7 @@ Confirm behavior with `unity editor module refresh --help` on the target machine
 
 ## unity editor module remove
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 

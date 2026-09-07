@@ -2,13 +2,13 @@
 
 # `unity help` command reference
 
-Generated from Unity CLI `1.0.0-beta.6` help output.
+Generated from Unity CLI `1.0.0-beta.8` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity help
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -29,7 +29,7 @@ CLI for Unity
 | `cache` | — | Manage the download cache |
 | `changelog` | — | Show release notes for the installed CLI |
 | `cloud` | — | Manage Unity Cloud organizations and projects |
-| `collaboration` | `collab` | Manage Unity Collaboration resources (annotations, attachments, Jira, reactions) |
+| `collaboration` | `collab` | Manage Unity Collaboration resources (annotations, attachments, Jira, reactions). Not version control; see unity vcs. |
 | `completion` | — | Print a shell completion script |
 | `config` | — | View or change persistent CLI configuration |
 | `diagnose` | — | One-shot diagnostic commands for support — paste-safe, redacted output |
@@ -49,11 +49,13 @@ CLI for Unity
 | `mcp` | — | MCP server and client configuration for Unity Editor |
 | `modules` | — | List and manage Unity editor modules |
 | `pipeline` | `pipe` | Unity Editor Pipeline automation commands |
+| `plugin` | — | View and manage the external components Unity installs for you |
 | `projects` | `p` | Manage Unity projects in the Hub registry |
 | `command` | `cmd` | Execute commands on connected Unity Editor instances, or list available commands |
 | `templates` | `t` | Browse, inspect, create, edit, and delete Unity project templates |
 | `test` | — | Run a project's EditMode/PlayMode tests in the editor and write a results report |
 | `open` | — | Open a Unity project with the correct Editor version |
+| `close` | — | Close the Unity editor that has a project open (exits without saving) |
 | `run` | — | Run a Unity project in batch mode and forward args to the editor |
 | `releases` | — | List available Unity releases |
 | `self-uninstall` | — | Uninstall the unity CLI (removes the binary and environment files) |
@@ -61,7 +63,8 @@ CLI for Unity
 | `skill` | — | Install the Unity CLI agent skill into an AI client's skills directory |
 | `status` | — | Show live state of every connected Unity Editor (port, project, version, PID, state) |
 | `uninstall` | `u` | Uninstall an installed Unity editor |
-| `upgrade` | — | Upgrade the unity CLI to the latest version |
+| `self-update` | `upgrade` | Update the unity CLI to the latest version |
+| `vcs` | — | Version control for Unity projects: GitHub, GitLab, self-hosted git, UVCS. Not Unity Collaboration; see unity collab. |
 
 ### Positional arguments
 

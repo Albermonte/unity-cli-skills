@@ -2,17 +2,19 @@
 
 # `unity collaboration` command reference
 
-Generated from Unity CLI `1.0.0-beta.6` help output.
+Generated from Unity CLI `1.0.0-beta.8` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity collaboration
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: `collab`
 
-Manage Unity Collaboration resources (annotations, attachments, Jira, reactions)
+Manage Unity Collaboration resources (annotations, attachments, Jira,
+
+reactions). Not version control; see unity vcs.
 
 ### Usage
 
@@ -90,7 +92,7 @@ Confirm behavior with `unity collaboration --help` on the target machine before 
 
 ## unity collaboration annotations
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -164,7 +166,7 @@ Confirm behavior with `unity collaboration annotations --help` on the target mac
 
 ## unity collaboration annotations count
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -188,7 +190,7 @@ None.
 
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
-| `--project-id` | `<id>` | False | False | — | Unity Cloud project id |
+| `--project-id` | `<id>` | False | False | — | Unity Cloud project id (env: UNITY_CLOUD_PROJECT) |
 | `--project-path` | `<path>` | False | False | — | Path to the Unity project (defaults to the current directory); used to infer the project id when --project-id is omitted |
 | `--grouped` | — | False | False | — | Group counts by target path (returns per-target breakdown instead of a total) |
 | `--offset` | `<n>` | False | False | — | Number of target groups to skip |
@@ -211,6 +213,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_CLOUD_PROJECT` | Mirrors --project-id. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |
@@ -232,7 +235,7 @@ Confirm behavior with `unity collaboration annotations count --help` on the targ
 
 ## unity collaboration annotations create
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -256,7 +259,7 @@ None.
 
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
-| `--project-id` | `<id>` | False | False | — | Unity Cloud project id |
+| `--project-id` | `<id>` | False | False | — | Unity Cloud project id (env: UNITY_CLOUD_PROJECT) |
 | `--project-path` | `<path>` | False | False | — | Path to the Unity project (defaults to the current directory); used to infer the project id when --project-id is omitted |
 | `--text` | `<text>` | False | False | — | Annotation text body |
 | `--reply-to` | `<annotationId>` | False | False | — | Parent annotation id to reply to (creates a reply, not a thread) |
@@ -286,6 +289,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_CLOUD_PROJECT` | Mirrors --project-id. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |
@@ -307,7 +311,7 @@ Confirm behavior with `unity collaboration annotations create --help` on the tar
 
 ## unity collaboration annotations delete
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -331,7 +335,7 @@ None.
 
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
-| `--project-id` | `<id>` | False | False | — | Unity Cloud project id |
+| `--project-id` | `<id>` | False | False | — | Unity Cloud project id (env: UNITY_CLOUD_PROJECT) |
 | `--project-path` | `<path>` | False | False | — | Path to the Unity project (defaults to the current directory); used to infer the project id when --project-id is omitted |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
@@ -351,6 +355,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_CLOUD_PROJECT` | Mirrors --project-id. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |
@@ -372,7 +377,7 @@ Confirm behavior with `unity collaboration annotations delete --help` on the tar
 
 ## unity collaboration annotations delete-fields
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -397,7 +402,7 @@ None.
 
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
-| `--project-id` | `<id>` | False | False | — | Unity Cloud project id |
+| `--project-id` | `<id>` | False | False | — | Unity Cloud project id (env: UNITY_CLOUD_PROJECT) |
 | `--project-path` | `<path>` | False | False | — | Path to the Unity project (defaults to the current directory); used to infer the project id when --project-id is omitted |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
@@ -417,6 +422,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_CLOUD_PROJECT` | Mirrors --project-id. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |
@@ -438,7 +444,7 @@ Confirm behavior with `unity collaboration annotations delete-fields --help` on 
 
 ## unity collaboration annotations export
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -460,7 +466,7 @@ None.
 
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
-| `--project-id` | `<id>` | False | False | — | Unity Cloud project id |
+| `--project-id` | `<id>` | False | False | — | Unity Cloud project id (env: UNITY_CLOUD_PROJECT) |
 | `--project-path` | `<path>` | False | False | — | Path to the Unity project (defaults to the current directory); used to infer the project id when --project-id is omitted |
 | `--target` | `<path>` | False | False | — | Restrict the export to a target path (default: the whole project) |
 | `--out` | `<file>` | False | False | — | Write the JSON export to a file instead of stdout |
@@ -483,6 +489,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_CLOUD_PROJECT` | Mirrors --project-id. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |
@@ -504,7 +511,7 @@ Confirm behavior with `unity collaboration annotations export --help` on the tar
 
 ## unity collaboration annotations get
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -528,7 +535,7 @@ None.
 
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
-| `--project-id` | `<id>` | False | False | — | Unity Cloud project id |
+| `--project-id` | `<id>` | False | False | — | Unity Cloud project id (env: UNITY_CLOUD_PROJECT) |
 | `--project-path` | `<path>` | False | False | — | Path to the Unity project (defaults to the current directory); used to infer the project id when --project-id is omitted |
 | `--fields` | `<fields>` | False | False | — | Comma-separated list of fields to display, or 'all' (table output only) |
 | `--resolve-users` | — | False | False | — | Replace user IDs with display names |
@@ -550,6 +557,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_CLOUD_PROJECT` | Mirrors --project-id. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |
@@ -571,7 +579,7 @@ Confirm behavior with `unity collaboration annotations get --help` on the target
 
 ## unity collaboration annotations list
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -593,7 +601,7 @@ None.
 
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
-| `--project-id` | `<id>` | False | False | — | Unity Cloud project id |
+| `--project-id` | `<id>` | False | False | — | Unity Cloud project id (env: UNITY_CLOUD_PROJECT) |
 | `--project-path` | `<path>` | False | False | — | Path to the Unity project (defaults to the current directory); used to infer the project id when --project-id is omitted |
 | `--query` | `<json>` | False | False | — | JSON array of annotation query clauses (see the collaboration API docs). Defaults to root threads only (excludes replies) when omitted |
 | `--next` | `<cursor>` | False | False | — | Pagination cursor from a previous response |
@@ -623,6 +631,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_CLOUD_PROJECT` | Mirrors --project-id. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |
@@ -644,7 +653,7 @@ Confirm behavior with `unity collaboration annotations list --help` on the targe
 
 ## unity collaboration annotations replies
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -668,7 +677,7 @@ None.
 
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
-| `--project-id` | `<id>` | False | False | — | Unity Cloud project id |
+| `--project-id` | `<id>` | False | False | — | Unity Cloud project id (env: UNITY_CLOUD_PROJECT) |
 | `--project-path` | `<path>` | False | False | — | Path to the Unity project (defaults to the current directory); used to infer the project id when --project-id is omitted |
 | `--next` | `<cursor>` | False | False | — | Pagination cursor from a previous response |
 | `--limit` | `<n>` | False | False | — | Number of replies per page (1–100, default 10) |
@@ -696,6 +705,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_CLOUD_PROJECT` | Mirrors --project-id. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |
@@ -717,7 +727,7 @@ Confirm behavior with `unity collaboration annotations replies --help` on the ta
 
 ## unity collaboration annotations resolve
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -741,7 +751,7 @@ None.
 
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
-| `--project-id` | `<id>` | False | False | — | Unity Cloud project id |
+| `--project-id` | `<id>` | False | False | — | Unity Cloud project id (env: UNITY_CLOUD_PROJECT) |
 | `--project-path` | `<path>` | False | False | — | Path to the Unity project (defaults to the current directory); used to infer the project id when --project-id is omitted |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
@@ -761,6 +771,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_CLOUD_PROJECT` | Mirrors --project-id. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |
@@ -782,7 +793,7 @@ Confirm behavior with `unity collaboration annotations resolve --help` on the ta
 
 ## unity collaboration annotations status
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -807,7 +818,7 @@ None.
 
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
-| `--project-id` | `<id>` | False | False | — | Unity Cloud project id |
+| `--project-id` | `<id>` | False | False | — | Unity Cloud project id (env: UNITY_CLOUD_PROJECT) |
 | `--project-path` | `<path>` | False | False | — | Path to the Unity project (defaults to the current directory); used to infer the project id when --project-id is omitted |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
@@ -827,6 +838,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_CLOUD_PROJECT` | Mirrors --project-id. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |
@@ -848,7 +860,7 @@ Confirm behavior with `unity collaboration annotations status --help` on the tar
 
 ## unity collaboration annotations unresolve
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -872,7 +884,7 @@ None.
 
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
-| `--project-id` | `<id>` | False | False | — | Unity Cloud project id |
+| `--project-id` | `<id>` | False | False | — | Unity Cloud project id (env: UNITY_CLOUD_PROJECT) |
 | `--project-path` | `<path>` | False | False | — | Path to the Unity project (defaults to the current directory); used to infer the project id when --project-id is omitted |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
@@ -892,6 +904,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_CLOUD_PROJECT` | Mirrors --project-id. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |
@@ -913,7 +926,7 @@ Confirm behavior with `unity collaboration annotations unresolve --help` on the 
 
 ## unity collaboration annotations update
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -937,7 +950,7 @@ None.
 
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
-| `--project-id` | `<id>` | False | False | — | Unity Cloud project id |
+| `--project-id` | `<id>` | False | False | — | Unity Cloud project id (env: UNITY_CLOUD_PROJECT) |
 | `--project-path` | `<path>` | False | False | — | Path to the Unity project (defaults to the current directory); used to infer the project id when --project-id is omitted |
 | `--text` | `<text>` | False | False | — | Updated annotation text body |
 | `--metadata` | `<pair>` | False | True | — | Metadata as key=value pairs (repeat the flag) |
@@ -962,6 +975,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_CLOUD_PROJECT` | Mirrors --project-id. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |
@@ -983,7 +997,7 @@ Confirm behavior with `unity collaboration annotations update --help` on the tar
 
 ## unity collaboration attachments
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -1051,7 +1065,7 @@ Confirm behavior with `unity collaboration attachments --help` on the target mac
 
 ## unity collaboration attachments add
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -1128,7 +1142,7 @@ Confirm behavior with `unity collaboration attachments add --help` on the target
 
 ## unity collaboration attachments add file
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -1155,7 +1169,7 @@ None.
 | --- | --- | --- | --- | --- | --- |
 | `--name` | `<name>` | False | False | — | Display name for the attachment (defaults to filename) |
 | `--content-type` | `<type>` | False | False | — | Override content-type (defaults to type inferred from file extension) |
-| `--project-id` | `<id>` | False | False | — | Unity Cloud project id |
+| `--project-id` | `<id>` | False | False | — | Unity Cloud project id (env: UNITY_CLOUD_PROJECT) |
 | `--project-path` | `<path>` | False | False | — | Path to the Unity project (defaults to the current directory); used to infer the project id when --project-id is omitted |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
@@ -1175,6 +1189,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_CLOUD_PROJECT` | Mirrors --project-id. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |
@@ -1196,7 +1211,7 @@ Confirm behavior with `unity collaboration attachments add file --help` on the t
 
 ## unity collaboration attachments add sketch
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -1225,7 +1240,7 @@ None.
 | `--time` | `<json>` | False | False | — | Playback time as a JSON object (timeScale, timeStamp) |
 | `--preview` | `<file>` | False | False | — | Path to a preview image file |
 | `--sketch-image` | `<file>` | False | False | — | Path to a rendered sketch image file |
-| `--project-id` | `<id>` | False | False | — | Unity Cloud project id |
+| `--project-id` | `<id>` | False | False | — | Unity Cloud project id (env: UNITY_CLOUD_PROJECT) |
 | `--project-path` | `<path>` | False | False | — | Path to the Unity project (defaults to the current directory); used to infer the project id when --project-id is omitted |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
@@ -1245,6 +1260,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_CLOUD_PROJECT` | Mirrors --project-id. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |
@@ -1266,7 +1282,7 @@ Confirm behavior with `unity collaboration attachments add sketch --help` on the
 
 ## unity collaboration attachments add spatial
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -1295,7 +1311,7 @@ None.
 | `--camera` | `<json>` | True | False | — | Camera state as a JSON object (position, rotation required) |
 | `--time` | `<json>` | False | False | — | Playback time as a JSON object (timeScale, timeStamp) |
 | `--local` | `<json>` | False | False | — | Local-space anchor as a JSON object |
-| `--project-id` | `<id>` | False | False | — | Unity Cloud project id |
+| `--project-id` | `<id>` | False | False | — | Unity Cloud project id (env: UNITY_CLOUD_PROJECT) |
 | `--project-path` | `<path>` | False | False | — | Path to the Unity project (defaults to the current directory); used to infer the project id when --project-id is omitted |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
@@ -1315,6 +1331,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_CLOUD_PROJECT` | Mirrors --project-id. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |
@@ -1336,7 +1353,7 @@ Confirm behavior with `unity collaboration attachments add spatial --help` on th
 
 ## unity collaboration attachments delete
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -1361,7 +1378,7 @@ None.
 
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
-| `--project-id` | `<id>` | False | False | — | Unity Cloud project id |
+| `--project-id` | `<id>` | False | False | — | Unity Cloud project id (env: UNITY_CLOUD_PROJECT) |
 | `--project-path` | `<path>` | False | False | — | Path to the Unity project (defaults to the current directory); used to infer the project id when --project-id is omitted |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
@@ -1381,6 +1398,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_CLOUD_PROJECT` | Mirrors --project-id. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |
@@ -1402,7 +1420,7 @@ Confirm behavior with `unity collaboration attachments delete --help` on the tar
 
 ## unity collaboration attachments download
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -1430,7 +1448,7 @@ None.
 | `--out` | `<path>` | False | False | — | Output file path (defaults to original filename in CWD) |
 | `--force` | — | False | False | — | Overwrite existing file |
 | `--width` | `<px>` | False | False | — | Resize image to this width (px) before download |
-| `--project-id` | `<id>` | False | False | — | Unity Cloud project id |
+| `--project-id` | `<id>` | False | False | — | Unity Cloud project id (env: UNITY_CLOUD_PROJECT) |
 | `--project-path` | `<path>` | False | False | — | Path to the Unity project (defaults to the current directory); used to infer the project id when --project-id is omitted |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
@@ -1450,6 +1468,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_CLOUD_PROJECT` | Mirrors --project-id. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |
@@ -1471,7 +1490,7 @@ Confirm behavior with `unity collaboration attachments download --help` on the t
 
 ## unity collaboration attachments list
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -1496,7 +1515,7 @@ None.
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
 | `--resolve-users` | — | False | False | — | Replace user IDs with display names |
-| `--project-id` | `<id>` | False | False | — | Unity Cloud project id |
+| `--project-id` | `<id>` | False | False | — | Unity Cloud project id (env: UNITY_CLOUD_PROJECT) |
 | `--project-path` | `<path>` | False | False | — | Path to the Unity project (defaults to the current directory); used to infer the project id when --project-id is omitted |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
@@ -1516,6 +1535,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_CLOUD_PROJECT` | Mirrors --project-id. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |
@@ -1537,7 +1557,7 @@ Confirm behavior with `unity collaboration attachments list --help` on the targe
 
 ## unity collaboration attachments update
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -1602,7 +1622,7 @@ Confirm behavior with `unity collaboration attachments update --help` on the tar
 
 ## unity collaboration attachments update file
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -1629,7 +1649,7 @@ None.
 | --- | --- | --- | --- | --- | --- |
 | `--content-type` | `<type>` | False | False | — | MIME type to set on the attachment |
 | `--metadata` | `<key=value>` | False | True | — | Metadata as key=value pairs (repeat the flag) |
-| `--project-id` | `<id>` | False | False | — | Unity Cloud project id |
+| `--project-id` | `<id>` | False | False | — | Unity Cloud project id (env: UNITY_CLOUD_PROJECT) |
 | `--project-path` | `<path>` | False | False | — | Path to the Unity project (defaults to the current directory); used to infer the project id when --project-id is omitted |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
@@ -1649,6 +1669,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_CLOUD_PROJECT` | Mirrors --project-id. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |
@@ -1670,7 +1691,7 @@ Confirm behavior with `unity collaboration attachments update file --help` on th
 
 ## unity collaboration attachments update sketch
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -1699,7 +1720,7 @@ None.
 | `--camera` | `<json>` | True | False | — | Camera state as a JSON object (position, rotation required) |
 | `--time` | `<json>` | False | False | — | Playback time as a JSON object (timeScale, timeStamp) |
 | `--metadata` | `<key=value>` | False | True | — | Metadata as key=value pairs (repeat the flag) |
-| `--project-id` | `<id>` | False | False | — | Unity Cloud project id |
+| `--project-id` | `<id>` | False | False | — | Unity Cloud project id (env: UNITY_CLOUD_PROJECT) |
 | `--project-path` | `<path>` | False | False | — | Path to the Unity project (defaults to the current directory); used to infer the project id when --project-id is omitted |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
@@ -1719,6 +1740,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_CLOUD_PROJECT` | Mirrors --project-id. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |
@@ -1740,7 +1762,7 @@ Confirm behavior with `unity collaboration attachments update sketch --help` on 
 
 ## unity collaboration attachments update spatial
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -1771,7 +1793,7 @@ None.
 | `--time` | `<json>` | False | False | — | Playback time as a JSON object (timeScale, timeStamp) |
 | `--local` | `<json>` | False | False | — | Local-space anchor as a JSON object |
 | `--metadata` | `<key=value>` | False | True | — | Metadata as key=value pairs (repeat the flag) |
-| `--project-id` | `<id>` | False | False | — | Unity Cloud project id |
+| `--project-id` | `<id>` | False | False | — | Unity Cloud project id (env: UNITY_CLOUD_PROJECT) |
 | `--project-path` | `<path>` | False | False | — | Path to the Unity project (defaults to the current directory); used to infer the project id when --project-id is omitted |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
@@ -1791,6 +1813,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_CLOUD_PROJECT` | Mirrors --project-id. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |
@@ -1812,7 +1835,7 @@ Confirm behavior with `unity collaboration attachments update spatial --help` on
 
 ## unity collaboration attachments upload
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -1839,7 +1862,7 @@ None.
 | --- | --- | --- | --- | --- | --- |
 | `--name` | `<name>` | False | False | — | Display name for the attachment (defaults to filename) |
 | `--content-type` | `<type>` | False | False | — | Override content-type (defaults to type inferred from file extension) |
-| `--project-id` | `<id>` | False | False | — | Unity Cloud project id |
+| `--project-id` | `<id>` | False | False | — | Unity Cloud project id (env: UNITY_CLOUD_PROJECT) |
 | `--project-path` | `<path>` | False | False | — | Path to the Unity project (defaults to the current directory); used to infer the project id when --project-id is omitted |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
@@ -1859,6 +1882,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_CLOUD_PROJECT` | Mirrors --project-id. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |
@@ -1880,7 +1904,7 @@ Confirm behavior with `unity collaboration attachments upload --help` on the tar
 
 ## unity collaboration jira
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -1946,7 +1970,7 @@ Confirm behavior with `unity collaboration jira --help` on the target machine be
 
 ## unity collaboration jira configs
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -1971,7 +1995,7 @@ None.
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
 | `--organization-id` | `<id>` | False | False | — | The Unity organization id to read all Jira configurations for |
-| `--project-id` | `<id>` | False | False | — | The Unity project id to read available Jira configurations for |
+| `--project-id` | `<id>` | False | False | — | The Unity project id to read available Jira configurations for (env: UNITY_CLOUD_PROJECT) |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
@@ -1990,6 +2014,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_CLOUD_PROJECT` | Mirrors --project-id. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |
@@ -2011,7 +2036,7 @@ Confirm behavior with `unity collaboration jira configs --help` on the target ma
 
 ## unity collaboration jira issues
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -2080,7 +2105,7 @@ Confirm behavior with `unity collaboration jira issues --help` on the target mac
 
 ## unity collaboration jira issues create
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -2104,7 +2129,7 @@ None.
 
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
-| `--project-id` | `<id>` | False | False | — | Unity project ID |
+| `--project-id` | `<id>` | False | False | — | Unity project ID (env: UNITY_CLOUD_PROJECT) |
 | `--project-path` | `<path>` | False | False | — | Path to the Unity project (defaults to the current directory); used to infer the project id when --project-id is omitted |
 | `--jira-project-config-id` | `<id>` | False | False | — | The Jira project configuration ID to create the issue under |
 | `--summary` | `<text>` | False | False | — | Summary line for the Jira issue |
@@ -2131,6 +2156,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_CLOUD_PROJECT` | Mirrors --project-id. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |
@@ -2152,7 +2178,7 @@ Confirm behavior with `unity collaboration jira issues create --help` on the tar
 
 ## unity collaboration jira issues get
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -2176,7 +2202,7 @@ None.
 
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
-| `--project-id` | `<id>` | False | False | — | Unity project ID |
+| `--project-id` | `<id>` | False | False | — | Unity project ID (env: UNITY_CLOUD_PROJECT) |
 | `--project-path` | `<path>` | False | False | — | Path to the Unity project (defaults to the current directory); used to infer the project id when --project-id is omitted |
 | `--jira-project-config-id` | `<id>` | False | False | — | The Jira project configuration ID the issue belongs to |
 | `-h`, `--help` | — | False | False | — | display help for command |
@@ -2197,6 +2223,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_CLOUD_PROJECT` | Mirrors --project-id. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |
@@ -2218,7 +2245,7 @@ Confirm behavior with `unity collaboration jira issues get --help` on the target
 
 ## unity collaboration jira issues link
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -2243,7 +2270,7 @@ None.
 
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
-| `--project-id` | `<id>` | False | False | — | Unity project ID |
+| `--project-id` | `<id>` | False | False | — | Unity project ID (env: UNITY_CLOUD_PROJECT) |
 | `--project-path` | `<path>` | False | False | — | Path to the Unity project (defaults to the current directory); used to infer the project id when --project-id is omitted |
 | `--jira-project-config-id` | `<id>` | False | False | — | The Jira project configuration ID the issue belongs to |
 | `-h`, `--help` | — | False | False | — | display help for command |
@@ -2264,6 +2291,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_CLOUD_PROJECT` | Mirrors --project-id. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |
@@ -2285,7 +2313,7 @@ Confirm behavior with `unity collaboration jira issues link --help` on the targe
 
 ## unity collaboration jira issues list
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -2352,7 +2380,7 @@ Confirm behavior with `unity collaboration jira issues list --help` on the targe
 
 ## unity collaboration jira issues search
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -2374,7 +2402,7 @@ None.
 
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
-| `--project-id` | `<id>` | False | False | — | Unity project ID |
+| `--project-id` | `<id>` | False | False | — | Unity project ID (env: UNITY_CLOUD_PROJECT) |
 | `--project-path` | `<path>` | False | False | — | Path to the Unity project (defaults to the current directory); used to infer the project id when --project-id is omitted |
 | `--jira-project-config-id` | `<id>` | False | False | — | The Jira project configuration ID to search |
 | `--query` | `<text>` | False | False | — | Plain-text search query (not JQL) |
@@ -2397,6 +2425,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_CLOUD_PROJECT` | Mirrors --project-id. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |
@@ -2418,7 +2447,7 @@ Confirm behavior with `unity collaboration jira issues search --help` on the tar
 
 ## unity collaboration jira issues types
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -2440,7 +2469,7 @@ None.
 
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
-| `--project-id` | `<id>` | False | False | — | Unity project ID |
+| `--project-id` | `<id>` | False | False | — | Unity project ID (env: UNITY_CLOUD_PROJECT) |
 | `--project-path` | `<path>` | False | False | — | Path to the Unity project (defaults to the current directory); used to infer the project id when --project-id is omitted |
 | `--jira-project-config-id` | `<id>` | False | False | — | The Jira project configuration ID to list types for |
 | `-h`, `--help` | — | False | False | — | display help for command |
@@ -2461,6 +2490,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_CLOUD_PROJECT` | Mirrors --project-id. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |
@@ -2482,7 +2512,7 @@ Confirm behavior with `unity collaboration jira issues types --help` on the targ
 
 ## unity collaboration jira issues unlink
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -2507,7 +2537,7 @@ None.
 
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
-| `--project-id` | `<id>` | False | False | — | Unity project ID |
+| `--project-id` | `<id>` | False | False | — | Unity project ID (env: UNITY_CLOUD_PROJECT) |
 | `--project-path` | `<path>` | False | False | — | Path to the Unity project (defaults to the current directory); used to infer the project id when --project-id is omitted |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
@@ -2527,6 +2557,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_CLOUD_PROJECT` | Mirrors --project-id. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |
@@ -2548,7 +2579,7 @@ Confirm behavior with `unity collaboration jira issues unlink --help` on the tar
 
 ## unity collaboration jira project
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -2615,7 +2646,7 @@ Confirm behavior with `unity collaboration jira project --help` on the target ma
 
 ## unity collaboration jira project add
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -2681,7 +2712,7 @@ Confirm behavior with `unity collaboration jira project add --help` on the targe
 
 ## unity collaboration jira project delete
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -2745,7 +2776,7 @@ Confirm behavior with `unity collaboration jira project delete --help` on the ta
 
 ## unity collaboration jira project link
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -2809,7 +2840,7 @@ Confirm behavior with `unity collaboration jira project link --help` on the targ
 
 ## unity collaboration jira project unlink
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -2873,7 +2904,7 @@ Confirm behavior with `unity collaboration jira project unlink --help` on the ta
 
 ## unity collaboration jira project update
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -2940,7 +2971,7 @@ Confirm behavior with `unity collaboration jira project update --help` on the ta
 
 ## unity collaboration jira server
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -3009,7 +3040,7 @@ Confirm behavior with `unity collaboration jira server --help` on the target mac
 
 ## unity collaboration jira server add
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -3075,7 +3106,7 @@ Confirm behavior with `unity collaboration jira server add --help` on the target
 
 ## unity collaboration jira server delete
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -3139,7 +3170,7 @@ Confirm behavior with `unity collaboration jira server delete --help` on the tar
 
 ## unity collaboration jira server permissions
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -3204,7 +3235,7 @@ Confirm behavior with `unity collaboration jira server permissions --help` on th
 
 ## unity collaboration jira server projects
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -3268,7 +3299,7 @@ Confirm behavior with `unity collaboration jira server projects --help` on the t
 
 ## unity collaboration jira server test
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -3333,7 +3364,7 @@ Confirm behavior with `unity collaboration jira server test --help` on the targe
 
 ## unity collaboration jira server update
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -3401,7 +3432,7 @@ Confirm behavior with `unity collaboration jira server update --help` on the tar
 
 ## unity collaboration jira server users
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -3466,7 +3497,7 @@ Confirm behavior with `unity collaboration jira server users --help` on the targ
 
 ## unity collaboration reactions
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -3530,7 +3561,7 @@ Confirm behavior with `unity collaboration reactions --help` on the target machi
 
 ## unity collaboration reactions add
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -3555,7 +3586,7 @@ None.
 
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
-| `--project-id` | `<id>` | False | False | — | Unity Cloud project id |
+| `--project-id` | `<id>` | False | False | — | Unity Cloud project id (env: UNITY_CLOUD_PROJECT) |
 | `--project-path` | `<path>` | False | False | — | Path to the Unity project (defaults to the current directory); used to infer the project id when --project-id is omitted |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
@@ -3575,6 +3606,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_CLOUD_PROJECT` | Mirrors --project-id. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |
@@ -3596,7 +3628,7 @@ Confirm behavior with `unity collaboration reactions add --help` on the target m
 
 ## unity collaboration reactions remove
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -3621,7 +3653,7 @@ None.
 
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
-| `--project-id` | `<id>` | False | False | — | Unity Cloud project id |
+| `--project-id` | `<id>` | False | False | — | Unity Cloud project id (env: UNITY_CLOUD_PROJECT) |
 | `--project-path` | `<path>` | False | False | — | Path to the Unity project (defaults to the current directory); used to infer the project id when --project-id is omitted |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
@@ -3641,6 +3673,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_CLOUD_PROJECT` | Mirrors --project-id. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |
@@ -3662,7 +3695,7 @@ Confirm behavior with `unity collaboration reactions remove --help` on the targe
 
 ## unity collaboration read
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -3687,7 +3720,7 @@ None.
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
 | `--timestamp` | `<iso8601>` | False | False | — | Mark as read up to this ISO 8601 timestamp (defaults to now) |
-| `--project-id` | `<id>` | False | False | — | Unity Cloud project id |
+| `--project-id` | `<id>` | False | False | — | Unity Cloud project id (env: UNITY_CLOUD_PROJECT) |
 | `--project-path` | `<path>` | False | False | — | Path to the Unity project (defaults to the current directory); used to infer the project id when --project-id is omitted |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
@@ -3707,6 +3740,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_CLOUD_PROJECT` | Mirrors --project-id. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |
@@ -3728,7 +3762,7 @@ Confirm behavior with `unity collaboration read --help` on the target machine be
 
 ## unity collaboration subscribe
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -3752,7 +3786,7 @@ None.
 
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
-| `--project-id` | `<id>` | False | False | — | Unity Cloud project id |
+| `--project-id` | `<id>` | False | False | — | Unity Cloud project id (env: UNITY_CLOUD_PROJECT) |
 | `--project-path` | `<path>` | False | False | — | Path to the Unity project (defaults to the current directory); used to infer the project id when --project-id is omitted |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
@@ -3772,6 +3806,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_CLOUD_PROJECT` | Mirrors --project-id. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |
@@ -3793,7 +3828,7 @@ Confirm behavior with `unity collaboration subscribe --help` on the target machi
 
 ## unity collaboration thumbnail
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -3857,7 +3892,7 @@ Confirm behavior with `unity collaboration thumbnail --help` on the target machi
 
 ## unity collaboration thumbnail download
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -3883,7 +3918,7 @@ None.
 | --- | --- | --- | --- | --- | --- |
 | `--out` | `<path>` | False | False | — | Output file path (default: thumbnail in current directory) |
 | `--width` | `<pixels>` | False | False | — | Desired thumbnail width in pixels |
-| `--project-id` | `<id>` | False | False | — | Unity Cloud project id |
+| `--project-id` | `<id>` | False | False | — | Unity Cloud project id (env: UNITY_CLOUD_PROJECT) |
 | `--project-path` | `<path>` | False | False | — | Path to the Unity project (defaults to the current directory); used to infer the project id when --project-id is omitted |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
@@ -3903,6 +3938,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_CLOUD_PROJECT` | Mirrors --project-id. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |
@@ -3924,7 +3960,7 @@ Confirm behavior with `unity collaboration thumbnail download --help` on the tar
 
 ## unity collaboration thumbnail upload
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -3949,7 +3985,7 @@ None.
 
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
-| `--project-id` | `<id>` | False | False | — | Unity Cloud project id |
+| `--project-id` | `<id>` | False | False | — | Unity Cloud project id (env: UNITY_CLOUD_PROJECT) |
 | `--project-path` | `<path>` | False | False | — | Path to the Unity project (defaults to the current directory); used to infer the project id when --project-id is omitted |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
@@ -3969,6 +4005,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_CLOUD_PROJECT` | Mirrors --project-id. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |
@@ -3990,7 +4027,7 @@ Confirm behavior with `unity collaboration thumbnail upload --help` on the targe
 
 ## unity collaboration unsubscribe
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -4014,7 +4051,7 @@ None.
 
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
-| `--project-id` | `<id>` | False | False | — | Unity Cloud project id |
+| `--project-id` | `<id>` | False | False | — | Unity Cloud project id (env: UNITY_CLOUD_PROJECT) |
 | `--project-path` | `<path>` | False | False | — | Path to the Unity project (defaults to the current directory); used to infer the project id when --project-id is omitted |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
@@ -4034,6 +4071,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_CLOUD_PROJECT` | Mirrors --project-id. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |

@@ -2,13 +2,13 @@
 
 # `unity skill` command reference
 
-Generated from Unity CLI `1.0.0-beta.6` help output.
+Generated from Unity CLI `1.0.0-beta.8` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity skill
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -74,7 +74,7 @@ Confirm behavior with `unity skill --help` on the target machine before executio
 
 ## unity skill install
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -102,6 +102,7 @@ None.
 | `--local` | — | False | False | — | Write into the project-local location instead of the user-global one |
 | `--yes` | — | False | False | — | Overwrite an existing install without prompting |
 | `--dry-run` | — | False | False | — | Show what would be written without touching the filesystem |
+| `--force` | — | False | False | — | Overwrite a skill copy this CLI did not write, taking ownership of it |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
@@ -149,10 +150,10 @@ None.
   claude-code       Claude Code CLI (SKILL.md — user-global or project-local with --local)
   claude-desktop    Claude Desktop (SKILL.md — user-global only)
   grok              Grok Build (SKILL.md — user-global or project-local with --local)
-  cursor            Cursor (.cursor/rules/*.mdc — project-local)
-  windsurf          Windsurf (.windsurf/rules/*.md — project-local)
-  vscode            VS Code / GitHub Copilot (.github/instructions/*.instructions.md — project-local)
-  cline             Cline VS Code extension (.clinerules/*.md — project-local)
+  cursor            Cursor (SKILL.md — user-global or project-local with --local)
+  windsurf          Windsurf (SKILL.md — user-global or project-local with --local)
+  vscode            VS Code / GitHub Copilot (SKILL.md — user-global or project-local with --local)
+  cline             Cline VS Code extension (SKILL.md — user-global or project-local with --local)
   codex             OpenAI Codex CLI (SKILL.md — user-global or project-local with --local)
 
 ```
@@ -162,7 +163,7 @@ Confirm behavior with `unity skill install --help` on the target machine before 
 
 ## unity skill refresh
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -188,6 +189,7 @@ None.
 | --- | --- | --- | --- | --- | --- |
 | `--yes` | — | False | False | — | Refresh every outdated install without prompting |
 | `--dry-run` | — | False | False | — | Show what would be refreshed without touching the filesystem |
+| `--force` | — | False | False | — | Re-render installs whose files changed after this CLI wrote them |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |

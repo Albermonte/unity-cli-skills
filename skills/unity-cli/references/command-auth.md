@@ -2,13 +2,13 @@
 
 # `unity auth` command reference
 
-Generated from Unity CLI `1.0.0-beta.6` help output.
+Generated from Unity CLI `1.0.0-beta.8` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity auth
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: `a`
 
@@ -76,7 +76,7 @@ Confirm behavior with `unity auth --help` on the target machine before execution
 
 ## unity auth default
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -141,7 +141,7 @@ Confirm behavior with `unity auth default --help` on the target machine before e
 
 ## unity auth list
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: `ls`
 
@@ -202,7 +202,7 @@ Confirm behavior with `unity auth list --help` on the target machine before exec
 
 ## unity auth login
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -269,7 +269,7 @@ Confirm behavior with `unity auth login --help` on the target machine before exe
 
 ## unity auth logout
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -333,7 +333,7 @@ Confirm behavior with `unity auth logout --help` on the target machine before ex
 
 ## unity auth status
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -394,7 +394,7 @@ Confirm behavior with `unity auth status --help` on the target machine before ex
 
 ## unity auth switch
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.8`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 

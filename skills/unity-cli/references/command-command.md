@@ -2,13 +2,13 @@
 
 # `unity command` command reference
 
-Generated from Unity CLI `1.0.0-beta.6` help output.
+Generated from Unity CLI `1.0.0-beta.9` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity command
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.9`
 - Supported platforms: linux, macos, windows
 - Aliases: `cmd`
 
@@ -46,6 +46,8 @@ None.
 | `--order` | `[direction]` | False | False | — | Listing: sort direction, asc \| desc (default: asc) |
 | `--offset` | `[n]` | False | False | — | Listing: skip the first N commands |
 | `--limit` | `[n]` | False | False | — | Listing: return at most N commands |
+| `--caller` | `[label]` | False | False | — | Analytics label: the client or agent invoking the CLI (normalized to a known set) |
+| `--skill` | `[name]` | False | False | — | Analytics label: the agent skill driving this invocation |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
@@ -55,6 +57,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |

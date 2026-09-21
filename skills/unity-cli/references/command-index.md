@@ -2,23 +2,28 @@
 
 # Unity CLI command index
 
-Generated from Unity CLI `1.0.0-beta.6` help output.
+Generated from Unity CLI `1.0.0-beta.10` help output.
 
 Installed help remains authoritative. Run `unity --help` and the complete command path with `--help` before use.
 
 | Command | Aliases | Platforms | Summary |
 | --- | --- | --- | --- |
 | [`analytics`](command-analytics.md) | — | linux, macos, windows | Manage analytics and telemetry consent |
+| [`assets`](command-assets.md) | — | linux, macos, windows | Inspect Unity asset packages |
 | [`auth`](command-auth.md) | `a` | linux, macos, windows | Sign in, manage accounts, check login state, or sign out |
 | [`bug`](command-bug.md) | — | linux, macos, windows | Report a bug directly to the Unity bug reporter (requires you to be signed in) |
 | [`build`](command-build.md) | — | linux, macos, windows | Build a Unity project from the command line. Spawns the editor in batch mode and |
 | [`cache`](command-cache.md) | — | linux, macos, windows | Manage the download cache |
 | [`changelog`](command-changelog.md) | — | linux, macos, windows | Show release notes for the installed CLI |
+| [`ci`](command-ci.md) | — | linux, macos, windows | Scaffold CI pipelines that drive the Unity CLI |
+| [`close`](command-close.md) | — | linux, macos, windows | Close the Unity editor that has a project open (exits without saving) |
 | [`cloud`](command-cloud.md) | — | linux, macos, windows | Manage Unity Cloud organizations and projects |
-| [`collaboration`](command-collaboration.md) | `collab` | linux, macos, windows | Manage Unity Collaboration resources (annotations, attachments, Jira, reactions) |
+| [`collaboration`](command-collaboration.md) | `collab` | linux, macos, windows | Manage Unity Collaboration resources (annotations, attachments, Jira, |
 | [`command`](command-command.md) | `cmd` | linux, macos, windows | Execute commands on connected Unity Editor instances, or list available commands |
+| [`commands`](command-commands.md) | — | linux, macos, windows | List every command and subcommand as a machine-readable manifest |
 | [`completion`](command-completion.md) | — | linux, macos, windows | Print a shell completion script |
 | [`config`](command-config.md) | — | linux, macos, windows | View or change persistent CLI configuration |
+| [`context`](command-context.md) | — | linux, macos, windows | Save and switch between named sets of account, organization, project, editor and |
 | [`diagnose`](command-diagnose.md) | — | linux, macos, windows | One-shot diagnostic commands for support — paste-safe, redacted output |
 | [`doctor`](command-doctor.md) | — | linux, macos, windows | Print diagnostic info about your Unity CLI environment |
 | [`editor`](command-editor.md) | — | linux, macos, windows | Manage a Unity editor installation |
@@ -38,14 +43,18 @@ Installed help remains authoritative. Run `unity --help` and the complete comman
 | [`modules`](command-modules.md) | — | linux, macos, windows | List and manage Unity editor modules |
 | [`open`](command-open.md) | — | linux, macos, windows | Open a Unity project with the correct Editor version |
 | [`pipeline`](command-pipeline.md) | `pipe` | linux, macos, windows | Unity Editor Pipeline automation commands |
+| [`plugin`](command-plugin.md) | — | linux, macos, windows | View and manage the external components Unity installs for you |
 | [`projects`](command-projects.md) | `p` | linux, macos, windows | Manage Unity projects in the Hub registry |
 | [`releases`](command-releases.md) | — | linux, macos, windows | List available Unity releases |
 | [`run`](command-run.md) | — | linux, macos, windows | Run a Unity project in batch mode and forward args to the editor |
 | [`self-uninstall`](command-self-uninstall.md) | — | linux, macos, windows | Uninstall the unity CLI (removes the binary and environment files) |
+| [`self-update`](command-self-update.md) | `upgrade` | linux, macos, windows | Update the unity CLI to the latest version |
 | [`shell`](command-shell.md) | — | linux, macos, windows | Start an interactive shell (REPL) that runs many commands in one warm process |
-| [`skill`](command-skill.md) | — | linux, macos, windows | Install the Unity CLI agent skill into an AI client's skills directory |
+| [`skill`](command-skill.md) | — | linux, macos, windows | Read the Unity CLI agent skill, or install it into an AI client |
 | [`status`](command-status.md) | — | linux, macos, windows | Show live state of every connected Unity Editor (port, project, version, PID, |
 | [`templates`](command-templates.md) | `t` | linux, macos, windows | Browse, inspect, create, edit, and delete Unity project templates |
 | [`test`](command-test.md) | — | linux, macos, windows | Run a project's EditMode/PlayMode tests in the editor and write a results report |
 | [`uninstall`](command-uninstall.md) | `u` | linux, macos, windows | Uninstall an installed Unity editor |
-| [`upgrade`](command-upgrade.md) | — | linux, macos, windows | Upgrade the unity CLI to the latest version |
+| [`vcs`](command-vcs.md) | — | linux, macos, windows | Version control for Unity projects: GitHub, GitLab, self-hosted git, UVCS. Not |
+| [`version`](command-version.md) | — | linux, macos, windows | Print the Unity CLI version and build information |
+| [`watch`](command-watch.md) | — | linux, macos, windows | Watch a project and re-run a command each time its files change |

@@ -2,13 +2,13 @@
 
 # `unity install-modules` command reference
 
-Generated from Unity CLI `1.0.0-beta.6` help output.
+Generated from Unity CLI `1.0.0-beta.10` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity install-modules
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.10`
 - Supported platforms: linux, macos, windows
 - Aliases: `im`
 
@@ -37,8 +37,8 @@ None.
 | `-l`, `--list` | — | False | False | — | List available modules for the editor |
 | `--all` | — | False | False | — | Install all available modules |
 | `-a`, `--architecture` | `<architecture>` | False | False | — | Editor architecture (x86_64 or arm64) (default: "unknown") |
-| `--cm`, `--childModules` | — | False | False | — | Install all child modules automatically |
-| `--no-cm`, `--no-childModules` | — | False | False | — | Do not install child modules automatically |
+| `--cm`, `--child-modules` | — | False | False | — | Install all child modules automatically |
+| `--no-cm`, `--no-child-modules` | — | False | False | — | Do not install child modules automatically |
 | `--accept-eula` | — | False | False | — | Accept all module license agreements automatically |
 | `--dry-run` | — | False | False | — | Print what would be downloaded without installing |
 | `-y`, `--yes` | — | False | False | — | Automatically select the first match without prompting |
@@ -55,6 +55,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |

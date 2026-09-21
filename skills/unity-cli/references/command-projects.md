@@ -2,13 +2,13 @@
 
 # `unity projects` command reference
 
-Generated from Unity CLI `1.0.0-beta.6` help output.
+Generated from Unity CLI `1.0.0-beta.10` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity projects
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.10`
 - Supported platforms: linux, macos, windows
 - Aliases: `p`
 
@@ -30,7 +30,7 @@ Manage Unity projects in the Hub registry
 | `create` | — | Create a new Unity project and register it in the Hub |
 | `exec` | — | Run a command in every registered project that matches the filters |
 | `clone` | — | Clone a remote repository and register the Unity project it contains |
-| `link` | — | Connect a local project to its cloud or version-control link |
+| `link` | — | Enable Unity Cloud or version control for a local project |
 | `new` | — | Create a new Unity project (non-interactive, CI-friendly) |
 | `open` | — | Open a Unity project by name, fuzzy title match, or path |
 | `pin` | — | Pin (favorite) one or more projects by name or path pattern |
@@ -38,10 +38,11 @@ Manage Unity projects in the Hub registry
 | `require` | — | Assert that the required editor version is installed, installing it if necessary |
 | `size` | — | Report a project's disk usage by folder, or summarize every registered project |
 | `verify` | — | Check a project for integrity problems that break a build, without launching the Editor |
-| `unlink` | — | Disconnect a local project from its cloud or version-control link |
+| `unlink` | — | Disable Unity Cloud or version control for a local project |
 | `upgrade` | — | Upgrade a Unity project to a different editor version |
 | `export` | — | Export the Hub project list to a JSON file |
 | `import` | — | Import a Hub project list from a previously exported JSON file |
+| `close` | — | Close the Unity editor that has a project open (exits without saving) |
 
 ### Positional arguments
 
@@ -60,6 +61,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -90,7 +93,7 @@ Confirm behavior with `unity projects --help` on the target machine before execu
 
 ## unity projects add
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.10`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -123,6 +126,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -154,7 +159,7 @@ Confirm behavior with `unity projects add --help` on the target machine before e
 
 ## unity projects clean
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.10`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -182,6 +187,7 @@ None.
 | --- | --- | --- | --- | --- | --- |
 | `--dry-run` | — | False | False | — | List the folders that would be deleted, with sizes, and delete nothing |
 | `-y`, `--yes` | — | False | False | — | Skip the confirmation prompt |
+| `--force` | — | False | False | — | Clean even when the running-editor check cannot be completed |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
@@ -191,6 +197,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -223,7 +231,7 @@ Confirm behavior with `unity projects clean --help` on the target machine before
 
 ## unity projects clone
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.10`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -265,6 +273,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -313,9 +323,78 @@ None.
 
 Confirm behavior with `unity projects clone --help` on the target machine before execution.
 
+## unity projects close
+
+- CLI version: `1.0.0-beta.10`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Close the Unity editor that has a project open (exits without saving)
+
+### Usage
+
+`unity projects close [options] <project>`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+| Argument | Required | Repeatable | Description |
+| --- | --- | --- | --- |
+| `project` | True | False | Project path or name of the editor to close |
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `--timeout` | `<seconds>` | False | False | — | Seconds to wait for the editor to exit (default: 30) |
+| `--force` | — | False | False | — | Terminate the editor process (SIGTERM, then SIGKILL) when the editor offers no graceful channel, or once the wait runs out |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. Neither path saves your work: the editor exits with no save prompt, so save first. The default path asks the editor to quit and waits for --timeout; --force terminates the process when the editor offers no graceful channel, or once that wait runs out. A background identity-server process may answer the editor's sign-in requests when no Hub is running. It exits on its own soon after the last editor disconnects; this command also asks it to exit right away. Set UNITY_NO_EDITOR_IDENTITY_SERVER=1 to turn it off. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity projects close ./MyGame`
+`$ unity projects close MyGame --timeout 60`
+`$ unity projects close ./MyGame --force`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity projects close --help` on the target machine before execution.
+
 ## unity projects create
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.10`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -344,9 +423,10 @@ None.
 | `--template` | `<template-id>` | False | False | — | Template package name (e.g. com.unity.template.3d) |
 | `-a`, `--architecture` | `<arch>` | False | False | — | Editor architecture (x86_64 or arm64) (default: "unknown") |
 | `--open` | — | False | False | — | Open the project in the Editor after creation |
-| `--cloud` | — | False | False | — | Create and link a new Unity Cloud project |
-| `--cloud-org` | `<id-or-name>` | False | False | — | Organization for the cloud project (id or name); overrides UNITY_CLOUD_ORG and the saved default (env: UNITY_CLOUD_ORG) |
-| `--cloud-project` | `<id-or-name>` | False | False | — | Link to an existing cloud project (id or name) instead of creating one |
+| `--cloud` | — | False | False | — | Enable Unity Cloud with a new project |
+| `--no-cloud` | — | False | False | — | Create the project without enabling Unity Cloud (env: UNITY_NO_CLOUD) |
+| `--cloud-org` | `<id-or-name>` | False | False | — | Organization for the Unity Cloud project (id or name); overrides UNITY_CLOUD_ORG and the saved default (env: UNITY_CLOUD_ORG) |
+| `--cloud-project` | `<id-or-name>` | False | False | — | Use an existing Unity Cloud project (id or name) instead of creating one |
 | `--vcs` | `<provider>` | False | False | — | Create and link a git repository: github, gitlab, or a self-hosted host (created through gh, glab, or tea when installed and signed in) |
 | `--git-namespace` | `<name>` | False | False | — | GitHub organization or GitLab group for the repository; defaults to the authenticated user |
 | `--git-repo` | `<name>` | False | False | — | Name for the remote repository; defaults to the project name |
@@ -368,6 +448,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -377,6 +459,7 @@ None.
 
 | Variable | Description |
 | --- | --- |
+| `UNITY_NO_CLOUD` | Mirrors --no-cloud. |
 | `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
@@ -417,7 +500,7 @@ Confirm behavior with `unity projects create --help` on the target machine befor
 
 ## unity projects exec
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.10`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -454,6 +537,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -488,7 +573,7 @@ Confirm behavior with `unity projects exec --help` on the target machine before 
 
 ## unity projects export
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.10`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -520,6 +605,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -552,7 +639,7 @@ Confirm behavior with `unity projects export --help` on the target machine befor
 
 ## unity projects import
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.10`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -586,6 +673,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -619,7 +708,7 @@ Confirm behavior with `unity projects import --help` on the target machine befor
 
 ## unity projects info
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.10`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -654,6 +743,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -687,11 +778,11 @@ Confirm behavior with `unity projects info --help` on the target machine before 
 
 ## unity projects link
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.10`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
-Connect a local project to its cloud or version-control link
+Enable Unity Cloud or version control for a local project
 
 ### Usage
 
@@ -701,8 +792,8 @@ Connect a local project to its cloud or version-control link
 
 | Name | Aliases | Summary |
 | --- | --- | --- |
-| `cloud` | — | Connect a local project to a Unity Cloud project (creates one, or links an existing one with --cloud-project) |
-| `vcs` | — | Publish a local project to a new GitHub or GitLab repository |
+| `cloud` | — | Enable Unity Cloud for a local project (creates a Unity Cloud project, or uses an existing one with --cloud-project) |
+| `vcs` | — | Publish a local project to a new GitHub or GitLab repository, or adopt one it already has |
 
 ### Positional arguments
 
@@ -721,6 +812,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -751,13 +844,13 @@ Confirm behavior with `unity projects link --help` on the target machine before 
 
 ## unity projects link cloud
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.10`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
-Connect a local project to a Unity Cloud project (creates one, or links an
+Enable Unity Cloud for a local project (creates a Unity Cloud project, or uses
 
-existing one with --cloud-project)
+an existing one with --cloud-project)
 
 ### Usage
 
@@ -777,8 +870,8 @@ None.
 
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
-| `--cloud-org` | `<id-or-name>` | False | False | — | Organization for the cloud project (id or name); overrides UNITY_CLOUD_ORG and the saved default (env: UNITY_CLOUD_ORG) |
-| `--cloud-project` | `<id-or-name>` | False | False | — | Link to an existing cloud project (id or name) instead of creating one |
+| `--cloud-org` | `<id-or-name>` | False | False | — | Organization for the Unity Cloud project (id or name); overrides UNITY_CLOUD_ORG and the saved default (env: UNITY_CLOUD_ORG) |
+| `--cloud-project` | `<id-or-name>` | False | False | — | Use an existing Unity Cloud project (id or name) instead of creating one |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
@@ -788,6 +881,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -819,15 +914,17 @@ Confirm behavior with `unity projects link cloud --help` on the target machine b
 
 ## unity projects link vcs
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.10`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
-Publish a local project to a new GitHub or GitLab repository
+Publish a local project to a new GitHub or GitLab repository, or adopt one it
+
+already has
 
 ### Usage
 
-`unity projects link vcs [options] <path> [url]`
+`unity projects link vcs [options] [path] [url]`
 
 ### Subcommands
 
@@ -837,7 +934,7 @@ None.
 
 | Argument | Required | Repeatable | Description |
 | --- | --- | --- | --- |
-| `path` | True | False | Path to the local project to link |
+| `path` | True | False | Path to the local project to link (defaults to the current directory) |
 | `url` | True | False | URL of an existing remote repository to link to, instead of creating one |
 
 ### Options
@@ -856,8 +953,11 @@ None.
 | `--no-initial-commit` | — | False | False | — | Skip the automatic initial commit and push |
 | `--git-lfs` | — | False | False | — | Initialize Git LFS before the first commit (new repositories only) |
 | `--vcs-region` | `<name>` | False | False | — | UVCS region for the organization's subscription (first use only). |
+| `--dry-run` | — | False | False | — | Show what Unity Version Control setup creates, then exit without creating it (--vcs uvcs only) |
+| `--rollback` | — | False | False | — | Undo a half-finished link instead of resuming it |
+| `--delete-remote` | — | False | False | — | With --rollback, also delete the remote repository when it has no commits |
 | `--cloud-org` | `<id-or-name>` | False | False | — | Cloud organization id or name (for --vcs uvcs on a project not yet cloud-linked). (env: UNITY_CLOUD_ORG) |
-| `--cloud-project` | `<id-or-name>` | False | False | — | Existing cloud project id or name to link (for --vcs uvcs). |
+| `--cloud-project` | `<id-or-name>` | False | False | — | Existing Unity Cloud project id or name to use (for --vcs uvcs). |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
@@ -867,6 +967,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -898,7 +1000,7 @@ Confirm behavior with `unity projects link vcs --help` on the target machine bef
 
 ## unity projects list
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.10`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -925,7 +1027,7 @@ None.
 | `-v`, `--verbose` | — | False | False | — | Show all columns (name, path, version, modified, cloud, pipeline) |
 | `--editor-version` | — | False | False | — | Show editor version column |
 | `-m`, `--modified` | — | False | False | — | Show last-modified column |
-| `--cloud` | — | False | False | — | Show Cloud project ID column |
+| `--cloud` | — | False | False | — | Show the Unity Cloud project id column |
 | `--pipeline` | — | False | False | — | Show render pipeline column |
 | `--vcs` | — | False | False | — | Show VCS provider and repository column |
 | `-a`, `--all` | — | False | False | — | Print all projects without paging |
@@ -940,6 +1042,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -974,7 +1078,7 @@ Confirm behavior with `unity projects list --help` on the target machine before 
 
 ## unity projects new
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.10`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -1012,6 +1116,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -1044,7 +1150,7 @@ Confirm behavior with `unity projects new --help` on the target machine before e
 
 ## unity projects open
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.10`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -1074,6 +1180,7 @@ None.
 | `--build-target` | `<target>` | False | False | — | Pass -buildTarget to Unity (e.g. StandaloneOSX) |
 | `--build-target-group` | `<group>` | False | False | — | Pass -buildTargetGroup to Unity |
 | `--args` | `<string>` | False | False | — | Extra arguments passed to Unity |
+| `--wait` | — | False | False | — | Wait for the Editor to exit instead of returning right away |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
@@ -1083,6 +1190,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -1132,7 +1241,7 @@ Confirm behavior with `unity projects open --help` on the target machine before 
 
 ## unity projects pin
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.10`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -1165,6 +1274,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -1197,7 +1308,7 @@ Confirm behavior with `unity projects pin --help` on the target machine before e
 
 ## unity projects remove
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.10`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -1231,6 +1342,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -1262,7 +1375,7 @@ Confirm behavior with `unity projects remove --help` on the target machine befor
 
 ## unity projects require
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.10`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -1296,6 +1409,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -1329,7 +1444,7 @@ Confirm behavior with `unity projects require --help` on the target machine befo
 
 ## unity projects size
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.10`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -1363,6 +1478,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -1396,11 +1513,11 @@ Confirm behavior with `unity projects size --help` on the target machine before 
 
 ## unity projects unlink
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.10`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
-Disconnect a local project from its cloud or version-control link
+Disable Unity Cloud or version control for a local project
 
 ### Usage
 
@@ -1410,7 +1527,7 @@ Disconnect a local project from its cloud or version-control link
 
 | Name | Aliases | Summary |
 | --- | --- | --- |
-| `cloud` | — | Disconnect a local project from its Unity Cloud project |
+| `cloud` | — | Disable Unity Cloud for a local project |
 | `vcs` | — | Remove all git remotes from a local project, including any you added yourself such as upstream (the remote repositories themselves are not deleted) |
 
 ### Positional arguments
@@ -1430,6 +1547,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -1460,11 +1579,11 @@ Confirm behavior with `unity projects unlink --help` on the target machine befor
 
 ## unity projects unlink cloud
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.10`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
-Disconnect a local project from its Unity Cloud project
+Disable Unity Cloud for a local project
 
 ### Usage
 
@@ -1495,6 +1614,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -1525,7 +1646,7 @@ Confirm behavior with `unity projects unlink cloud --help` on the target machine
 
 ## unity projects unlink vcs
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.10`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -1535,7 +1656,7 @@ such as upstream (the remote repositories themselves are not deleted)
 
 ### Usage
 
-`unity projects unlink vcs [options] <path>`
+`unity projects unlink vcs [options] [path]`
 
 ### Subcommands
 
@@ -1545,7 +1666,7 @@ None.
 
 | Argument | Required | Repeatable | Description |
 | --- | --- | --- | --- |
-| `path` | True | False | Path to the local project to unlink |
+| `path` | True | False | Path to the local project to unlink (defaults to the current directory) |
 
 ### Options
 
@@ -1561,6 +1682,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -1591,7 +1714,7 @@ Confirm behavior with `unity projects unlink vcs --help` on the target machine b
 
 ## unity projects unpin
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.10`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -1624,6 +1747,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -1656,7 +1781,7 @@ Confirm behavior with `unity projects unpin --help` on the target machine before
 
 ## unity projects upgrade
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.10`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -1682,6 +1807,7 @@ None.
 | --- | --- | --- | --- | --- | --- |
 | `--to` | `<version>` | False | False | — | Target Unity Editor version (e.g. 6000.0.30f1) |
 | `-y`, `--yes` | — | False | False | — | Skip confirmation prompt |
+| `--wait` | — | False | False | — | Wait for the Editor to exit instead of returning right away |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
@@ -1691,6 +1817,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -1724,7 +1852,7 @@ Confirm behavior with `unity projects upgrade --help` on the target machine befo
 
 ## unity projects verify
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.10`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -1762,6 +1890,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |

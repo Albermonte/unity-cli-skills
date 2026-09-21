@@ -2,17 +2,17 @@
 
 # `unity skill` command reference
 
-Generated from Unity CLI `1.0.0-beta.6` help output.
+Generated from Unity CLI `1.0.0-beta.10` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity skill
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.10`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
-Install the Unity CLI agent skill into an AI client's skills directory
+Read the Unity CLI agent skill, or install it into an AI client
 
 ### Usage
 
@@ -22,6 +22,7 @@ Install the Unity CLI agent skill into an AI client's skills directory
 
 | Name | Aliases | Summary |
 | --- | --- | --- |
+| `show` | — | Print the embedded Unity CLI agent skill to stdout without installing it |
 | `install` | — | Write the Unity CLI skill into the client's location (embedded, offline). Run unity skill install --list to see supported clients. |
 | `refresh` | — | Re-render every previously installed Unity CLI skill against the currently-embedded tree |
 
@@ -42,6 +43,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -62,6 +65,8 @@ None.
 
 ### Examples exposed by help
 
+`unity skill show                      Print the skill to stdout without installing it`
+`unity skill show --list               List the files the skill is made of`
 `unity skill install claude-code       Install the skill into ~/.claude/skills/unity-cli/`
 `unity skill install --list            Show supported clients and install status`
 `unity skill refresh                   Re-render every previously-installed skill against the current binary`
@@ -74,7 +79,7 @@ Confirm behavior with `unity skill --help` on the target machine before executio
 
 ## unity skill install
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.10`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -102,6 +107,7 @@ None.
 | `--local` | — | False | False | — | Write into the project-local location instead of the user-global one |
 | `--yes` | — | False | False | — | Overwrite an existing install without prompting |
 | `--dry-run` | — | False | False | — | Show what would be written without touching the filesystem |
+| `--force` | — | False | False | — | Overwrite a skill copy this CLI did not write, taking ownership of it |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
@@ -111,6 +117,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -149,10 +157,10 @@ None.
   claude-code       Claude Code CLI (SKILL.md — user-global or project-local with --local)
   claude-desktop    Claude Desktop (SKILL.md — user-global only)
   grok              Grok Build (SKILL.md — user-global or project-local with --local)
-  cursor            Cursor (.cursor/rules/*.mdc — project-local)
-  windsurf          Windsurf (.windsurf/rules/*.md — project-local)
-  vscode            VS Code / GitHub Copilot (.github/instructions/*.instructions.md — project-local)
-  cline             Cline VS Code extension (.clinerules/*.md — project-local)
+  cursor            Cursor (SKILL.md — user-global or project-local with --local)
+  windsurf          Windsurf (SKILL.md — user-global or project-local with --local)
+  vscode            VS Code / GitHub Copilot (SKILL.md — user-global or project-local with --local)
+  cline             Cline VS Code extension (SKILL.md — user-global or project-local with --local)
   codex             OpenAI Codex CLI (SKILL.md — user-global or project-local with --local)
 
 ```
@@ -162,7 +170,7 @@ Confirm behavior with `unity skill install --help` on the target machine before 
 
 ## unity skill refresh
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.10`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -188,6 +196,7 @@ None.
 | --- | --- | --- | --- | --- | --- |
 | `--yes` | — | False | False | — | Refresh every outdated install without prompting |
 | `--dry-run` | — | False | False | — | Show what would be refreshed without touching the filesystem |
+| `--force` | — | False | False | — | Re-render installs whose files changed after this CLI wrote them |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
@@ -197,6 +206,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -226,3 +237,71 @@ None.
 None.
 
 Confirm behavior with `unity skill refresh --help` on the target machine before execution.
+
+## unity skill show
+
+- CLI version: `1.0.0-beta.10`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Print the embedded Unity CLI agent skill to stdout without installing it
+
+### Usage
+
+`unity skill show [options]`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `--path` | `<file>` | False | False | — | Print this file from the embedded skill instead of SKILL.md |
+| `--list` | — | False | False | — | List the files the embedded skill contains instead of printing one |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`unity skill show`
+`unity skill show --list`
+`unity skill show --path references/auth-license-cloud.md`
+`unity skill show --format json`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity skill show --help` on the target machine before execution.

@@ -2,13 +2,13 @@
 
 # `unity mcp` command reference
 
-Generated from Unity CLI `1.0.0-beta.6` help output.
+Generated from Unity CLI `1.0.0-beta.10` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity mcp
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.10`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -44,6 +44,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -77,7 +79,7 @@ Confirm behavior with `unity mcp --help` on the target machine before execution.
 
 ## unity mcp configure
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.10`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -104,7 +106,7 @@ None.
 | `--list` | — | False | False | — | List all supported clients and their config paths |
 | `--local` | — | False | False | — | Write project-local config (for clients that support it, e.g. cursor, vscode) |
 | `--yes` | — | False | False | — | Skip the "already exists, update?" confirmation prompt |
-| `--dry-run` | — | False | False | — | Print what would be written without modifying any files |
+| `--dry-run` | — | False | False | — | Print the entry that would be added or changed, without modifying any files |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `--project-path` | `<path>` | False | False | — | Locate the Editor by its project path; with configure, pin the entry to that project |
 | `--runtime` | `<version>` | False | False | — | Filter by Unity runtime version |
@@ -117,6 +119,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -168,7 +172,7 @@ None.
   openclaw        OpenClaw (prints manual instructions)
   antigravity     Antigravity 2.0 / Antigravity IDE
   zed             Zed editor
-  continue        Continue VS Code extension
+  continue        Continue (prints manual instructions)
   inspect         Launch MCP Inspector in browser
 
 ```

@@ -2,13 +2,13 @@
 
 # `unity install` command reference
 
-Generated from Unity CLI `1.0.0-beta.6` help output.
+Generated from Unity CLI `1.0.0-beta.11` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity install
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.11`
 - Supported platforms: linux, macos, windows
 - Aliases: `i`
 
@@ -35,15 +35,15 @@ None.
 | `-a`, `--architecture` | `<architecture>` | False | False | — | Editor architecture (x86_64 or arm64) (default: "unknown", env: UNITY_ARCHITECTURE) |
 | `-c`, `--changeset` | `<changeset>` | False | False | — | Changeset for archive installs |
 | `-m`, `--module` | `<module...>` | False | False | — | Module IDs to install alongside editor |
-| `--cm`, `--childModules` | — | False | False | — | Install all child modules automatically |
-| `--no-cm`, `--no-childModules` | — | False | False | — | Do not install child modules automatically |
+| `--cm`, `--child-modules` | — | False | False | — | Install all child modules automatically |
+| `--no-cm`, `--no-child-modules` | — | False | False | — | Do not install child modules automatically |
 | `-f`, `--force` | — | False | False | — | Force reinstall of an already-installed editor |
 | `-y`, `--yes` | — | False | False | — | Automatically select the first match without prompting |
 | `--accept-eula` | — | False | False | — | Accept all module license agreements automatically |
 | `--dry-run` | — | False | False | — | Print what would be downloaded without installing |
 | `--resume` | — | False | False | — | Resume interrupted downloads from cache |
 | `--no-elevate` | — | False | False | — | Skip the elevated (UAC) install helper on Windows; the Editor installer still asks for elevation if Windows requires it |
-| `--list-components` | — | False | False | — | List the editor's modules with the Hub id and unity-downloader-cli-compatible name, then exit |
+| `--list-modules` | — | False | False | — | List the editor's modules with the Hub id and accepted aliases, then exit |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
@@ -53,6 +53,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |

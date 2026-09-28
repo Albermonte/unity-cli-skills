@@ -2,13 +2,13 @@
 
 # `unity run` command reference
 
-Generated from Unity CLI `1.0.0-beta.6` help output.
+Generated from Unity CLI `1.0.0-beta.11` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity run
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.11`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -38,6 +38,10 @@ None.
 | `--allow-install` | — | False | False | — | Install the project's editor version if it is not already installed |
 | `--command` | `<name>` | False | False | — | Execute a registered Editor command headlessly (args after -- are parsed against the command's schema, not forwarded to Unity) |
 | `--timeout` | `<seconds>` | False | False | — | Kill the Unity process after this many seconds (disabled by default) (env: UNITY_RUN_TIMEOUT) |
+| `-l`, `--log-file` | `<path>` | False | False | — | Write the Editor log to this file instead of Unity's default log location. The log also streams to the console; --no-tail disables that. |
+| `--no-tail` | — | False | False | — | Do not stream the log to the console in real time |
+| `--accelerator` | `<host:port>` | False | False | — | Unity Accelerator endpoint for this invocation. A bare host defaults to port 10080. (env: UNITY_ACCELERATOR) |
+| `--no-accelerator` | — | False | False | — | Ignore any configured Unity Accelerator for this invocation |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
@@ -47,6 +51,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -59,6 +65,7 @@ None.
 | `UNITY_EDITOR_VERSION` | Mirrors --editor-version. |
 | `UNITY_ARCHITECTURE` | Mirrors -a, --architecture. |
 | `UNITY_RUN_TIMEOUT` | Mirrors --timeout. |
+| `UNITY_ACCELERATOR` | Mirrors --accelerator. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |

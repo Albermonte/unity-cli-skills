@@ -2,13 +2,13 @@
 
 # `unity help` command reference
 
-Generated from Unity CLI `1.0.0-beta.6` help output.
+Generated from Unity CLI `1.0.0-beta.11` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity help
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.11`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -23,16 +23,20 @@ CLI for Unity
 | Name | Aliases | Summary |
 | --- | --- | --- |
 | `analytics` | — | Manage analytics and telemetry consent |
+| `assets` | — | Work with Unity asset packages |
 | `auth` | `a` | Sign in, manage accounts, check login state, or sign out |
 | `bug` | — | Report a bug directly to the Unity bug reporter (requires you to be signed in) |
 | `build` | — | Build a Unity project from the command line. Spawns the editor in batch mode and forwards conventional CI flags. |
 | `cache` | — | Manage the download cache |
 | `changelog` | — | Show release notes for the installed CLI |
+| `ci` | — | Scaffold CI pipelines that drive the Unity CLI |
 | `cloud` | — | Manage Unity Cloud organizations and projects |
-| `collaboration` | `collab` | Manage Unity Collaboration resources (annotations, attachments, Jira, reactions) |
+| `collaboration` | `collab` | Manage Unity Collaboration resources (annotations, attachments, Jira, reactions). Not version control; see unity vcs. |
 | `completion` | — | Print a shell completion script |
 | `config` | — | View or change persistent CLI configuration |
+| `context` | — | Save and switch between named sets of account, organization, project, editor and install path |
 | `diagnose` | — | One-shot diagnostic commands for support — paste-safe, redacted output |
+| `docs` | — | Open Unity documentation for a class or topic, matched to your project's editor version |
 | `doctor` | — | Print diagnostic info about your Unity CLI environment |
 | `editor` | — | Manage a Unity editor installation |
 | `editors` | `e` | Manage Unity editors |
@@ -48,20 +52,27 @@ CLI for Unity
 | `logs` | — | Read and tail the Hub log file |
 | `mcp` | — | MCP server and client configuration for Unity Editor |
 | `modules` | — | List and manage Unity editor modules |
-| `pipeline` | `pipe` | Unity Editor Pipeline automation commands |
+| `pipeline` | `pipe` | Unity Editor Pipeline package, plus Build Automation and Pipeline Automation reads |
+| `plugin` | — | View and manage the external components Unity installs for you |
 | `projects` | `p` | Manage Unity projects in the Hub registry |
 | `command` | `cmd` | Execute commands on connected Unity Editor instances, or list available commands |
+| `commands` | — | List every command and subcommand as a machine-readable manifest |
 | `templates` | `t` | Browse, inspect, create, edit, and delete Unity project templates |
 | `test` | — | Run a project's EditMode/PlayMode tests in the editor and write a results report |
+| `recompile` | — | Recompile a running Editor's scripts and report compile errors |
 | `open` | — | Open a Unity project with the correct Editor version |
+| `close` | — | Close the Unity editor that has a project open (exits without saving) |
 | `run` | — | Run a Unity project in batch mode and forward args to the editor |
 | `releases` | — | List available Unity releases |
 | `self-uninstall` | — | Uninstall the unity CLI (removes the binary and environment files) |
 | `shell` | — | Start an interactive shell (REPL) that runs many commands in one warm process |
-| `skill` | — | Install the Unity CLI agent skill into an AI client's skills directory |
+| `skill` | — | Read the Unity CLI agent skill, or install it into an AI client |
 | `status` | — | Show live state of every connected Unity Editor (port, project, version, PID, state) |
 | `uninstall` | `u` | Uninstall an installed Unity editor |
-| `upgrade` | — | Upgrade the unity CLI to the latest version |
+| `self-update` | `upgrade` | Update the unity CLI to the latest version |
+| `vcs` | — | Version control for Unity projects: GitHub, GitLab, self-hosted git, UVCS. Not Unity Collaboration; see unity collab. |
+| `watch` | — | Watch a project and re-run a command each time its files change |
+| `version` | — | Print the Unity CLI version and build information |
 
 ### Positional arguments
 
@@ -79,6 +90,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |

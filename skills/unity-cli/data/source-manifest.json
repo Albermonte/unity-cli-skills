@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "cli_version": "1.0.0-beta.6",
+  "cli_version": "1.0.0-beta.12",
   "canonical_source": "installed Unity CLI help output",
   "generated_without_ai": true,
   "snapshots": [
@@ -9,21 +9,21 @@
       "architecture": "x86_64",
       "source": "live_help",
       "path": "snapshots/linux/help.json",
-      "sha256": "96598f03727f6f136ff22ffd13191356f87480a58e3da856741f52731eea6a30"
+      "sha256": "1e75c0f84afffe2f295245c4865733fca7f22918a910e8e595c15e04446e563e"
     },
     {
       "platform": "macos",
       "architecture": "arm64",
       "source": "live_help",
       "path": "snapshots/macos/help.json",
-      "sha256": "76aecc32aa3b96c57c1bec027ddeab1b9182cb64ad1a3b3071f703b8a5bd5c16"
+      "sha256": "7a3084fcc05f3ed223814687820a64bb5c78c449030b7869e0dcb0e6ddfb1bae"
     },
     {
       "platform": "windows",
       "architecture": "amd64",
       "source": "live_help",
       "path": "snapshots/windows/help.json",
-      "sha256": "1c4762af7481693aaf06b1248ecd559ec0d87e18cc7fd4e581435716a09431f4"
+      "sha256": "5514872b59070f7ddcbc5ba62128910c9fafa62faa9ac8a7a294285b6cf35b7a"
     }
   ]
 }

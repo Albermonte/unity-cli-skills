@@ -2,17 +2,19 @@
 
 # `unity pipeline` command reference
 
-Generated from Unity CLI `1.0.0-beta.6` help output.
+Generated from Unity CLI `1.0.0-beta.12` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity pipeline
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.12`
 - Supported platforms: linux, macos, windows
 - Aliases: `pipe`
 
-Unity Editor Pipeline automation commands
+Unity Editor Pipeline package, plus Build Automation and Pipeline Automation
+
+reads
 
 ### Usage
 
@@ -26,6 +28,8 @@ Unity Editor Pipeline automation commands
 | `upgrade` | — | Upgrade the Unity Pipeline package to the latest version if a newer one is available |
 | `list` | — | List all Unity Editor instances and their Pipeline package status |
 | `list-versions` | — | List all available versions of the Unity Pipeline package |
+| `cloud-build` | — | Inspect Unity Build Automation targets, builds, the project and its tooling |
+| `automation` | — | Inspect Unity Pipeline Automation resources |
 
 ### Positional arguments
 
@@ -44,6 +48,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -91,9 +97,3856 @@ None.
 
 Confirm behavior with `unity pipeline --help` on the target machine before execution.
 
+## unity pipeline automation
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Inspect Unity Pipeline Automation resources
+
+### Usage
+
+`unity pipeline automation [options] [command]`
+
+### Subcommands
+
+| Name | Aliases | Summary |
+| --- | --- | --- |
+| `apps` | — | Inspect Pipeline Automation apps |
+| `pipelines` | — | Inspect Pipeline Automation pipelines |
+| `jobs` | — | Inspect Pipeline Automation jobs |
+| `automations` | — | Inspect Pipeline Automation automations |
+| `bots` | — | Inspect Pipeline Automation bots |
+| `profiles` | — | Inspect Pipeline Automation configuration profiles |
+| `templates` | — | Inspect Pipeline Automation pipeline templates |
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline automation apps list`
+`$ unity pipeline automation pipelines get my-pipeline-id`
+`$ unity pipeline automation jobs list --limit 50`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline automation --help` on the target machine before execution.
+
+## unity pipeline automation apps
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Inspect Pipeline Automation apps
+
+### Usage
+
+`unity pipeline automation apps [options] [command]`
+
+### Subcommands
+
+| Name | Aliases | Summary |
+| --- | --- | --- |
+| `list` | — | List Pipeline Automation apps in the organization |
+| `get` | — | Show one Pipeline Automation app |
+| `versions` | — | Inspect an app’s version history |
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline automation apps list`
+`$ unity pipeline automation apps get my-app-id`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline automation apps --help` on the target machine before execution.
+
+## unity pipeline automation apps get
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Show one Pipeline Automation app
+
+### Usage
+
+`unity pipeline automation apps get [options] <app-id>`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+| Argument | Required | Repeatable | Description |
+| --- | --- | --- | --- |
+| `app-id` | True | False | The ID of the app to inspect |
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline automation apps get my-app-id`
+`$ unity pipeline automation apps get my-app-id --format json`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline automation apps get --help` on the target machine before execution.
+
+## unity pipeline automation apps list
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+List Pipeline Automation apps in the organization
+
+### Usage
+
+`unity pipeline automation apps list [options]`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `--page` | `<n>` | False | False | — | The page of results to return, starting at 1. Defaults to 1. |
+| `--limit` | `<n>` | False | False | — | The number of results per page, from 1 through 100. Defaults to 25. |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline automation apps list`
+`$ unity pipeline automation apps list --format json`
+`$ unity pipeline automation apps list --page 2 --limit 50`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline automation apps list --help` on the target machine before execution.
+
+## unity pipeline automation apps versions
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Inspect an app’s version history
+
+### Usage
+
+`unity pipeline automation apps versions [options] [command]`
+
+### Subcommands
+
+| Name | Aliases | Summary |
+| --- | --- | --- |
+| `list` | — | List every version of one app |
+| `get` | — | Show one version of one app |
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline automation apps versions list my-app-id`
+`$ unity pipeline automation apps versions get my-app-id 1.2.3`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline automation apps versions --help` on the target machine before execution.
+
+## unity pipeline automation apps versions get
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Show one version of one app
+
+### Usage
+
+`unity pipeline automation apps versions get [options] <app-id> <version>`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+| Argument | Required | Repeatable | Description |
+| --- | --- | --- | --- |
+| `app-id` | True | False | The ID of the app whose versions to read |
+| `version` | True | False | The version to show |
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline automation apps versions get my-app-id 1.2.3`
+`$ unity pipeline automation apps versions get my-app-id 1.2.3 --format json`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline automation apps versions get --help` on the target machine before execution.
+
+## unity pipeline automation apps versions list
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+List every version of one app
+
+### Usage
+
+`unity pipeline automation apps versions list [options] <app-id>`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+| Argument | Required | Repeatable | Description |
+| --- | --- | --- | --- |
+| `app-id` | True | False | The ID of the app whose versions to read |
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `--page` | `<n>` | False | False | — | The page of results to return, starting at 1. Defaults to 1. |
+| `--limit` | `<n>` | False | False | — | The number of results per page, from 1 through 100. Defaults to 25. |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline automation apps versions list my-app-id`
+`$ unity pipeline automation apps versions list my-app-id --page 2 --limit 50`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline automation apps versions list --help` on the target machine before execution.
+
+## unity pipeline automation automations
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Inspect Pipeline Automation automations
+
+### Usage
+
+`unity pipeline automation automations [options] [command]`
+
+### Subcommands
+
+| Name | Aliases | Summary |
+| --- | --- | --- |
+| `list` | — | List Pipeline Automation automations in the organization |
+| `get` | — | Show one Pipeline Automation automation |
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline automation automations list`
+`$ unity pipeline automation automations get my-automation-id`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline automation automations --help` on the target machine before execution.
+
+## unity pipeline automation automations get
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Show one Pipeline Automation automation
+
+### Usage
+
+`unity pipeline automation automations get [options] <automation-id>`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+| Argument | Required | Repeatable | Description |
+| --- | --- | --- | --- |
+| `automation-id` | True | False | The ID of the automation to inspect |
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline automation automations get my-automation-id`
+`$ unity pipeline automation automations get my-automation-id --format json`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline automation automations get --help` on the target machine before execution.
+
+## unity pipeline automation automations list
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+List Pipeline Automation automations in the organization
+
+### Usage
+
+`unity pipeline automation automations list [options]`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `--page` | `<n>` | False | False | — | The page of results to return, starting at 1. Defaults to 1. |
+| `--limit` | `<n>` | False | False | — | The number of results per page, from 1 through 100. Defaults to 25. |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline automation automations list`
+`$ unity pipeline automation automations list --format json`
+`$ unity pipeline automation automations list --page 2 --limit 50`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline automation automations list --help` on the target machine before execution.
+
+## unity pipeline automation bots
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Inspect Pipeline Automation bots
+
+### Usage
+
+`unity pipeline automation bots [options] [command]`
+
+### Subcommands
+
+| Name | Aliases | Summary |
+| --- | --- | --- |
+| `list` | — | List Pipeline Automation bots in the organization |
+| `get` | — | Show one Pipeline Automation bot |
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline automation bots list`
+`$ unity pipeline automation bots get my-bot-id`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline automation bots --help` on the target machine before execution.
+
+## unity pipeline automation bots get
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Show one Pipeline Automation bot
+
+### Usage
+
+`unity pipeline automation bots get [options] <bot-id>`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+| Argument | Required | Repeatable | Description |
+| --- | --- | --- | --- |
+| `bot-id` | True | False | The ID of the bot to inspect |
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline automation bots get my-bot-id`
+`$ unity pipeline automation bots get my-bot-id --format json`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline automation bots get --help` on the target machine before execution.
+
+## unity pipeline automation bots list
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+List Pipeline Automation bots in the organization
+
+### Usage
+
+`unity pipeline automation bots list [options]`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `--page` | `<n>` | False | False | — | The page of results to return, starting at 1. Defaults to 1. |
+| `--limit` | `<n>` | False | False | — | The number of results per page, from 1 through 100. Defaults to 25. |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline automation bots list`
+`$ unity pipeline automation bots list --format json`
+`$ unity pipeline automation bots list --page 2 --limit 50`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline automation bots list --help` on the target machine before execution.
+
+## unity pipeline automation jobs
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Inspect Pipeline Automation jobs
+
+### Usage
+
+`unity pipeline automation jobs [options] [command]`
+
+### Subcommands
+
+| Name | Aliases | Summary |
+| --- | --- | --- |
+| `list` | — | List Pipeline Automation jobs in the organization |
+| `get` | — | Show one Pipeline Automation job |
+| `stats` | — | Show running, queued, and concurrency-limit job counts |
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline automation jobs list`
+`$ unity pipeline automation jobs get my-job-id`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline automation jobs --help` on the target machine before execution.
+
+## unity pipeline automation jobs get
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Show one Pipeline Automation job
+
+### Usage
+
+`unity pipeline automation jobs get [options] <job-id>`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+| Argument | Required | Repeatable | Description |
+| --- | --- | --- | --- |
+| `job-id` | True | False | The ID of the job to inspect |
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline automation jobs get my-job-id`
+`$ unity pipeline automation jobs get my-job-id --format json`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline automation jobs get --help` on the target machine before execution.
+
+## unity pipeline automation jobs list
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+List Pipeline Automation jobs in the organization
+
+### Usage
+
+`unity pipeline automation jobs list [options]`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `--page` | `<n>` | False | False | — | The page of results to return, starting at 1. Defaults to 1. |
+| `--limit` | `<n>` | False | False | — | The number of results per page, from 1 through 100. Defaults to 25. |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline automation jobs list`
+`$ unity pipeline automation jobs list --format json`
+`$ unity pipeline automation jobs list --page 2 --limit 50`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline automation jobs list --help` on the target machine before execution.
+
+## unity pipeline automation jobs stats
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Show running, queued, and concurrency-limit job counts
+
+### Usage
+
+`unity pipeline automation jobs stats [options]`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline automation jobs stats`
+`$ unity pipeline automation jobs stats --format json`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline automation jobs stats --help` on the target machine before execution.
+
+## unity pipeline automation pipelines
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Inspect Pipeline Automation pipelines
+
+### Usage
+
+`unity pipeline automation pipelines [options] [command]`
+
+### Subcommands
+
+| Name | Aliases | Summary |
+| --- | --- | --- |
+| `list` | — | List Pipeline Automation pipelines in the organization |
+| `get` | — | Show one Pipeline Automation pipeline |
+| `versions` | — | Inspect a pipeline’s version history |
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline automation pipelines list`
+`$ unity pipeline automation pipelines get my-pipeline-id`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline automation pipelines --help` on the target machine before execution.
+
+## unity pipeline automation pipelines get
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Show one Pipeline Automation pipeline
+
+### Usage
+
+`unity pipeline automation pipelines get [options] <pipeline-id>`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+| Argument | Required | Repeatable | Description |
+| --- | --- | --- | --- |
+| `pipeline-id` | True | False | The ID of the pipeline to inspect |
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline automation pipelines get my-pipeline-id`
+`$ unity pipeline automation pipelines get my-pipeline-id --format json`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline automation pipelines get --help` on the target machine before execution.
+
+## unity pipeline automation pipelines list
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+List Pipeline Automation pipelines in the organization
+
+### Usage
+
+`unity pipeline automation pipelines list [options]`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `--page` | `<n>` | False | False | — | The page of results to return, starting at 1. Defaults to 1. |
+| `--limit` | `<n>` | False | False | — | The number of results per page, from 1 through 100. Defaults to 25. |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline automation pipelines list`
+`$ unity pipeline automation pipelines list --format json`
+`$ unity pipeline automation pipelines list --page 2 --limit 50`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline automation pipelines list --help` on the target machine before execution.
+
+## unity pipeline automation pipelines versions
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Inspect a pipeline’s version history
+
+### Usage
+
+`unity pipeline automation pipelines versions [options] [command]`
+
+### Subcommands
+
+| Name | Aliases | Summary |
+| --- | --- | --- |
+| `list` | — | List every version of one pipeline |
+| `get` | — | Show one version of one pipeline |
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline automation pipelines versions list my-pipeline-id`
+`$ unity pipeline automation pipelines versions get my-pipeline-id 1.2.3`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline automation pipelines versions --help` on the target machine before execution.
+
+## unity pipeline automation pipelines versions get
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Show one version of one pipeline
+
+### Usage
+
+`unity pipeline automation pipelines versions get [options] <pipeline-id> <version>`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+| Argument | Required | Repeatable | Description |
+| --- | --- | --- | --- |
+| `pipeline-id` | True | False | The ID of the pipeline whose versions to read |
+| `version` | True | False | The version to show |
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline automation pipelines versions get my-pipeline-id 1.2.3`
+`$ unity pipeline automation pipelines versions get my-pipeline-id 1.2.3 --format json`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline automation pipelines versions get --help` on the target machine before execution.
+
+## unity pipeline automation pipelines versions list
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+List every version of one pipeline
+
+### Usage
+
+`unity pipeline automation pipelines versions list [options] <pipeline-id>`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+| Argument | Required | Repeatable | Description |
+| --- | --- | --- | --- |
+| `pipeline-id` | True | False | The ID of the pipeline whose versions to read |
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `--page` | `<n>` | False | False | — | The page of results to return, starting at 1. Defaults to 1. |
+| `--limit` | `<n>` | False | False | — | The number of results per page, from 1 through 100. Defaults to 25. |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline automation pipelines versions list my-pipeline-id`
+`$ unity pipeline automation pipelines versions list my-pipeline-id --page 2 --limit 50`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline automation pipelines versions list --help` on the target machine before execution.
+
+## unity pipeline automation profiles
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Inspect Pipeline Automation configuration profiles
+
+### Usage
+
+`unity pipeline automation profiles [options] [command]`
+
+### Subcommands
+
+| Name | Aliases | Summary |
+| --- | --- | --- |
+| `list` | — | List Pipeline Automation configuration profiles in the organization |
+| `get` | — | Show one Pipeline Automation configuration profile |
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline automation profiles list`
+`$ unity pipeline automation profiles get my-profile-id`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline automation profiles --help` on the target machine before execution.
+
+## unity pipeline automation profiles get
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Show one Pipeline Automation configuration profile
+
+### Usage
+
+`unity pipeline automation profiles get [options] <profile-id>`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+| Argument | Required | Repeatable | Description |
+| --- | --- | --- | --- |
+| `profile-id` | True | False | The ID of the configuration profile to inspect |
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline automation profiles get my-profile-id`
+`$ unity pipeline automation profiles get my-profile-id --format json`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline automation profiles get --help` on the target machine before execution.
+
+## unity pipeline automation profiles list
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+List Pipeline Automation configuration profiles in the organization
+
+### Usage
+
+`unity pipeline automation profiles list [options]`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `--app-id` | `<id>` | False | False | — | Show only profiles available to this app |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline automation profiles list`
+`$ unity pipeline automation profiles list --format json`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline automation profiles list --help` on the target machine before execution.
+
+## unity pipeline automation templates
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Inspect Pipeline Automation pipeline templates
+
+### Usage
+
+`unity pipeline automation templates [options] [command]`
+
+### Subcommands
+
+| Name | Aliases | Summary |
+| --- | --- | --- |
+| `list` | — | List Pipeline Automation pipeline templates in the organization |
+| `get` | — | Show one Pipeline Automation pipeline template |
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline automation templates list`
+`$ unity pipeline automation templates get my-template-id`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline automation templates --help` on the target machine before execution.
+
+## unity pipeline automation templates get
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Show one Pipeline Automation pipeline template
+
+### Usage
+
+`unity pipeline automation templates get [options] <template-id>`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+| Argument | Required | Repeatable | Description |
+| --- | --- | --- | --- |
+| `template-id` | True | False | The ID of the pipeline template to inspect |
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline automation templates get my-template-id`
+`$ unity pipeline automation templates get my-template-id --format json`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline automation templates get --help` on the target machine before execution.
+
+## unity pipeline automation templates list
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+List Pipeline Automation pipeline templates in the organization
+
+### Usage
+
+`unity pipeline automation templates list [options]`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `--page` | `<n>` | False | False | — | The page of results to return, starting at 1. Defaults to 1. |
+| `--limit` | `<n>` | False | False | — | The number of results per page, from 1 through 100. Defaults to 25. |
+| `--app-ids` | `<id>` | False | True | — | Show only templates for this app. Repeat to include more apps. |
+| `--tags` | `<tag>` | False | True | — | Show only templates carrying this tag. Repeat to match more tags. |
+| `--metadata` | `<entry>` | False | True | — | Show only templates with this metadata entry. Repeat to match more entries. |
+| `--system-metadata` | `<entry>` | False | True | — | Show only templates with this system metadata entry. Repeat to match more entries. |
+| `--used-with` | `<id>` | False | True | — | Show only templates used with this resource. Repeat to match more resources. |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline automation templates list`
+`$ unity pipeline automation templates list --format json`
+`$ unity pipeline automation templates list --page 2 --limit 50`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline automation templates list --help` on the target machine before execution.
+
+## unity pipeline cloud-build
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Inspect Unity Build Automation targets, builds, the project and its tooling
+
+### Usage
+
+`unity pipeline cloud-build [options] [command]`
+
+### Subcommands
+
+| Name | Aliases | Summary |
+| --- | --- | --- |
+| `targets` | — | Inspect Build Automation build targets |
+| `builds` | — | Inspect Build Automation builds |
+| `project` | — | Inspect the current Unity Build Automation project |
+| `tooling` | — | Look up the versions, platforms and machines a build target can use |
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `--cloud-project` | `<id>` | False | False | — | The project to read. Defaults to your current project. (env: UNITY_CLOUD_PROJECT) |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_CLOUD_PROJECT` | Mirrors --cloud-project. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline cloud-build project get`
+`$ unity pipeline cloud-build targets list`
+`$ unity pipeline cloud-build builds list --build-target android-release`
+`$ unity pipeline cloud-build builds get 42 --build-target android-release`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline cloud-build --help` on the target machine before execution.
+
+## unity pipeline cloud-build builds
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Inspect Build Automation builds
+
+### Usage
+
+`unity pipeline cloud-build builds [options] [command]`
+
+### Subcommands
+
+| Name | Aliases | Summary |
+| --- | --- | --- |
+| `list` | — | List Build Automation builds |
+| `get` | — | Show one Build Automation build |
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `--cloud-project` | `<id>` | False | False | — | The project to read. Defaults to your current project. (env: UNITY_CLOUD_PROJECT) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_CLOUD_PROJECT` | Mirrors --cloud-project. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline cloud-build builds list`
+`$ unity pipeline cloud-build builds get 42 --build-target android-release`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline cloud-build builds --help` on the target machine before execution.
+
+## unity pipeline cloud-build builds get
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Show one Build Automation build
+
+### Usage
+
+`unity pipeline cloud-build builds get [options] <build-number>`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+| Argument | Required | Repeatable | Description |
+| --- | --- | --- | --- |
+| `build-number` | True | False | The number of the build to inspect |
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `--build-target` | `<target-id>` | False | False | — | Limit the results to one build target. Omit to include every target. |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `--cloud-project` | `<id>` | False | False | — | The project to read. Defaults to your current project. (env: UNITY_CLOUD_PROJECT) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. Target GUIDs are fetched once per target in this command. Created and finished times use local time in human and GitHub output; TSV, JSON, and NDJSON keep API timestamps. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_CLOUD_PROJECT` | Mirrors --cloud-project. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline cloud-build builds get 42 --build-target android-release`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline cloud-build builds get --help` on the target machine before execution.
+
+## unity pipeline cloud-build builds list
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+List Build Automation builds
+
+### Usage
+
+`unity pipeline cloud-build builds list [options]`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `--build-target` | `<target-id>` | False | False | — | Limit the results to one build target. Omit to include every target. |
+| `--page` | `<n>` | False | False | — | The page of results to return, starting at 1. Defaults to 1. |
+| `--limit` | `<n>` | False | False | — | The number of results per page, from 1 through 100. Defaults to 25. |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `--cloud-project` | `<id>` | False | False | — | The project to read. Defaults to your current project. (env: UNITY_CLOUD_PROJECT) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. Target GUIDs are fetched once per target in this command. Created and finished times use local time in human and GitHub output; TSV, JSON, and NDJSON keep API timestamps. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_CLOUD_PROJECT` | Mirrors --cloud-project. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline cloud-build builds list`
+`$ unity pipeline cloud-build builds list --build-target android-release`
+`$ unity pipeline cloud-build builds list --format ndjson`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline cloud-build builds list --help` on the target machine before execution.
+
+## unity pipeline cloud-build project
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Inspect the current Unity Build Automation project
+
+### Usage
+
+`unity pipeline cloud-build project [options] [command]`
+
+### Subcommands
+
+| Name | Aliases | Summary |
+| --- | --- | --- |
+| `get` | — | Show the current project’s identity and status |
+| `stats` | — | Show build statistics for the current project |
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `--cloud-project` | `<id>` | False | False | — | The project to read. Defaults to your current project. (env: UNITY_CLOUD_PROJECT) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_CLOUD_PROJECT` | Mirrors --cloud-project. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline cloud-build project get`
+`$ unity pipeline cloud-build project stats`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline cloud-build project --help` on the target machine before execution.
+
+## unity pipeline cloud-build project get
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Show the current project’s identity and status
+
+### Usage
+
+`unity pipeline cloud-build project get [options]`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `--cloud-project` | `<id>` | False | False | — | The project to read. Defaults to your current project. (env: UNITY_CLOUD_PROJECT) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_CLOUD_PROJECT` | Mirrors --cloud-project. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+None.
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline cloud-build project get --help` on the target machine before execution.
+
+## unity pipeline cloud-build project stats
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Show build statistics for the current project
+
+### Usage
+
+`unity pipeline cloud-build project stats [options]`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `--cloud-project` | `<id>` | False | False | — | The project to read. Defaults to your current project. (env: UNITY_CLOUD_PROJECT) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_CLOUD_PROJECT` | Mirrors --cloud-project. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+None.
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline cloud-build project stats --help` on the target machine before execution.
+
+## unity pipeline cloud-build targets
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Inspect Build Automation build targets
+
+### Usage
+
+`unity pipeline cloud-build targets [options] [command]`
+
+### Subcommands
+
+| Name | Aliases | Summary |
+| --- | --- | --- |
+| `list` | — | List Build Automation build targets in the project |
+| `get` | — | Show one Build Automation build target |
+| `groups` | — | List this project’s build target groups |
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `--cloud-project` | `<id>` | False | False | — | The project to read. Defaults to your current project. (env: UNITY_CLOUD_PROJECT) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_CLOUD_PROJECT` | Mirrors --cloud-project. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline cloud-build targets list`
+`$ unity pipeline cloud-build targets get android-release`
+`$ unity pipeline cloud-build targets groups`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline cloud-build targets --help` on the target machine before execution.
+
+## unity pipeline cloud-build targets get
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Show one Build Automation build target
+
+### Usage
+
+`unity pipeline cloud-build targets get [options] <target-id>`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+| Argument | Required | Repeatable | Description |
+| --- | --- | --- | --- |
+| `target-id` | True | False | The ID of the build target to inspect |
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `--cloud-project` | `<id>` | False | False | — | The project to read. Defaults to your current project. (env: UNITY_CLOUD_PROJECT) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. Look up a target directly by GUID or slug. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_CLOUD_PROJECT` | Mirrors --cloud-project. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline cloud-build targets get android-release`
+`$ unity pipeline cloud-build targets get android-release --format json`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline cloud-build targets get --help` on the target machine before execution.
+
+## unity pipeline cloud-build targets groups
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+List this project’s build target groups
+
+### Usage
+
+`unity pipeline cloud-build targets groups [options]`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `--cloud-project` | `<id>` | False | False | — | The project to read. Defaults to your current project. (env: UNITY_CLOUD_PROJECT) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_CLOUD_PROJECT` | Mirrors --cloud-project. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline cloud-build targets groups`
+`$ unity pipeline cloud-build targets groups --format json`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline cloud-build targets groups --help` on the target machine before execution.
+
+## unity pipeline cloud-build targets list
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+List Build Automation build targets in the project
+
+### Usage
+
+`unity pipeline cloud-build targets list [options]`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `--page` | `<n>` | False | False | — | The page of results to return, starting at 1. Defaults to 1. |
+| `--limit` | `<n>` | False | False | — | The number of results per page, from 1 through 100. Defaults to 25. |
+| `--platform` | `<value>` | False | False | — | Filter by platform |
+| `--build-target-name` | `<value>` | False | False | — | Filter by build target name |
+| `--search` | `<value>` | False | False | — | Search build targets |
+| `--branch` | `<value>` | False | False | — | Filter by source control branch |
+| `--operating-system` | `<value>` | False | False | — | Filter by operating system |
+| `--os-version` | `<value>` | False | False | — | Filter by operating system version |
+| `--unity-version` | `<value>` | False | False | — | Filter by configured Unity version |
+| `--last-built-unity-version` | `<value>` | False | False | — | Filter by the Unity version used for the last build |
+| `--xcode-version` | `<value>` | False | False | — | Filter by Xcode version |
+| `--android-version` | `<value>` | False | False | — | Filter by Android version |
+| `--created-by` | `<value>` | False | False | — | Filter by creation source |
+| `--group-name` | `<value>` | False | False | — | Filter by group name within the API page. Short or empty pages can have matches on later pages. |
+| `--filter-for-cache-copy` | `<true|false>` | False | False | — | Filter by cache-copy eligibility. Requires an explicit boolean; omit to leave the filter unset. (choices: "true", "false") |
+| `--sort-by` | `<field>` | False | True | — | Sort by a field. Repeat in priority order; prefix a field with minus for descending order. |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `--cloud-project` | `<id>` | False | False | — | The project to read. Defaults to your current project. (env: UNITY_CLOUD_PROJECT) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_CLOUD_PROJECT` | Mirrors --cloud-project. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+
+### Examples exposed by help
+
+`http://<user>:<pass>@host:8080,`
+`socks5://host:1080,`
+`pac+http://wpad/proxy.pac (env:`
+`UNITY_PROXY)`
+`--proxy-disable                       Disable proxy for this invocation,`
+`ignoring all sources`
+`--log-proxy                           Log every outbound request to`
+`proxy-request.json for this run. Off by`
+`default; typically used once when`
+`reproducing a proxy issue for support.`
+`Also settable via UNITY_LOG_PROXY=1 or`
+`the proxyRequestLogging user setting.`
+`(env: UNITY_LOG_PROXY)`
+`--no-log-proxy                        Opt out of --log-proxy / UNITY_LOG_PROXY`
+`/ the persisted user setting for this`
+`run. Use when logging is enabled`
+`globally but you want one clean`
+`invocation.`
+`$ unity pipeline cloud-build targets list`
+`$ unity pipeline cloud-build targets list --format json`
+`$ unity pipeline cloud-build targets list --page 2 --limit 50`
+`$ unity pipeline cloud-build targets list --platform android --branch release`
+`$ unity pipeline cloud-build targets list --filter-for-cache-copy false`
+`$ unity pipeline cloud-build targets list --sort-by name --sort-by=-created`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline cloud-build targets list --help` on the target machine before execution.
+
+## unity pipeline cloud-build tooling
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Look up the versions, platforms and machines a build target can use
+
+### Usage
+
+`unity pipeline cloud-build tooling [options] [command]`
+
+### Subcommands
+
+| Name | Aliases | Summary |
+| --- | --- | --- |
+| `unity` | — | Look up supported Unity Editor versions |
+| `xcode` | — | Look up supported Xcode versions |
+| `visual-studio` | — | Look up supported Visual Studio versions |
+| `os` | — | Look up supported operating system versions |
+| `platforms` | — | Look up the platforms you can build for |
+| `machine-types` | — | Look up the build machines available to this project |
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `--cloud-project` | `<id>` | False | False | — | The project to read. Defaults to your current project. (env: UNITY_CLOUD_PROJECT) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_CLOUD_PROJECT` | Mirrors --cloud-project. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline cloud-build tooling unity list`
+`$ unity pipeline cloud-build tooling os list --unity-version 6000.0.20f1`
+`$ unity pipeline cloud-build tooling machine-types list`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline cloud-build tooling --help` on the target machine before execution.
+
+## unity pipeline cloud-build tooling machine-types
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Look up the build machines available to this project
+
+### Usage
+
+`unity pipeline cloud-build tooling machine-types [options] [command]`
+
+### Subcommands
+
+| Name | Aliases | Summary |
+| --- | --- | --- |
+| `list` | — | List the build machines available to this project |
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `--cloud-project` | `<id>` | False | False | — | The project to read. Defaults to your current project. (env: UNITY_CLOUD_PROJECT) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_CLOUD_PROJECT` | Mirrors --cloud-project. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline cloud-build tooling machine-types list`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline cloud-build tooling machine-types --help` on the target machine before execution.
+
+## unity pipeline cloud-build tooling machine-types list
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+List the build machines available to this project
+
+### Usage
+
+`unity pipeline cloud-build tooling machine-types list [options]`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `--operating-system` | `<value>` | False | False | — | Show only entries for this operating system |
+| `--operating-system-version` | `<value>` | False | False | — | Show only entries for this operating system version |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `--cloud-project` | `<id>` | False | False | — | The project to read. Defaults to your current project. (env: UNITY_CLOUD_PROJECT) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_CLOUD_PROJECT` | Mirrors --cloud-project. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+None.
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline cloud-build tooling machine-types list --help` on the target machine before execution.
+
+## unity pipeline cloud-build tooling os
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Look up supported operating system versions
+
+### Usage
+
+`unity pipeline cloud-build tooling os [options] [command]`
+
+### Subcommands
+
+| Name | Aliases | Summary |
+| --- | --- | --- |
+| `list` | — | List supported operating system versions |
+| `get` | — | Show one supported operating system version |
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `--cloud-project` | `<id>` | False | False | — | The project to read. Defaults to your current project. (env: UNITY_CLOUD_PROJECT) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_CLOUD_PROJECT` | Mirrors --cloud-project. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline cloud-build tooling os list`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline cloud-build tooling os --help` on the target machine before execution.
+
+## unity pipeline cloud-build tooling os get
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Show one supported operating system version
+
+### Usage
+
+`unity pipeline cloud-build tooling os get [options] <value>`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `--cloud-project` | `<id>` | False | False | — | The project to read. Defaults to your current project. (env: UNITY_CLOUD_PROJECT) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_CLOUD_PROJECT` | Mirrors --cloud-project. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+None.
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline cloud-build tooling os get --help` on the target machine before execution.
+
+## unity pipeline cloud-build tooling os list
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+List supported operating system versions
+
+### Usage
+
+`unity pipeline cloud-build tooling os list [options]`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `--family` | `<windows|mac>` | False | False | — | Show only entries for this operating system family |
+| `--version` | `<value>` | False | False | — | Show only entries matching this version |
+| `--unity-version` | `<value>` | False | False | — | Show only entries supporting this Unity Editor version |
+| `--xcode-version` | `<value>` | False | False | — | Show only entries supporting this Xcode version |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `--cloud-project` | `<id>` | False | False | — | The project to read. Defaults to your current project. (env: UNITY_CLOUD_PROJECT) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_CLOUD_PROJECT` | Mirrors --cloud-project. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+None.
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline cloud-build tooling os list --help` on the target machine before execution.
+
+## unity pipeline cloud-build tooling platforms
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Look up the platforms you can build for
+
+### Usage
+
+`unity pipeline cloud-build tooling platforms [options] [command]`
+
+### Subcommands
+
+| Name | Aliases | Summary |
+| --- | --- | --- |
+| `list` | — | List the platforms you can build for |
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `--cloud-project` | `<id>` | False | False | — | The project to read. Defaults to your current project. (env: UNITY_CLOUD_PROJECT) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_CLOUD_PROJECT` | Mirrors --cloud-project. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline cloud-build tooling platforms list`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline cloud-build tooling platforms --help` on the target machine before execution.
+
+## unity pipeline cloud-build tooling platforms list
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+List the platforms you can build for
+
+### Usage
+
+`unity pipeline cloud-build tooling platforms list [options]`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `--unity-version` | `<value>` | False | False | — | Show only entries supporting this Unity Editor version |
+| `--platform` | `<value>` | False | False | — | Show only entries for this platform |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `--cloud-project` | `<id>` | False | False | — | The project to read. Defaults to your current project. (env: UNITY_CLOUD_PROJECT) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. The supported platforms are the same across your organization, so this command ignores the project and needs only an organization. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_CLOUD_PROJECT` | Mirrors --cloud-project. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+None.
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline cloud-build tooling platforms list --help` on the target machine before execution.
+
+## unity pipeline cloud-build tooling unity
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Look up supported Unity Editor versions
+
+### Usage
+
+`unity pipeline cloud-build tooling unity [options] [command]`
+
+### Subcommands
+
+| Name | Aliases | Summary |
+| --- | --- | --- |
+| `list` | — | List supported Unity Editor versions |
+| `get` | — | Show one supported Unity Editor version |
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `--cloud-project` | `<id>` | False | False | — | The project to read. Defaults to your current project. (env: UNITY_CLOUD_PROJECT) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_CLOUD_PROJECT` | Mirrors --cloud-project. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline cloud-build tooling unity list`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline cloud-build tooling unity --help` on the target machine before execution.
+
+## unity pipeline cloud-build tooling unity get
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Show one supported Unity Editor version
+
+### Usage
+
+`unity pipeline cloud-build tooling unity get [options] <version>`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `--cloud-project` | `<id>` | False | False | — | The project to read. Defaults to your current project. (env: UNITY_CLOUD_PROJECT) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_CLOUD_PROJECT` | Mirrors --cloud-project. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+None.
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline cloud-build tooling unity get --help` on the target machine before execution.
+
+## unity pipeline cloud-build tooling unity list
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+List supported Unity Editor versions
+
+### Usage
+
+`unity pipeline cloud-build tooling unity list [options]`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `--platform` | `<value>` | False | False | — | Show only entries for this platform |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `--cloud-project` | `<id>` | False | False | — | The project to read. Defaults to your current project. (env: UNITY_CLOUD_PROJECT) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_CLOUD_PROJECT` | Mirrors --cloud-project. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+None.
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline cloud-build tooling unity list --help` on the target machine before execution.
+
+## unity pipeline cloud-build tooling visual-studio
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Look up supported Visual Studio versions
+
+### Usage
+
+`unity pipeline cloud-build tooling visual-studio [options] [command]`
+
+### Subcommands
+
+| Name | Aliases | Summary |
+| --- | --- | --- |
+| `list` | — | List supported Visual Studio versions |
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `--cloud-project` | `<id>` | False | False | — | The project to read. Defaults to your current project. (env: UNITY_CLOUD_PROJECT) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_CLOUD_PROJECT` | Mirrors --cloud-project. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline cloud-build tooling visual-studio list`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline cloud-build tooling visual-studio --help` on the target machine before execution.
+
+## unity pipeline cloud-build tooling visual-studio list
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+List supported Visual Studio versions
+
+### Usage
+
+`unity pipeline cloud-build tooling visual-studio list [options]`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `--cloud-project` | `<id>` | False | False | — | The project to read. Defaults to your current project. (env: UNITY_CLOUD_PROJECT) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_CLOUD_PROJECT` | Mirrors --cloud-project. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+None.
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline cloud-build tooling visual-studio list --help` on the target machine before execution.
+
+## unity pipeline cloud-build tooling xcode
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Look up supported Xcode versions
+
+### Usage
+
+`unity pipeline cloud-build tooling xcode [options] [command]`
+
+### Subcommands
+
+| Name | Aliases | Summary |
+| --- | --- | --- |
+| `list` | — | List supported Xcode versions |
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `--cloud-project` | `<id>` | False | False | — | The project to read. Defaults to your current project. (env: UNITY_CLOUD_PROJECT) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_CLOUD_PROJECT` | Mirrors --cloud-project. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity pipeline cloud-build tooling xcode list`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline cloud-build tooling xcode --help` on the target machine before execution.
+
+## unity pipeline cloud-build tooling xcode list
+
+- CLI version: `1.0.0-beta.12`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+List supported Xcode versions
+
+### Usage
+
+`unity pipeline cloud-build tooling xcode list [options]`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+None.
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--cloud-org` | `<id-or-name>` | False | False | — | The organization to read. Defaults to your current organization. (env: UNITY_CLOUD_ORG) |
+| `--cloud-project` | `<id>` | False | False | — | The project to read. Defaults to your current project. (env: UNITY_CLOUD_PROJECT) |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_CLOUD_ORG` | Mirrors --cloud-org. |
+| `UNITY_CLOUD_PROJECT` | Mirrors --cloud-project. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+None.
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity pipeline cloud-build tooling xcode list --help` on the target machine before execution.
+
 ## unity pipeline install
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.12`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -127,6 +3980,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -158,7 +4013,7 @@ Confirm behavior with `unity pipeline install --help` on the target machine befo
 
 ## unity pipeline list
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.12`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -189,6 +4044,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -219,7 +4076,7 @@ Confirm behavior with `unity pipeline list --help` on the target machine before 
 
 ## unity pipeline list-versions
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.12`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -250,6 +4107,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -280,7 +4139,7 @@ Confirm behavior with `unity pipeline list-versions --help` on the target machin
 
 ## unity pipeline upgrade
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.12`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -314,6 +4173,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |

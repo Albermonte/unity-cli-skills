@@ -2,13 +2,13 @@
 
 # `unity command` command reference
 
-Generated from Unity CLI `1.0.0-beta.6` help output.
+Generated from Unity CLI `1.0.0-beta.12` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity command
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.12`
 - Supported platforms: linux, macos, windows
 - Aliases: `cmd`
 
@@ -38,14 +38,18 @@ None.
 | `--runtime-path` | `<path>` | False | False | — | Connect to a Unity Player by path to port file |
 | `--timeout` | `<seconds>` | False | False | — | Timeout for command execution (default: 30) (default: "30") |
 | `--detach` | — | False | False | — | Submit as a detached job and print its job ID immediately |
+| `--result-only` | — | False | False | — | Print only the pipeline command's result as JSON, without the command/parameters/target envelope |
 | `--detail` | `[level]` | False | False | — | Listing: detail level, compact \| full (default: full) |
 | `--query` | `[term]` | False | False | — | Listing: filter by substring on name, description, or tag |
+| `--tags` | — | False | False | — | Listing: list the available tags instead of the commands |
 | `--tag` | `[tag]` | False | False | — | Listing: filter to a tag subtree (e.g. assets or assets/import) |
 | `--group_by` | `[mode]` | False | False | — | Listing: group results, flat \| package \| tag |
 | `--sort` | `[key]` | False | False | — | Listing: sort by, name \| package (default: name) |
 | `--order` | `[direction]` | False | False | — | Listing: sort direction, asc \| desc (default: asc) |
 | `--offset` | `[n]` | False | False | — | Listing: skip the first N commands |
 | `--limit` | `[n]` | False | False | — | Listing: return at most N commands |
+| `--caller` | `[label]` | False | False | — | Analytics label: what invoked the CLI. A known caller is recorded as-is; anything else as other |
+| `--skill` | `[name]` | False | False | — | Analytics label: the agent skill driving this invocation |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
@@ -55,6 +59,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -76,7 +82,11 @@ None.
 
 ### Examples exposed by help
 
-None.
+`unity command                     List the available command tags`
+`unity command --tags              The same listing, asked for explicitly`
+`unity command --tag runtime       List the commands carrying a tag`
+`unity command editor_play         Run a command`
+`unity command eval "return 1+1;"  Run a command with arguments`
 
 ### Exit codes
 

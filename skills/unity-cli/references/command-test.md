@@ -2,13 +2,13 @@
 
 # `unity test` command reference
 
-Generated from Unity CLI `1.0.0-beta.6` help output.
+Generated from Unity CLI `1.0.0-beta.13` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity test
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.13`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -41,6 +41,9 @@ None.
 | `--shard-inventory` | `<path>` | False | False | — | Path to the results report a full run wrote, whose test list the shards are computed from (default: the unsharded output path) |
 | `--retries` | `<n>` | False | False | — | Re-run failing tests up to this many extra times (0-10), and report any that pass on a retry as flaky (default: 0) |
 | `--rerun-failed` | — | False | False | — | Run only the tests that failed in the previous run's results report, instead of the whole suite |
+| `--affected` | — | False | False | — | Run only the tests a change can reach, from the guid impact graph; runs the whole suite when it cannot tell |
+| `--affected-compare` | — | False | False | — | Run every test, then report what affected-test selection would have skipped and how many of those failed |
+| `--since` | `<ref>` | False | False | — | Revision to compare against. Its merge base with HEAD is used. Defaults to HEAD, which reports uncommitted work. |
 | `--coverage` | — | False | False | — | Collect code coverage (requires the Unity Code Coverage package in the project) |
 | `--coverage-output` | `<path>` | False | False | — | Directory to write the coverage report to (default: CodeCoverage) |
 | `--coverage-options` | `<options>` | False | False | — | Semicolon-separated options passed through to the Code Coverage package |
@@ -49,6 +52,8 @@ None.
 | `-a`, `--architecture` | `<arch>` | False | False | — | Editor architecture (x86_64 or arm64) (default: "unknown", env: UNITY_ARCHITECTURE) |
 | `--allow-install` | — | False | False | — | Install the project's editor version if it is not already installed |
 | `--timeout` | `<seconds>` | False | False | — | Kill the Unity process after this many seconds (disabled by default) (env: UNITY_TEST_TIMEOUT) |
+| `--accelerator` | `<host:port>` | False | False | — | Unity Accelerator endpoint for this invocation. A bare host defaults to port 10080. (env: UNITY_ACCELERATOR) |
+| `--no-accelerator` | — | False | False | — | Ignore any configured Unity Accelerator for this invocation |
 | `-h`, `--help` | — | False | False | — | display help for command |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
@@ -58,6 +63,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -70,6 +77,7 @@ None.
 | `UNITY_EDITOR_VERSION` | Mirrors --editor-version. |
 | `UNITY_ARCHITECTURE` | Mirrors -a, --architecture. |
 | `UNITY_TEST_TIMEOUT` | Mirrors --timeout. |
+| `UNITY_ACCELERATOR` | Mirrors --accelerator. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |

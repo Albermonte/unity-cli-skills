@@ -2,13 +2,13 @@
 
 # `unity bug` command reference
 
-Generated from Unity CLI `1.0.0-beta.6` help output.
+Generated from Unity CLI `1.0.0-beta.13` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity bug
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.13`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -16,11 +16,13 @@ Report a bug directly to the Unity bug reporter (requires you to be signed in)
 
 ### Usage
 
-`unity bug [options]`
+`unity bug [options] [command]`
 
 ### Subcommands
 
-None.
+| Name | Aliases | Summary |
+| --- | --- | --- |
+| `mcp` | — | Add the Issue Tracker MCP server config for an AI assistant client |
 
 ### Positional arguments
 
@@ -35,6 +37,7 @@ None.
 | `--description` | `<description>` | False | False | — | What happened (at least 10 characters) |
 | `--steps` | `<steps...>` | False | True | — | Steps to reproduce; repeat values to add lines |
 | `--reproducibility` | `<value>` | False | False | — | How often the bug reproduces (choices: "first-time", "sometimes", "always") |
+| `--area` | `<area>` | False | False | — | Which part of Unity the issue is in: the CLI itself, the connection to the Editor or the Pipeline package, the Editor or your project, or licensing and signing in. Leave it out if you're not sure. (choices: "cli", "pipeline-package", "editor", "licensing", "not-sure") |
 | `--attachments` | `<paths...>` | False | True | — | Files to attach to the report; repeat to add multiple |
 | `--share-project` | `<path>` | False | False | — | Attach a copy of the Unity project at this path (use . for the current project). Regenerable caches (Library caches, Temp, Build) are excluded. |
 | `-h`, `--help` | — | False | False | — | display help for command |
@@ -46,6 +49,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -66,10 +71,90 @@ None.
 
 ### Examples exposed by help
 
-None.
+`unity bug mcp claude  Add the Issue Tracker for Claude Desktop`
+`unity bug mcp --list  Show all supported clients`
 
 ### Exit codes
 
 None.
 
 Confirm behavior with `unity bug --help` on the target machine before execution.
+
+## unity bug mcp
+
+- CLI version: `1.0.0-beta.13`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Add the Issue Tracker MCP server config for an AI assistant client
+
+### Usage
+
+`unity bug mcp [options] [client]`
+
+### Subcommands
+
+None.
+
+### Positional arguments
+
+| Argument | Required | Repeatable | Description |
+| --- | --- | --- | --- |
+| `client` | True | False | Client to configure (claude, cursor, vscode, windsurf, …) |
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `--list` | — | False | False | — | List all supported clients and their config paths |
+| `--local` | — | False | False | — | Write project-local config (for clients that support it, e.g. cursor, vscode) |
+| `--yes` | — | False | False | — | Skip the "already exists, update?" confirmation prompt |
+| `--dry-run` | — | False | False | — | Print the entry that would be added or changed, without modifying any files |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `--email` | `<email>` | False | False | — | Contact email for the report (defaults to your Unity account email; overrides the contact address only, it does not replace signing in) |
+| `--title` | `<title>` | False | False | — | One-line summary of the bug (at least 3 characters) |
+| `--description` | `<description>` | False | False | — | What happened (at least 10 characters) |
+| `--steps` | `<steps...>` | False | True | — | Steps to reproduce; repeat values to add lines |
+| `--reproducibility` | `<value>` | False | False | — | How often the bug reproduces (choices: "first-time", "sometimes", "always") |
+| `--area` | `<area>` | False | False | — | Which part of Unity the issue is in: the CLI itself, the connection to the Editor or the Pipeline package, the Editor or your project, or licensing and signing in. Leave it out if you're not sure. (choices: "cli", "pipeline-package", "editor", "licensing", "not-sure") |
+| `--attachments` | `<paths...>` | False | True | — | Files to attach to the report; repeat to add multiple |
+| `--share-project` | `<path>` | False | False | — | Attach a copy of the Unity project at this path (use . for the current project). Regenerable caches (Library caches, Temp, Build) are excluded. |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`unity bug mcp --list  Show all supported clients`
+`unity bug mcp claude  Add the Issue Tracker for Claude Desktop`
+`Run 'unity mcp configure --help' to see every supported client.`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity bug mcp --help` on the target machine before execution.

@@ -2,13 +2,13 @@
 
 # `unity build` command reference
 
-Generated from Unity CLI `1.0.0-beta.6` help output.
+Generated from Unity CLI `1.0.0-beta.13` help output.
 
 Installed help is authoritative; this file is a versioned snapshot.
 
 ## unity build
 
-- CLI version: `1.0.0-beta.6`
+- CLI version: `1.0.0-beta.13`
 - Supported platforms: linux, macos, windows
 - Aliases: None
 
@@ -18,7 +18,123 @@ forwards conventional CI flags.
 
 ### Usage
 
-`unity build [options] [project]`
+`unity build [options] [command] [project]`
+
+### Subcommands
+
+| Name | Aliases | Summary |
+| --- | --- | --- |
+| `run` | — | Launch the project's most recent successful build without rebuilding. Standalone players launch natively; WebGL builds are served from a local static server. |
+
+### Positional arguments
+
+| Argument | Required | Repeatable | Description |
+| --- | --- | --- | --- |
+| `project` | True | False | Project path or name (defaults to the current directory) |
+
+### Options
+
+| Option | Value | Required | Repeatable | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| `--target` | `<target>` | True | False | — | Build target (e.g. StandaloneWindows64, Android, iOS, WebGL). Required unless --profile is used. |
+| `--list-targets` | — | False | False | — | List every valid --target value, then exit |
+| `--execute-method` | `<method>` | False | False | — | Static C# method to invoke (e.g. Builder.PerformBuild). Optional: without it, the CLI uses Unity's built-in build — a build profile on Unity 6+, or the legacy desktop player flags. |
+| `--profile` | `<profile>` | False | False | — | Build profile to build with: a path to a .asset file, or a profile name in Assets/Settings/Build Profiles (Unity 6+ only; the profile defines the target). This is the supported way to build partner or package-provided platforms, like Meta Quest, that aren't in --target's list. |
+| `--create-profile` | `<target>` | False | False | — | Create a build profile for a target (e.g. WebGL, Android), then exit — no build happens. Requires Unity 6+. Build with it afterward using --profile. |
+| `--list-profiles` | — | False | False | — | List a project's build profile assets, then exit. Build profiles are the supported way to build partner or package-provided platforms, like Meta Quest, that aren't in --target's list. |
+| `--build-target-group` | `<group>` | False | False | — | Optional build target group, forwarded to Unity as -buildTargetGroup |
+| `-o`, `--output-path` | `<path>` | True | False | — | Output path for the build. Forwarded as -buildOutput with --execute-method (your method is responsible for honoring it); otherwise the built-in build's destination, and required |
+| `-l`, `--log-file` | `<path>` | False | False | — | Log file path (default: <project>/Logs/build-<target>-<timestamp>.log). The log also streams to the console by default; --no-tail disables it. |
+| `--editor-version` | `<version>` | False | False | — | Override editor version (default: from ProjectVersion.txt) |
+| `-e`, `--editor-path` | `<path>` | False | False | — | Path to a specific editor binary |
+| `-a`, `--architecture` | `<arch>` | False | False | — | Editor architecture (x86_64 or arm64) (default: "unknown") |
+| `--args` | `<string>` | False | False | — | Extra arguments passed to Unity (shell-split) |
+| `--no-tail` | — | False | False | — | Do not stream the log to stdout in real time |
+| `--allow-install` | — | False | False | — | Install the project's editor version if it is not already installed |
+| `--android-export-type` | `<type>` | False | False | — | Android export type: apk, aab, or android-studio-project (Android targets only) (choices: "apk", "aab", "android-studio-project", default: "apk") |
+| `--android-keystore-base64` | `<content>` | False | False | — | Base64-encoded keystore file contents — decoded to a temp file before the build and deleted after (Android targets only; warning: CLI args may appear in shell history and CI logs) |
+| `--android-keystore-password` | `<pass>` | True | False | — | Password for the keystore (Android targets only, required with --android-keystore-base64; warning: CLI args may appear in shell history and CI logs) |
+| `--android-key-alias` | `<alias>` | True | False | — | Key alias inside the keystore (Android targets only, required with --android-keystore-base64) |
+| `--android-key-alias-password` | `<pass>` | False | False | — | Password for the key alias (Android targets only, defaults to --android-keystore-password; warning: CLI args may appear in shell history and CI logs) |
+| `--android-target-sdk-version` | `<N>` | False | False | — | Android SDK target version integer, e.g. 34 (Android targets only) |
+| `--android-symbol-type` | `<type>` | False | False | — | Debug symbol export type: none, public, or debugging (Android targets only) (choices: "none", "public", "debugging", default: "none") |
+| `--android-version-code` | `<N>` | False | False | — | Explicit Android versionCode integer (Android targets only) |
+| `--versioning-strategy` | `<strategy>` | False | False | — | Versioning strategy to apply to the build (semantic, tag, custom, none) (choices: "semantic", "tag", "custom", "none", default: "none") |
+| `--build-version` | `<version>` | False | False | — | Explicit version string to stamp on the build. Only used when --versioning-strategy is 'custom'; ignored for all other strategies. |
+| `--allow-dirty-build` | — | False | False | — | Skip the uncommitted-changes guard (default: false) |
+| `--timeout` | `<seconds>` | False | False | — | Abort the build if it runs longer than this many seconds (disabled by default) (env: UNITY_BUILD_TIMEOUT) |
+| `--provenance-path` | `<path>` | False | False | — | Where to write the build provenance manifest (default: beside the build output, or beside the log file when --output-path is not set) |
+| `--no-provenance` | — | False | False | — | Do not write the build provenance manifest |
+| `--accelerator` | `<host:port>` | False | False | — | Unity Accelerator endpoint for this invocation. A bare host defaults to port 10080. (env: UNITY_ACCELERATOR) |
+| `--no-accelerator` | — | False | False | — | Ignore any configured Unity Accelerator for this invocation |
+| `-h`, `--help` | — | False | False | — | display help for command |
+| `-V`, `--version` | — | False | False | — | output the version number |
+| `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
+| `--json` | — | False | False | — | Shorthand for --format json |
+| `--no-banner` | — | False | False | — | Suppress the startup banner (env: UNITY_NO_BANNER) |
+| `--no-pager` | — | False | False | — | Disable the pager for long output (env: UNITY_NO_PAGER) |
+| `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
+| `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
+| `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
+| `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
+| `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
+| `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
+| `--no-log-proxy` | — | False | False | — | Opt out of --log-proxy / UNITY_LOG_PROXY / the persisted user setting for this run. Use when logging is enabled globally but you want one clean invocation. |
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `UNITY_BUILD_TIMEOUT` | Mirrors --timeout. |
+| `UNITY_ACCELERATOR` | Mirrors --accelerator. |
+| `UNITY_FORMAT` | Mirrors --format. |
+| `UNITY_NO_BANNER` | Mirrors --no-banner. |
+| `UNITY_NO_PAGER` | Mirrors --no-pager. |
+| `UNITY_NON_INTERACTIVE` | Mirrors --non-interactive. |
+| `UNITY_QUIET` | Mirrors --quiet. |
+| `UNITY_VERBOSE` | Mirrors --verbose. |
+| `UNITY_PROXY` | Mirrors --proxy. |
+| `UNITY_LOG_PROXY` | Mirrors --log-proxy. |
+
+### Examples exposed by help
+
+`$ unity build --list-targets`
+`$ unity build --list-profiles`
+`$ unity build --create-profile WebGL`
+`$ unity build --profile WebGL --output-path ./Build/WebGL`
+`$ unity build --profile "Meta Quest" --output-path ./Build/Quest`
+`$ unity build --target StandaloneWindows64 --output-path ./Build/MyGame.exe`
+`$ unity build ./MyGame --profile "Windows Release" --output-path ./Build/MyGame.exe`
+`$ unity build --target StandaloneWindows64 --execute-method Builder.PerformBuild`
+`$ unity build ./MyGame --target Android --execute-method Builder.AndroidBuild --output-path ./out/app.apk`
+`$ unity build "My Game" --target WebGL --execute-method Builder.WebGLBuild --editor-version 6000.0`
+`$ unity build --target iOS --execute-method Builder.iOSBuild --allow-install --no-tail`
+`$ unity build --target Android --execute-method Builder.Build --android-export-type aab --android-keystore-base64 <b64> --android-keystore-password <password> --android-key-alias mykey`
+`Partner and package-provided platforms, like Meta Quest, aren't in --target's list. Build profiles are the supported way to build them: create one in the Editor, then build with --profile. Use --list-profiles to see what a project already has.`
+`The build log is always written to the log file and, by default, streamed to the console at the same time. Pass --no-tail to write the file only; --quiet and --format ndjson also disable the stream.`
+`For a generic batch-mode run or a registered Editor command, use unity run.`
+
+### Exit codes
+
+None.
+
+Confirm behavior with `unity build --help` on the target machine before execution.
+
+## unity build run
+
+- CLI version: `1.0.0-beta.13`
+- Supported platforms: linux, macos, windows
+- Aliases: None
+
+Launch the project's most recent successful build without rebuilding. Standalone
+
+players launch natively; WebGL builds are served from a local static server.
+
+### Usage
+
+`unity build run [options] [project]`
 
 ### Subcommands
 
@@ -34,9 +150,14 @@ None.
 
 | Option | Value | Required | Repeatable | Default | Description |
 | --- | --- | --- | --- | --- | --- |
+| `--path` | `<path>` | False | False | — | Launch this build output instead of the recorded last build |
+| `-h`, `--help` | — | False | False | — | display help for command |
 | `--target` | `<target>` | True | False | — | Build target (e.g. StandaloneWindows64, Android, iOS, WebGL). Required unless --profile is used. |
+| `--list-targets` | — | False | False | — | List every valid --target value, then exit |
 | `--execute-method` | `<method>` | False | False | — | Static C# method to invoke (e.g. Builder.PerformBuild). Optional: without it, the CLI uses Unity's built-in build — a build profile on Unity 6+, or the legacy desktop player flags. |
-| `--profile` | `<profile>` | False | False | — | Build profile to build with: a path to a .asset file, or a profile name in Assets/Settings/Build Profiles (Unity 6+ only; the profile defines the target) |
+| `--profile` | `<profile>` | False | False | — | Build profile to build with: a path to a .asset file, or a profile name in Assets/Settings/Build Profiles (Unity 6+ only; the profile defines the target). This is the supported way to build partner or package-provided platforms, like Meta Quest, that aren't in --target's list. |
+| `--create-profile` | `<target>` | False | False | — | Create a build profile for a target (e.g. WebGL, Android), then exit — no build happens. Requires Unity 6+. Build with it afterward using --profile. |
+| `--list-profiles` | — | False | False | — | List a project's build profile assets, then exit. Build profiles are the supported way to build partner or package-provided platforms, like Meta Quest, that aren't in --target's list. |
 | `--build-target-group` | `<group>` | False | False | — | Optional build target group, forwarded to Unity as -buildTargetGroup |
 | `-o`, `--output-path` | `<path>` | True | False | — | Output path for the build. Forwarded as -buildOutput with --execute-method (your method is responsible for honoring it); otherwise the built-in build's destination, and required |
 | `-l`, `--log-file` | `<path>` | False | False | — | Log file path (default: <project>/Logs/build-<target>-<timestamp>.log). The log also streams to the console by default; --no-tail disables it. |
@@ -46,21 +167,22 @@ None.
 | `--args` | `<string>` | False | False | — | Extra arguments passed to Unity (shell-split) |
 | `--no-tail` | — | False | False | — | Do not stream the log to stdout in real time |
 | `--allow-install` | — | False | False | — | Install the project's editor version if it is not already installed |
-| `--android-export-type` | `<type>` | False | False | — | Android export type: apk, aab, or android-studio-project (Android targets only, default: apk) (choices: "apk", "aab", "android-studio-project", default: "apk") |
+| `--android-export-type` | `<type>` | False | False | — | Android export type: apk, aab, or android-studio-project (Android targets only) (choices: "apk", "aab", "android-studio-project", default: "apk") |
 | `--android-keystore-base64` | `<content>` | False | False | — | Base64-encoded keystore file contents — decoded to a temp file before the build and deleted after (Android targets only; warning: CLI args may appear in shell history and CI logs) |
 | `--android-keystore-password` | `<pass>` | True | False | — | Password for the keystore (Android targets only, required with --android-keystore-base64; warning: CLI args may appear in shell history and CI logs) |
 | `--android-key-alias` | `<alias>` | True | False | — | Key alias inside the keystore (Android targets only, required with --android-keystore-base64) |
 | `--android-key-alias-password` | `<pass>` | False | False | — | Password for the key alias (Android targets only, defaults to --android-keystore-password; warning: CLI args may appear in shell history and CI logs) |
 | `--android-target-sdk-version` | `<N>` | False | False | — | Android SDK target version integer, e.g. 34 (Android targets only) |
-| `--android-symbol-type` | `<type>` | False | False | — | Debug symbol export type: none, public, or debugging (Android targets only, default: none) (choices: "none", "public", "debugging", default: "none") |
+| `--android-symbol-type` | `<type>` | False | False | — | Debug symbol export type: none, public, or debugging (Android targets only) (choices: "none", "public", "debugging", default: "none") |
 | `--android-version-code` | `<N>` | False | False | — | Explicit Android versionCode integer (Android targets only) |
-| `--versioning-strategy` | `<strategy>` | False | False | — | Versioning strategy to apply to the build (semantic, tag, custom, none). Default: none. (choices: "semantic", "tag", "custom", "none", default: "none") |
+| `--versioning-strategy` | `<strategy>` | False | False | — | Versioning strategy to apply to the build (semantic, tag, custom, none) (choices: "semantic", "tag", "custom", "none", default: "none") |
 | `--build-version` | `<version>` | False | False | — | Explicit version string to stamp on the build. Only used when --versioning-strategy is 'custom'; ignored for all other strategies. |
-| `--allow-dirty-build` | — | False | False | — | Skip the uncommitted-changes guard (default: false) (default: false) |
+| `--allow-dirty-build` | — | False | False | — | Skip the uncommitted-changes guard (default: false) |
 | `--timeout` | `<seconds>` | False | False | — | Abort the build if it runs longer than this many seconds (disabled by default) (env: UNITY_BUILD_TIMEOUT) |
 | `--provenance-path` | `<path>` | False | False | — | Where to write the build provenance manifest (default: beside the build output, or beside the log file when --output-path is not set) |
 | `--no-provenance` | — | False | False | — | Do not write the build provenance manifest |
-| `-h`, `--help` | — | False | False | — | display help for command |
+| `--accelerator` | `<host:port>` | False | False | — | Unity Accelerator endpoint for this invocation. A bare host defaults to port 10080. (env: UNITY_ACCELERATOR) |
+| `--no-accelerator` | — | False | False | — | Ignore any configured Unity Accelerator for this invocation |
 | `-V`, `--version` | — | False | False | — | output the version number |
 | `--format` | `<format>` | False | False | — | Output format: human, json, tsv, ndjson, github (env: UNITY_FORMAT) |
 | `--json` | — | False | False | — | Shorthand for --format json |
@@ -69,6 +191,8 @@ None.
 | `--non-interactive` | — | False | False | — | Disable interactive prompts. Useful in CI/CD environments. (env: UNITY_NON_INTERACTIVE) |
 | `--quiet` | — | False | False | — | Suppress informational output (env: UNITY_QUIET) |
 | `--verbose` | — | False | False | — | Show full error details including stack traces on failure (env: UNITY_VERBOSE) |
+| `--color` | `<mode>` | False | False | — | Control colored output (choices: "auto", "always", "never") |
+| `--no-color` | — | False | False | — | Disable colored output (shorthand for --color never) |
 | `--proxy` | `<url>` | False | False | — | HTTP/HTTPS/SOCKS/PAC proxy URL. Examples: http://<user>:<pass>@host:8080, socks5://host:1080, pac+http://wpad/proxy.pac (env: UNITY_PROXY) |
 | `--proxy-disable` | — | False | False | — | Disable proxy for this invocation, ignoring all sources |
 | `--log-proxy` | — | False | False | — | Log every outbound request to proxy-request.json for this run. Off by default; typically used once when reproducing a proxy issue for support. Also settable via UNITY_LOG_PROXY=1 or the proxyRequestLogging user setting. (env: UNITY_LOG_PROXY) |
@@ -79,6 +203,7 @@ None.
 | Variable | Description |
 | --- | --- |
 | `UNITY_BUILD_TIMEOUT` | Mirrors --timeout. |
+| `UNITY_ACCELERATOR` | Mirrors --accelerator. |
 | `UNITY_FORMAT` | Mirrors --format. |
 | `UNITY_NO_BANNER` | Mirrors --no-banner. |
 | `UNITY_NO_PAGER` | Mirrors --no-pager. |
@@ -90,18 +215,14 @@ None.
 
 ### Examples exposed by help
 
-`$ unity build --target StandaloneWindows64 --output-path ./Build/MyGame.exe`
-`$ unity build ./MyGame --profile "Windows Release" --output-path ./Build/MyGame.exe`
-`$ unity build --target StandaloneWindows64 --execute-method Builder.PerformBuild`
-`$ unity build ./MyGame --target Android --execute-method Builder.AndroidBuild --output-path ./out/app.apk`
-`$ unity build "My Game" --target WebGL --execute-method Builder.WebGLBuild --editor-version 6000.0`
-`$ unity build --target iOS --execute-method Builder.iOSBuild --allow-install --no-tail`
-`$ unity build --target Android --execute-method Builder.Build --android-export-type aab --android-keystore-base64 <b64> --android-keystore-password <password> --android-key-alias mykey`
-`The build log is always written to the log file and, by default, streamed to the console at the same time. Pass --no-tail to write the file only; --quiet and --format ndjson also disable the stream.`
-`For a generic batch-mode run or a registered Editor command, use unity run.`
+`$ unity build run`
+`$ unity build run ./MyProject`
+`$ unity build run --path ./Build/MyGame.exe`
+`$ unity build run --path ./Build/WebGL`
+`Build first with unity build; this launches what it produced, without rebuilding.`
 
 ### Exit codes
 
 None.
 
-Confirm behavior with `unity build --help` on the target machine before execution.
+Confirm behavior with `unity build run --help` on the target machine before execution.
